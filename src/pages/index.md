@@ -1,84 +1,34 @@
 ---
-title: Overview - Cat Analytics
-description: This is the overview page of Cat Analytics
-contributors:
-  - https://github.com/icaraps 
+title: Adobe Experience Platform data collection APIs
+description: The data collection APIs overview page.
 ---
 
-<Hero slots="heading, text"/>
+<Hero slots="image, heading, text" background="rgb(154, 23, 34)"/>
 
-# Cat Analytics API
+![Hero image](assets/platform-hero.png)
 
-Cat Product API offers limitless ways to integrate your most important customer data into key business processes. Cat Product API offer limitless ways.
+# Adobe Experience Platform data collection APIs
+
+The Adobe Experience Platform data collection APIs provide a universal way to ingest, standardize, and persist customer data from across your organization.
 
 <Resources slots="heading, links"/>
 
 #### Resources
 
-* [Quickstart Guide](https://developer.adobe.com)
-* [Cat Analytics Github Repo](https://github.com/AdobeDocs/dev-site)
+* [Quick start guide](getting-started/index.md)
+* [Endpoint guides](endpoints/index.md)
+* [API reference](api/index.md)
+* [Github repository](https://github.com/AdobeDocs/data-collection-apis)
 
 ## Overview
 
-This documentation provides instructions for Catt Analytics 2.0 APIs. For working with Cat Analytics APIs, see [Cat Analytics API Documentation](https://github.com/AdobeDocs/dev-site).
+The Adobe Experience Platform data collection APIs provide endpoints for sending data to Adobe Experience Platform. Data collection libraries, such as the Web SDK or Mobile SDK, provide libraries that facilitate the usage of these endpoints. You can call these endpoints directly instead of using these libraries.
 
-The Cat Analytics APIs are a collection of APIs that power Cat Analytics products like Cat Workspace.
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+There are two main categories of endpoints:
 
-## Discover
+* The **Edge Network API** provides the most straightforward way to send data to Adobe. These endpoints offer both authenticated and non-authenticated methods to send data to Adobe.
+* The **Media Edge API** provides a set of endpoints that allows you to send media tracking data to Adobe. Usage of these endpoints require the Streaming Media Collection Add-on. Contact your Adobe Account Team for more information.
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+If you are looking for the API around using Adobe Experience Platform, see the [Adobe Experience Platform API documentation](https://developer.adobe.com/experience-platform-apis/).
 
-### Get Started
-
-[Quickstart Guide](guides/)
-
-Get started with the Cat Analytics APIs.
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Guides
-
-[Calculated Metrics API](guides/dummy_metrics_api/)
-
-Returns information on the user's company that is necessary for making other Cat Analytics API calls.
-
-<DiscoverBlock slots="link, text"/>
-
-[Segments API](guides/dummy_oauth_client/)
-
-Provides configuration guidance and best practices for the /segments endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Reporting Guide API](guides/dummy_using_postman/)
-
-Provides configuration guidance and best practices for the /reports endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Migrating from 1.4 to 2.0](guides/migrating/)
-
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### API References
-
-[Try the API](api/)
-
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
-
-## Contributing
-
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
-
-## API Requests & Rate Limits
-
-The timeout for API requests through adobe.io is currently *60 seconds*.
-
-The default rate limit for an Cat Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`.
+This user guide adheres to Adobe's Code of Conduct. Contributions are encouraged and appreciated. See Adobe's [Code of Conduct](https://github.com/AdobeDocs/analytics-2.0-apis/blob/main/CODE_OF_CONDUCT.md) and [Contribution guidelines](https://github.com/AdobeDocs/analytics-2.0-apis/blob/main/.github/CONTRIBUTING.md) on GitHub for more information.
