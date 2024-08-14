@@ -1,23 +1,19 @@
-## Starting the session
+---
+title: sessionstart endpoint
+description: Signals the start of a session. Returns a session ID, which is required for all other endpoints.
+---
+# `sessionstart` endpoint
 
-To start the media session on the server, use the Session Start endpoint. A successful response includes a `sessionId`, which is a required parameter for subsequent event requests.
+The `sessionstart` endpoint creates a media tracking session for a visitor. A successful response includes a session ID, which is required for all other endpoints. Make sure that you follow [Getting started](#) to obtain a datastream ID.
  
-Before making the session start request, you will need the following:
+**`POST https://edge.adobedc.net/ee/va/v1/sessionStart?configId={datastream ID}`**
 
-* The `datastreamId`--a required  parameter for the POST Session Start request. To retrieve a `datastreamId`, see [Configure a datastream](https://experienceleague.adobe.com/docs/experience-platform/datastreams/configure.html).
+<CodeBlock slots="heading, code" repeat="2" languages="CURL,JSON"/>
 
-* A JSON object for the request payload that contains the minimum data required (as shown in the example request below).
+#### Request
 
-Once you have this information, provide the `datastreamId` in the following call:
-
-**POST**  `https://edge.adobedc.net/ee-pre-prd/va/v1/sessionStart?configId={datastream ID} \`
-
-### Example request
-
-The following example shows a session start cURL request:
-
-```curl
-curl -i --request POST '{uri}/ee/va/v1/sessionStart?configId={dataStreamId}' \
+```sh
+curl -X POST "https://edge.adobedc.net/ee/va/v1/sessionStart?configId={datastreamId}" \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "events": [
@@ -39,7 +35,41 @@ curl -i --request POST '{uri}/ee/va/v1/sessionStart?configId={dataStreamId}' \
     }
   ]
 }'
-``` 
+```
+
+#### Response
+
+```json
+{
+  "requestId": "df14bca1-ba0f-4574-ae80-a4e24a960c00",
+  "handle": [
+    {
+      "payload": [
+        {
+          "sessionId": "af8bb22766e458fa0eef98c48ea42c9e351c463318230e851a19946862020333"
+        }
+      ],
+      "type": "media-analytics:new-session",
+      "eventIndex": 0
+    },
+    {
+      "payload": [
+        {
+          "key": "kndctr_6D9FE18C5536A5E90A4C98A6_AdobeOrg_cluster",
+          "value": "irl1",
+          "maxAge": 1800
+        },
+        {
+          "key": "kndctr_6D9FE18C5536A5E90A4C98A6_AdobeOrg_identity",
+          "value": "CiY1MTkxMDM4OTc1MzkwMTY4NTQ1NjAxNDg4OTgzODU5MTAzMDcyMVIPCKKt8KnsMBgBKgRJUkwx8AGirfCp7DA=",
+          "maxAge": 34128000
+        }
+      ],
+      "type": "state:store"
+    }
+  ]
+}
+```
 
 In the example request above, the `eventType` value contains the prefix `media.` according to the [Experience Data Model (XDM)](https://experienceleague.adobe.com/docs/experience-platform/xdm/home.html) for specifying domains.
 
