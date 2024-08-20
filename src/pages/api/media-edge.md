@@ -1,11 +1,11 @@
 ---
-title: Adobe Experience Platform API Reference
-description: Open API specification for Customer Journey Analytics APIs.
+title: Adobe Experience Platform Media Edge API reference
+description: Open API specification for the Media Edge APIs.
 keywords:
-  - Customer Journey Analytics APIs
+  - Media Edge APIs
   - API Documentation
-  - CJA API Reference
-  - CJA API Swagger
+  - Media Edge API Reference
+  - Media Edge API Swagger
 layout: none
 ---
 <RedoclyAPIBlock src="/data-collection-apis/media-edge.json"/>
