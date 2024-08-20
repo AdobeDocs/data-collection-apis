@@ -27,7 +27,7 @@ curl -X POST "https://edge.adobedc.net/ee/va/v1/adBreakStart?configId={datastrea
 --data '{
   "events": [
     {
-    "xdm": {
+      "xdm": {
         "eventType": "media.adBreakStart",
         "mediaCollection": {
           "sessionID": "ffab5[...]45ec3",
