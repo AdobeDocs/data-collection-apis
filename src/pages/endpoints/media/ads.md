@@ -1,6 +1,6 @@
 ---
 title: Ad endpoints
-description: Endpoints that you can call related to ad tracking
+description: Endpoints that you can call related to ad tracking.
 ---
 # Ad endpoints
 
