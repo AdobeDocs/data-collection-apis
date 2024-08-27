@@ -1,34 +1,46 @@
-## Play event request
+---
+title: Play endpoint
+description: Indicates when playback content starts or resumes.
+---
+# Play endpoint
 
-The Play event is sent when the media player changes its state to "playing" from another state, such as "buffering," "paused," or "error." To make a Play event request, use your `sessionId` in the payload of a call to the following endpoint:
+The `play` endpoint allows you to track when the media player plays or resumes content. Examples include the initial start of main content or during autoplay. It also includes resuming content after buffering, being paused, or encountering an error.
 
-**POST**  `https://edge.adobedc.net/ee-pre-prd/va/v1/play \`
+Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 
-### Example request
+## `play`
 
-The following example shows a Play cURL request:
+**`POST https://edge.adobedc.net/ee/va/v1/play?configId={datastreamID}`**
 
-```curl
-curl -X 'POST' \
-  'https://edge.adobedc.net/ee-pre-prd/va/v1/play' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
+<CodeBlock slots="heading, code" repeat="1" languages="CURL"/>
+
+#### Request
+
+```sh
+curl -X POST "https://edge.adobedc.net/ee/va/v1/play?configId={datastreamID}" \
+--header 'Content-Type: application/json' \
+--data '{
   "events": [
     {
       "xdm": {
         "eventType": "media.play",
         "mediaCollection": {
-          "sessionID": "af8bb22766e458fa0eef98c48ea42c9e351c463318230e851a19946862020333",
-          "playhead": 25
+          "sessionID": "ffab5[...]45ec3",
+          "playhead": 0
         },
-        "timestamp": "2022-03-04T13:39:00+00:00"
+        "timestamp": "YYYY-08-20T22:41:40+00:00"
       }
     }
   ]
 }'
 ```
 
-The successful respone indicates a status of 200 and does not include any content.
+If successfully processed, the API returns `204 No Content`.
 
-For more information on Play endpoint parameters and examples, see the [Media Edge Swagger](swagger.md) file.
+This endpoint requires the following payload properties within the `xdm` object:
+
+| Property | Description |
+| --- | --- |
+| `eventType` | The category of the event. Always set this property to `media.play` for this endpoint. |
+| `mediaCollection` | An object containing media collection details. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information. The `sessionID` and `playhead` properties are required. |
+| `timestamp` | The timestamp of the event. |

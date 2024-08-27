@@ -59,7 +59,7 @@ The `mediaCollection` object requires several properties. See [Media Collection 
 | Property | Description |
 | --- | --- |
 | `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
-| `playhead` | The current playback position within the media content. |
+| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
 | `advertisingPodDetails` | An object containing details on the ad pod. See [Advertising Pod Details Collection](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/advertising-pod-details-collection) for more information. The `index` and `offset` properties are required. |
 
 ## `adBreakComplete`
@@ -153,7 +153,7 @@ The `mediaCollection` object requires several properties. See [Media Collection 
 | Property | Description |
 | --- | --- |
 | `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
-| `playhead` | The current playback position within the media content. |
+| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
 | `advertisingDetails` | An object containing details on the ad. See [Advertising Details Collection](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/advertising-details-collection) for more information. The `name`, `length`, `playerName`, and `podPosition` properties are required. |
 
 ## `adComplete`

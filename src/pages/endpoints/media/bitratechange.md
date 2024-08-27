@@ -4,7 +4,7 @@ description: Indicates a change in bitrate during playback.
 ---
 # Bitrate change endpoint
 
-This endpoint allows you to track changes in the quality of playback content to a user. Call this endpoint whenever the user experiences a change in the bitrate of the media player.
+The `bitrateChange` endpoint allows you to track changes in the quality of playback content to a user. Call this endpoint whenever the user experiences a change in the bitrate of the media player.
 
 Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 
@@ -53,5 +53,5 @@ The `mediaCollection` object requires several properties. See [Media Collection 
 | Property | Description |
 | --- | --- |
 | `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
-| `playhead` | The current playback position within the media content. |
-| `qoeDataDetails` | An object containing details on the quality of experience (QoE). See [QoE Data Details reporting](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/qoe-data-details-reporting) for more information. The object itself is only required, and can be empty. The `bitrate` property however is recommended. |
+| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
+| `qoeDataDetails` | An object containing details on the quality of experience (QoE). See [QoE Data Details collection](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/qoe-data-details-collection) for more information. The object itself is only required, and can be empty. The `bitrate` property however is recommended. |

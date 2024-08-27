@@ -12,10 +12,10 @@ The Adobe Experience Platform Media Edge APIs allow you to send media data withi
 
 ## Optimizing media tracking data flows
 
-Both [Media Collection APIs](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/streaming-media-apis/mc-api-overview.html#media-tracking-data-flows) and Media Edge APIs provide media tracking data as RESTful services. But using the Media Edge service has the following advantages:
+Both [Media Collection APIs](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/streaming-media-apis/mc-api-overview.html#media-tracking-data-flows) and Media Edge APIs provide media tracking data as RESTful services. The Media Edge service offers the following advantages:
 
 * It is the easiest way to incorporate XDM schemas into your data flow. 
-* Calls are directed from a media player directly to the [Experience Platform Edge Network](https://experienceleague.adobe.com/docs/experience-platform/edge-network-server-api/overview.html).
+* Calls are directed from a media player directly to the Experience Platform Edge Network.
 * It tracks media events efficiently with a minimum of cross-server calls. 
 
 The following table shows a possible Adobe API service for various media analytics cases:
@@ -28,7 +28,3 @@ The following table shows a possible Adobe API service for various media analyti
 | Adobe Analytics only (already tracking) | Media Collection |
 
 The Media Collection API service for Analytics still receives XDM data, but is not optimized for it to the extent that Media Edge service is. Depending on the data sent from the Media Player, some Analytics-only data can also be routed through the Media Edge API service. 
-
-## Next steps
-
-See [Getting started](../../getting-started/index.md) to create an environment that allows you to send media tracking data to Adobe.

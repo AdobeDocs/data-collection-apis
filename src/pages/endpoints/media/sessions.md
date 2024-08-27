@@ -90,7 +90,7 @@ Also, the datatypes mapping for `eventType` in the example above are as follows:
 
 The following example shows a successful response for the session start request:
 
-```curl
+```sh
 HTTP/2 200
 x-request-id: 99603f5c-95cf-49ad-9afb-0ba6c5867fd7
 x-rate-limit-remaining: 599
@@ -152,7 +152,7 @@ The Session Complete event is sent when the end of the main content is reached. 
 
 The following example shows a Session Complete cURL request:
 
-```curl
+```sh
 curl -X 'POST' \
   'https://edge.adobedc.net/ee-pre-prd/va/v1/sessionComplete' \
   -H 'accept: */*' \

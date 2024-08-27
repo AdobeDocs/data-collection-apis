@@ -1,0 +1,58 @@
+---
+title: Error endpoint
+description: Track when the media player encounters an error.
+---
+# Error endpoint
+
+The `error` endpoint tracks when the media player encounters an error.
+
+Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
+
+## `error`
+
+**`POST https://edge.adobedc.net/ee/va/v1/error?configId={datastreamID}`**
+
+<CodeBlock slots="heading, code" repeat="1" languages="CURL"/>
+
+#### Request
+
+```sh
+curl -X POST "https://edge.adobedc.net/ee/va/v1/error?configId={datastreamID}" \
+--header 'Content-Type: application/json' \
+--data '{
+  "events": [
+    {
+      "xdm": {
+        "eventType": "media.error",
+        "mediaCollection": {
+          "sessionID": "ffab5[...]45ec3",
+          "playhead": 0,
+          "errorDetails": {
+            "name": "Example error",
+            "source": "player"
+          }
+        },
+        "timestamp": "YYYY-08-20T22:41:40+00:00"
+      }
+    }
+  ]
+}'
+```
+
+If successfully processed, the API returns `204 No Content`.
+
+This endpoint requires the following payload properties within the `xdm` object:
+
+| Property | Description |
+| --- | --- |
+| `eventType` | The category of the event. Always set this property to `media.error` for this endpoint. |
+| `mediaCollection` | An object containing media collection details. See the table below for details. |
+| `timestamp` | The timestamp of the event. |
+
+The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
+
+| Property | Description |
+| --- | --- |
+| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
+| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
+| `errorDetails` | An object containing details on the error. See [Error Details Collection](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/error-details-collection) for more information. The `name` and `source` properties are required. The `source` property allows only two values: `player` and `external`. |

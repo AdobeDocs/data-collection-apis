@@ -1,36 +1,48 @@
-## Buffer Start event request
+---
+title: Buffer start endpoint
+description: Indicates when a media player enters a buffering state.
+---
+# Buffer start endpoint
 
-The Buffer Start event signals when buffering starts on the media player. Buffer Resume is not an event in the API service; instead, it is inferred when a play event is sent after the Buffer Start. To make a Buffer Start event request, use your `sessionId` in the payload of a call to the following endpoint:
+The `bufferStart` endpoint lets you track the quality and consistency of content playback based on the visitor's connection or media availability. Call this endpoint whenever the media player enters a buffering state.
 
-**POST**  `https://edge.adobedc.net/ee-pre-prd/va/v1/bufferStart \`
+A "Buffer resume" endpoint does not exist using this API; instead, it is inferred when you call the `play` endpoint following `bufferStart`. Call the `play` endpoint when the media player exits a buffered state and resumes playing content.
 
-### Example request
+Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 
-The following example shows a Buffer Start cURL request:
+## `bufferStart`
 
-```curl
-curl -X 'POST' \
-  'https://edge.adobedc.net/ee-pre-prd/va/v1/bufferStart' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
+**`POST https://edge.adobedc.net/ee/va/v1/bufferStart?configId={datastreamID}`**
+
+<CodeBlock slots="heading, code" repeat="1" languages="CURL"/>
+
+#### Request
+
+```sh
+curl -X POST "https://edge.adobedc.net/ee/va/v1/bufferStart?configId={datastreamID}" \
+--header 'Content-Type: application/json' \
+--data '{
   "events": [
     {
       "xdm": {
         "eventType": "media.bufferStart",
         "mediaCollection": {
-          "sessionID": "af8bb22766e458fa0eef98c48ea42c9e351c463318230e851a19946862020333",
-          "playhead": 25
+          "sessionID": "ffab5[...]45ec3",
+          "playhead": 0
         },
-        "timestamp": "2022-03-04T13:39:00+00:00"
+        "timestamp": "YYYY-08-20T22:41:40+00:00"
       }
     }
   ]
 }'
 ```
 
-In the example request above, the same `sessionId` that is returned in the previous call is used as the required parameter in the Buffer Start request.
+If successfully processed, the API returns `204 No Content`.
 
-The successful respone indicates a status of 200 and does not include any content.
+This endpoint requires the following payload properties within the `xdm` object:
 
-For more information on the Buffer Start endpoint parameters and examples, see the [Media Edge Swagger](swagger.md) file.
+| Property | Description |
+| --- | --- |
+| `eventType` | The category of the event. Always set this property to `media.bufferStart` for this endpoint. |
+| `mediaCollection` | An object containing media collection details. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information. The `sessionID` and `playhead` properties are required. |
+| `timestamp` | The timestamp of the event. |
