@@ -1,11 +1,14 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Media Analytics Edge API",
-    "description": "The OpenAPI specification for Media Analytics Edge API",
-    "version": "0.1"
+    "title": "Media Edge API",
+    "description": "The OpenAPI specification for Media Edge API",
+    "version": "0.1.0"
   },
   "servers": [
+    {
+      "url": "https://edge.adobedc.net/ee-pre-prd/va/v1"
+    },
     {
       "url": "https://edge.adobedc.net/ee/va/v1"
     }
@@ -13,7 +16,12 @@
   "paths": {
     "/adBreakComplete": {
       "post": {
-        "description": "Signals the completion of an ad break",
+        "tags": [
+          "Ad Break"
+        ],
+        "summary": "Signals the end of the ad series",
+        "operationId": "adBreakComplete",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -22,40 +30,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -67,11 +84,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.adBreakComplete"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -106,39 +125,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -161,29 +188,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -202,7 +236,12 @@
     },
     "/adBreakStart": {
       "post": {
-        "description": "Signals the start of an ad break",
+        "tags": [
+          "Ad Break"
+        ],
+        "summary": "Signals the start of an ad series",
+        "operationId": "adBreakStart",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -211,32 +250,37 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "advertisingPodDetails": {
                                   "type": "object",
+                                  "description": "",
                                   "properties": {
                                     "friendlyName": {
                                       "type": "string",
-                                      "description": "The friendly name of the Ad Break."
+                                      "description": "The easily understandable name of the ad break"
                                     },
                                     "index": {
                                       "type": "integer",
-                                      "description": "The index of the ad break inside the content starting at 1."
+                                      "description": "The index of the ad inside the parent ad break start"
                                     },
                                     "offset": {
                                       "type": "integer",
-                                      "description": "The offset of the ad break inside the content, in seconds."
+                                      "description": "The offset of the ad break inside the content, in seconds"
                                     }
                                   },
                                   "required": [
@@ -246,40 +290,31 @@
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
-                                },
-                                "customMetadata": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "name": {
-                                        "type": "string"
-                                      },
-                                      "value": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  }
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -292,11 +327,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.adBreakStart"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -331,39 +368,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -386,29 +431,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -427,7 +479,12 @@
     },
     "/adComplete": {
       "post": {
-        "description": "Signals the completion of an ad",
+        "summary": "Signals the end of an ad",
+        "tags": [
+          "Ad"
+        ],
+        "parameters": [],
+        "operationId": "adComplete",
         "requestBody": {
           "content": {
             "application/json": {
@@ -436,40 +493,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -481,11 +547,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.adComplete"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -520,39 +588,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -575,29 +651,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -616,7 +699,12 @@
     },
     "/adSkip": {
       "post": {
-        "description": "Signals an ad skip",
+        "summary": "Signals that an ad was skipped",
+        "tags": [
+          "Ad"
+        ],
+        "operationId": "adSkip",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -625,40 +713,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -670,11 +767,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.adSkip"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -709,39 +808,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -764,29 +871,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -805,7 +919,12 @@
     },
     "/adStart": {
       "post": {
-        "description": "Signals the start of an ad",
+        "summary": "Signals the start of an ad",
+        "tags": [
+          "Ad"
+        ],
+        "operationId": "adStart",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -814,52 +933,53 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "advertisingDetails": {
                                   "type": "object",
+                                  "description": "",
                                   "properties": {
-                                    "name": {
-                                      "type": "string",
-                                      "description": "ID of the ad. (Any integer and/or letter combination)"
-                                    },
                                     "advertiser": {
                                       "type": "string",
-                                      "description": "Company/Brand whose product is featured in the ad"
+                                      "description": "The company or brand whose product is featured in the ad"
                                     },
                                     "campaignID": {
                                       "type": "string",
-                                      "description": "ID of the ad campaign"
+                                      "description": "The ID of the ad campaign"
                                     },
                                     "creativeID": {
                                       "type": "string",
-                                      "description": "ID of the ad creative"
+                                      "description": "The ID of the ad creative."
                                     },
                                     "creativeURL": {
                                       "type": "string",
-                                      "description": "URL of the ad creative"
+                                      "description": "The URL of the ad creative"
                                     },
                                     "length": {
                                       "type": "integer",
-                                      "description": "Length of video ad in seconds"
+                                      "description": "The length of video ad in seconds"
                                     },
                                     "placementID": {
                                       "type": "string",
-                                      "description": "Placement ID of the ad"
+                                      "description": "The placement ID of the ad"
                                     },
                                     "friendlyName": {
                                       "type": "string",
-                                      "description": "Friendly name of the ad"
+                                      "description": "The human readable name of the ad"
                                     },
                                     "playerName": {
                                       "type": "string",
@@ -867,11 +987,11 @@
                                     },
                                     "siteID": {
                                       "type": "string",
-                                      "description": "ID of the ad site"
+                                      "description": "The ID of the ad site"
                                     },
                                     "podPosition": {
                                       "type": "integer",
-                                      "description": "The position (index) of the ad inside the parent ad break. The first ad has index 0, the second ad has index 1 etc"
+                                      "description": "The index of the ad inside the parent ad start, for example, the first ad has index 0 and the second ad has index 1"
                                     }
                                   },
                                   "required": [
@@ -883,40 +1003,48 @@
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "customMetadata": {
                                   "type": "array",
+                                  "description": "Custom data set by the client in the form of key->value pairs",
                                   "items": {
                                     "type": "object",
                                     "properties": {
                                       "name": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "The name of the custom property"
                                       },
                                       "value": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "The value of the custom property"
                                       }
                                     }
                                   }
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -929,11 +1057,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.adStart"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -968,39 +1098,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -1023,29 +1161,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -1064,7 +1209,12 @@
     },
     "/bitrateChange": {
       "post": {
-        "description": "Sent when the bitrage changes",
+        "summary": "Signals that the bitrate changed",
+        "tags": [
+          "Bitrate"
+        ],
+        "operationId": "bitrateChange",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1073,40 +1223,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -1119,11 +1278,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.bitrateChange"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -1158,39 +1319,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -1213,29 +1382,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -1254,7 +1430,13 @@
     },
     "/bufferStart": {
       "post": {
-        "description": "Sent when buffering starts. Note: Because there is no bufferResume event type, it is inferred when you send a play event after bufferStart.",
+        "summary": "Signals the start of buffering",
+        "description": "Sent when buffering starts. Note: Because there is no bufferResume event type, it is inferred when you send a play event after bufferStart",
+        "tags": [
+          "Buffer"
+        ],
+        "operationId": "bufferStart",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1263,40 +1445,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -1308,11 +1499,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.bufferStart"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -1347,39 +1540,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -1402,29 +1603,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -1443,7 +1651,12 @@
     },
     "/chapterComplete": {
       "post": {
-        "description": "Signals the completion of a chapter",
+        "summary": "Signals the completion of a chapter",
+        "tags": [
+          "Chapter"
+        ],
+        "operationId": "chapterComplete",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1452,40 +1665,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -1497,11 +1719,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.chapterComplete"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -1536,39 +1760,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -1591,29 +1823,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -1632,7 +1871,12 @@
     },
     "/chapterSkip": {
       "post": {
-        "description": "Signals a chapter skip",
+        "summary": "Signals that the chapter was skipped",
+        "tags": [
+          "Chapter"
+        ],
+        "operationId": "chapterSkip",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1641,40 +1885,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -1686,11 +1939,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.chapterSkip"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -1725,39 +1980,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -1780,29 +2043,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -1821,7 +2091,12 @@
     },
     "/chapterStart": {
       "post": {
-        "description": "Signals the start of a chapter segment",
+        "summary": "Signals the start of a chapter",
+        "tags": [
+          "Chapter"
+        ],
+        "operationId": "chapterStart",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1830,20 +2105,25 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "chapterDetails": {
                                   "type": "object",
+                                  "description": "",
                                   "properties": {
                                     "offset": {
                                       "type": "integer",
@@ -1870,40 +2150,48 @@
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "customMetadata": {
                                   "type": "array",
+                                  "description": "Custom data set by the client in the form of key->value pairs",
                                   "items": {
                                     "type": "object",
                                     "properties": {
                                       "name": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "The name of the custom property"
                                       },
                                       "value": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "The value of the custom property"
                                       }
                                     }
                                   }
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -1916,11 +2204,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.chapterStart"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -1939,7 +2229,7 @@
               },
               "examples": {
                 "0": {
-                  "value": "{\n    \"events\": [\n        {\n            \"xdm\": {\n                \"eventType\": \"media.chapterStart\",\n                \"mediaCollection\": {\n                    \"sessionID\": \"5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c\",\n                    \"playhead\": 10,\n                    \"chapterDetails\": {\n                        \"friendlyName\": \"Chapter 1\",\n                        \"length\": 10,\n                        \"index\": 1,\n                        \"offset\": 0\n                    }\n                },\n                \"timestamp\": \"2022-03-04T13:37:56+00:00\"\n            }\n        }\n    ]\n}"
+                  "value": "{\n    \"events\": [\n        {\n            \"xdm\": {\n                \"eventType\": \"media.chapterStart\",\n                \"mediaCollection\": {\n                    \"sessionID\": \"5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c\",\n                    \"playhead\": 10,\n                    \"chapterDetails\": {\n                        \"friendlyName\": \"Chapter 1\",\n                        \"length\": 10,\n                        \"index\": 1,\n                        \"offset\": 0\n                    },\n                    \"customMetadata\": [\n                    {\n                      \"name\": \"c1\",\n                      \"value\": \"myCustomValue1\"\n                    }\n                  ]\n                },\n                \"timestamp\": \"2022-03-04T13:37:56+00:00\"\n            }\n        }\n    ]\n}"
                 }
               }
             }
@@ -1955,39 +2245,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -2010,29 +2308,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -2051,7 +2356,12 @@
     },
     "/error": {
       "post": {
-        "description": "Signals that an error has occurred",
+        "summary": "Signals that an error occurred",
+        "tags": [
+          "Error"
+        ],
+        "operationId": "error",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2060,26 +2370,33 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "errorDetails": {
                                   "type": "object",
+                                  "description": "",
                                   "properties": {
                                     "name": {
-                                      "type": "string"
+                                      "type": "string",
+                                      "description": "The error ID"
                                     },
                                     "source": {
                                       "type": "string",
+                                      "description": "The error source",
                                       "enum": [
                                         "player",
                                         "external"
@@ -2093,26 +2410,31 @@
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -2125,11 +2447,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.error"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -2164,39 +2488,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -2219,29 +2551,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -2260,7 +2599,12 @@
     },
     "/pauseStart": {
       "post": {
-        "description": "Sent when the user presses Pause. Because there is no resume event type, it is inferred when you send a play event after a pauseStart.",
+        "summary": "Signals that a pause was triggered",
+        "tags": [
+          "Pause"
+        ],
+        "operationId": "pauseStart",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2269,40 +2613,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -2314,11 +2667,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.pauseStart"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -2353,39 +2708,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -2408,29 +2771,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -2449,7 +2819,13 @@
     },
     "/ping": {
       "post": {
-        "description": "Use the Ping request during main content playback in cases when content must be sent every 10 seconds, regardless of other API events that have been sent. The first ping event should fire 10 seconds after main content playback has begun. For ad content, it must be sent every 1 second during ad tracking.",
+        "summary": "Signals a ping event",
+        "description": "Use the Ping request during main content playback in cases when content must be sent every 10 seconds, regardless of other API events that have been sent. The first ping event should fire 10 seconds after main content playback has begun.",
+        "tags": [
+          "Ping"
+        ],
+        "operationId": "ping",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2458,40 +2834,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -2503,11 +2888,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.ping"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -2542,39 +2929,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -2597,29 +2992,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -2638,7 +3040,12 @@
     },
     "/play": {
       "post": {
-        "description": "Sent when the player changes state to \"playing\" from another state, such as when the on ('Playing') callback is triggered by the player. Other states from which the player moves to \"playing\" include \"buffering\", when the user resumes from \"paused\", when the player recovers from an error, and during autoplay.",
+        "summary": "Signals that a play event occurred",
+        "tags": [
+          "Play"
+        ],
+        "operationId": "play",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2647,40 +3054,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -2692,11 +3108,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.play"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -2731,39 +3149,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -2786,29 +3212,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -2827,7 +3260,13 @@
     },
     "/sessionComplete": {
       "post": {
-        "description": "Sent when the end of the main content is reached",
+        "summary": "Signals the complete of the session",
+        "description": "Signals the complete of the session when the end of the content was reached",
+        "tags": [
+          "Session"
+        ],
+        "operationId": "sessionComplete",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2836,40 +3275,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -2881,11 +3329,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.sessionComplete"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -2920,39 +3370,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -2975,29 +3433,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -3016,7 +3481,13 @@
     },
     "/sessionEnd": {
       "post": {
+        "summary": "Signals the end of the session",
         "description": "Notifies the Media Analytics backend to immediately close the session when the user has abandoned their viewing of the content and they are unlikely to return. If you don't send a sessionEnd, an abandoned session will time-out normally (after no events are received for 10 minutes, or when no playhead movement occurs for 30 minutes), and the session is deleted by the backend.",
+        "tags": [
+          "Session"
+        ],
+        "operationId": "sessionEnd",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3025,40 +3496,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionID": {
                                   "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -3070,11 +3550,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.sessionEnd"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -3109,39 +3591,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -3164,29 +3654,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
@@ -3205,12 +3702,17 @@
     },
     "/sessionStart": {
       "post": {
-        "description": "Signals the start of a new session. When the response returns, the \"sessionId\" must be extracted and sent for all subsequent event calls to the Edge API server.",
+        "summary": "Signals the start of a session",
+        "description": "Signals the start of a new session. When the response returns, the \"sessionId\" must be extracted and sent for all subsequent event calls to the Edge API server",
+        "tags": [
+          "Session"
+        ],
+        "operationId": "sessionStart",
         "parameters": [
           {
             "name": "configId",
-            "description": "The datastream id",
             "in": "query",
+            "description": "The datastream id",
             "schema": {
               "type": "string"
             },
@@ -3225,42 +3727,49 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
                                 },
                                 "sessionDetails": {
                                   "type": "object",
+                                  "description": "",
                                   "properties": {
                                     "adLoad": {
-                                      "type": "string"
+                                      "type": "string",
+                                      "description": "The type of ad loaded as defined by each customer’s internal representation"
                                     },
                                     "appVersion": {
                                       "type": "string",
-                                      "description": "The SDK version used by the player. This could have any custom value that makes sense for your player"
+                                      "description": "The SDK version used by the player"
                                     },
                                     "artist": {
-                                      "type": "string"
+                                      "type": "string",
+                                      "description": "The name of the album artist or group performing the music recording or video"
                                     },
                                     "rating": {
                                       "type": "string",
-                                      "description": "Rating as defined by TV Parental Guidelines"
+                                      "description": "The rating as defined by TV Parental Guidelines"
                                     },
                                     "show": {
                                       "type": "string",
-                                      "description": "Program/Series Name. Program Name is required only if the show is part of a series."
+                                      "description": "The Program/Series Name"
                                     },
                                     "channel": {
                                       "type": "string",
-                                      "description": "Distribution Station/Channels or where the content is played. Any string value is accepted here"
+                                      "description": "The Content Channel is the distribution channel from where the content was played"
                                     },
                                     "episode": {
                                       "type": "string",
@@ -3268,7 +3777,7 @@
                                     },
                                     "originator": {
                                       "type": "string",
-                                      "description": "Creator of the content"
+                                      "description": "The name of the content creator"
                                     },
                                     "firstAirDate": {
                                       "type": "string",
@@ -3276,88 +3785,91 @@
                                     },
                                     "streamType": {
                                       "type": "string",
+                                      "description": "The type of the media stream",
                                       "enum": [
                                         "audio",
                                         "video"
-                                      ],
-                                      "description": "Identifies the stream type"
+                                      ]
                                     },
                                     "authorized": {
                                       "type": "string",
-                                      "description": "The user has been authorized via Adobe authentication"
+                                      "description": "Confirms whether the user has been authorized via Adobe authentication"
                                     },
                                     "hasResume": {
-                                      "type": "boolean"
+                                      "type": "boolean",
+                                      "description": "Marks each playback that was resumed after more than 30 minutes of buffer, pause, or stall period"
                                     },
                                     "streamFormat": {
                                       "type": "string",
-                                      "description": "Format of the stream (HD, SD)"
+                                      "description": "The format of the stream (HD, SD)"
                                     },
                                     "station": {
                                       "type": "string",
-                                      "description": "Name / ID of the radio station"
+                                      "description": "The radio station name on which the audio is played"
                                     },
                                     "genre": {
                                       "type": "string",
-                                      "description": "Type or grouping of content as defined by content producer. Values should be comma delimited in variable implementation. In reporting, the list eVar will split each value into a line item, with each line item receiving equal metrics weight"
+                                      "description": "The type or grouping of content as defined by the content producer"
                                     },
                                     "season": {
                                       "type": "string",
-                                      "description": "The season number the show belongs to. Season Series is required only if the show is part of a series"
+                                      "description": "The Season Number that the show belongs to"
                                     },
                                     "showType": {
-                                      "type": "string"
+                                      "type": "string",
+                                      "description": "The type of content"
                                     },
                                     "contentType": {
                                       "type": "string",
-                                      "description": "Available values per Stream Type: Audio - \"song\", \"podcast\", \"audiobook\", \"radio\"; Video: \"VoD\", \"Live\", \"Linear\", \"UGC\", \"DVoD\" Customers can provide custom values for this parameter"
+                                      "description": "The Broadcast Content Type of the stream delivery"
                                     },
                                     "friendlyName": {
                                       "type": "string",
-                                      "description": "This is the \"friendly\" (human-readable) name of the content"
+                                      "description": "The Content Name is the “friendly” (human-readable) name of the content"
                                     },
                                     "playerName": {
                                       "type": "string",
-                                      "description": "Name of the player"
+                                      "description": "The name of the content player"
                                     },
                                     "author": {
                                       "type": "string",
-                                      "description": "Name of the author (of an audiobook)"
+                                      "description": "The name of the media author"
                                     },
                                     "album": {
-                                      "type": "string"
+                                      "type": "string",
+                                      "description": "The name of the album that the music recording or video belongs to"
                                     },
                                     "length": {
                                       "type": "integer",
-                                      "description": "Clip Length/Runtime - This is the maximum length (or duration) of the content being consumed (in seconds)"
+                                      "description": "The Media Content Length contains the clip length/runtime"
                                     },
                                     "dayPart": {
                                       "type": "string",
-                                      "description": "A property that defines the time of the day when the content was broadcast or played. This could have any value set as necessary by customers"
+                                      "description": "A property that defines the time of the day when the content was broadcast or played"
                                     },
                                     "label": {
                                       "type": "string",
-                                      "description": "Name of the record label"
+                                      "description": "The name of the record label"
                                     },
                                     "mvpd": {
                                       "type": "string",
-                                      "description": "MVPD provided via Adobe authentication."
+                                      "description": "The Multi-channel Video Programming Distributor (MVPD) identifier that was provided via Adobe authentication"
                                     },
                                     "feed": {
                                       "type": "string",
-                                      "description": "Type of feed"
+                                      "description": "The type of feed, which can either represent actual feed-related data such as EAST HD or SD, or the source of the feed like a URL"
                                     },
                                     "assetID": {
                                       "type": "string",
-                                      "description": "This is the unique identifier for the content of the media asset, such as the TV series episode identifier, movie asset identifier, or live event identifier. Typically these IDs are derived from metadata authorities such as EIDR, TMS/Gracenote, or Rovi. These identifiers can also be from other proprietary or in-house systems."
+                                      "description": "The Asset ID is the unique identifier for the content of the media asset"
                                     },
                                     "name": {
                                       "type": "string",
-                                      "description": "Content ID of the content, which can be used to tie back to other industry / CMS IDs"
+                                      "description": "The Content ID is a unique identifier of the content"
                                     },
                                     "publisher": {
                                       "type": "string",
-                                      "description": "Name of the audio content publisher"
+                                      "description": "The name of the audio content publisher"
                                     },
                                     "firstDigitalDate": {
                                       "type": "string",
@@ -3369,7 +3881,7 @@
                                     },
                                     "isDownloaded": {
                                       "type": "boolean",
-                                      "description": "Set to true when the hit is generated due to playing a downloaded content media session. Not present when downloaded content is not played."
+                                      "description": "Specifies if this is a previously recorded session"
                                     }
                                   },
                                   "required": [
@@ -3382,36 +3894,44 @@
                                 },
                                 "customMetadata": {
                                   "type": "array",
+                                  "description": "Custom data set by the client in the form of key->value pairs",
                                   "items": {
                                     "type": "object",
                                     "properties": {
                                       "name": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "The name of the custom property"
                                       },
                                       "value": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "The value of the custom property"
                                       }
                                     }
                                   }
                                 },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -3421,27 +3941,23 @@
                                 "sessionDetails"
                               ]
                             },
-                            "implementationDetails": {
-                              "type": "object",
-                              "properties": {
-                                "version": {
-                                  "type": "string"
-                                }
-                              }
-                            },
                             "identityMap": {
                               "type": "object",
+                              "description": "Specifies the list of identities",
                               "properties": {
                                 "FPID": {
                                   "type": "array",
+                                  "description": "",
                                   "items": {
                                     "type": "object",
                                     "properties": {
                                       "id": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": ""
                                       },
                                       "authenticatedState": {
                                         "type": "string",
+                                        "description": "",
                                         "default": "ambiguous",
                                         "enum": [
                                           "ambiguous",
@@ -3450,7 +3966,8 @@
                                         ]
                                       },
                                       "primary": {
-                                        "type": "boolean"
+                                        "type": "boolean",
+                                        "description": ""
                                       }
                                     }
                                   }
@@ -3459,11 +3976,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.sessionStart"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -3482,7 +4001,7 @@
               },
               "examples": {
                 "0": {
-                  "value": "{\n  \"events\": [\n    {\n      \"xdm\": {\n        \"mediaCollection\": {\n          \"sessionDetails\": {\n            \"dayPart\": \"dayPart\",\n            \"mvpd\": \"test-mvpd\",\n            \"authorized\": \"true\",\n            \"label\": \"test-label\",\n            \"station\": \"test-station\",\n            \"publisher\": \"test-media-publisher\",\n            \"author\": \"test-author\",\n            \"name\": \"Friends\",\n            \"friendlyName\": \"FriendlyName\",\n            \"assetID\": \"/uri-reference\",\n            \"originator\": \"David Crane and Marta Kauffman\",\n            \"episode\": \"4933\",\n            \"genre\": \"Comedy\",\n            \"rating\": \"4.8/5\",\n            \"season\": \"1521\",\n            \"show\": \"Friends Series\",\n            \"length\": 100,\n            \"firstDigitalDate\": \"releaseDate\",\n            \"artist\": \"test-artist\",\n            \"hasResume\": false,\n            \"album\": \"test-album\",\n            \"firstAirDate\": \"firstAirDate\",\n            \"showType\": \"sitcom\",\n            \"streamFormat\": \"streamFormat\",\n            \"streamType\": \"video\",\n            \"adLoad\": \"adLoadType\",\n            \"channel\": \"broadcastChannel\",\n            \"contentType\": \"VOD\",\n            \"playerName\": \"HTML5 player\",\n            \"appVersion\": \"sdk-1.0\",\n            \"feed\": \"sourceFeed\",\n            \"network\": \"test-network\"\n          },\n          \"playhead\": 0,\n          \"implementationDetails\": {\n            \"version\": \"libraryVersion\"\n          },\n          \"customMetadata\": [\n            {\n              \"name\": \"myCustomValue3\",\n              \"value\": \"c3\"\n            },\n            {\n              \"name\": \"myCustomValue2\",\n              \"value\": \"c2\"\n            },\n            {\n              \"name\": \"myCustomValue1\",\n              \"value\": \"c1\"\n            }\n          ]\n        },\n        \"timestamp\": \"2023-04-04T11:35:16Z\",\n        \"identityMap\": {\n          \"FPID\": [\n            {\n              \"id\": \"CHANGEME\",\n              \"authenticatedState\": \"ambiguous\",\n              \"primary\": true\n            }\n          ]\n        },\n        \"eventType\": \"media.sessionStart\"\n      }\n    }\n  ]\n}"
+                  "value": "{\n  \"events\": [\n    {\n      \"xdm\": {\n        \"mediaCollection\": {\n          \"sessionDetails\": {\n            \"dayPart\": \"dayPart\",\n            \"mvpd\": \"test-mvpd\",\n            \"authorized\": \"true\",\n            \"label\": \"test-label\",\n            \"station\": \"test-station\",\n            \"publisher\": \"test-media-publisher\",\n            \"author\": \"test-author\",\n            \"name\": \"Friends\",\n            \"friendlyName\": \"FriendlyName\",\n            \"assetID\": \"/uri-reference\",\n            \"originator\": \"David Crane and Marta Kauffman\",\n            \"episode\": \"4933\",\n            \"genre\": \"Comedy\",\n            \"rating\": \"4.8/5\",\n            \"season\": \"1521\",\n            \"show\": \"Friends Series\",\n            \"length\": 100,\n            \"firstDigitalDate\": \"releaseDate\",\n            \"artist\": \"test-artist\",\n            \"hasResume\": false,\n            \"album\": \"test-album\",\n            \"firstAirDate\": \"firstAirDate\",\n            \"showType\": \"sitcom\",\n            \"streamFormat\": \"streamFormat\",\n            \"streamType\": \"video\",\n            \"adLoad\": \"adLoadType\",\n            \"channel\": \"broadcastChannel\",\n            \"contentType\": \"VOD\",\n            \"playerName\": \"HTML5 player\",\n            \"appVersion\": \"sdk-1.0\",\n            \"feed\": \"sourceFeed\",\n            \"network\": \"test-network\"\n          },\n          \"playhead\": 0,\n          \"customMetadata\": [\n            {\n              \"name\": \"myCustomValue3\",\n              \"value\": \"c3\"\n            },\n            {\n              \"name\": \"myCustomValue2\",\n              \"value\": \"c2\"\n            },\n            {\n              \"name\": \"myCustomValue1\",\n              \"value\": \"c1\"\n            }\n          ]\n        },\n        \"timestamp\": \"2023-04-04T11:35:16Z\",\n        \"identityMap\": {\n          \"FPID\": [\n            {\n              \"id\": \"CHANGEME\",\n              \"authenticatedState\": \"ambiguous\",\n              \"primary\": true\n            }\n          ]\n        },\n        \"eventType\": \"media.sessionStart\"\n      }\n    }\n  ]\n}"
                 }
               }
             }
@@ -3498,31 +4017,35 @@
                   "properties": {
                     "requestId": {
                       "type": "string",
-                      "description": "The request ID."
+                      "description": "Id that uniquely identifies a request"
                     },
                     "handle": {
                       "type": "array",
+                      "description": "The data returned by the backend",
                       "items": {
                         "type": "object",
                         "properties": {
                           "payload": {
                             "type": "array",
+                            "description": "",
                             "items": {
                               "type": "object",
                               "properties": {
                                 "sessionId": {
                                   "type": "string",
-                                  "description": "The session ID generated for the media session that must be added for all subsequent calls of the same session"
+                                  "description": "The unique id for the session that must be sent on all the future requests of this session"
                                 }
                               }
                             }
                           },
                           "type": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Identifies the type of the received payload"
                           },
                           "eventIndex": {
                             "type": "integer",
-                            "format": "int32"
+                            "format": "int32",
+                            "description": ""
                           }
                         }
                       }
@@ -3546,63 +4069,73 @@
                   "properties": {
                     "requestId": {
                       "type": "string",
-                      "description": "The request ID."
+                      "description": "Id that uniquely identifies a request"
                     },
                     "handle": {
                       "type": "array",
+                      "description": "The data returned by the backend",
                       "items": {
                         "type": "object",
                         "properties": {
                           "payload": {
                             "type": "array",
+                            "description": "",
                             "items": {
                               "type": "object"
                             }
                           },
                           "type": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Identifies the type of the received payload"
                           },
                           "eventIndex": {
                             "type": "integer",
-                            "format": "int32"
+                            "format": "int32",
+                            "description": ""
                           }
                         }
                       }
                     },
                     "errors": {
                       "type": "array",
-                      "description": "Errors generated by the upstreams configured for the datastream",
+                      "description": "The list of errors for the data sent in this request",
                       "items": {
                         "type": "object",
                         "properties": {
                           "type": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Link containing a more detailed description of the error"
                           },
                           "status": {
-                            "type": "integer"
+                            "type": "integer",
+                            "description": "The status code"
                           },
                           "title": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "The category of the error"
                           },
                           "report": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "eventIndex": {
                                 "type": "integer",
-                                "format": "int32"
+                                "format": "int32",
+                                "description": ""
                               },
                               "report": {
                                 "type": "array",
+                                "description": "",
                                 "items": {
                                   "type": "object",
                                   "properties": {
                                     "name": {
                                       "type": "string",
-                                      "description": "Field that contains the error"
+                                      "description": "The path in the request body to the property that contains the error"
                                     },
                                     "reason": {
                                       "type": "string",
-                                      "description": "Error for that specific field"
+                                      "description": "The error details"
                                     }
                                   }
                                 }
@@ -3628,26 +4161,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
+                        },
+                        "details": {
+                          "type": "string",
+                          "description": "The error details"
                         }
                       }
                     }
@@ -3666,7 +4209,12 @@
     },
     "/statesUpdate": {
       "post": {
-        "description": "Signals that one or multiple states are started and/or ended",
+        "summary": "Signals the change of one or multiple states",
+        "tags": [
+          "States"
+        ],
+        "operationId": "sessionStart",
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3675,17 +4223,25 @@
                 "properties": {
                   "events": {
                     "type": "array",
+                    "description": "",
                     "items": {
                       "type": "object",
                       "properties": {
                         "xdm": {
                           "type": "object",
+                          "description": "",
                           "properties": {
                             "mediaCollection": {
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "playhead": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "The Playhead represents the current playback position within the media content"
+                                },
+                                "sessionID": {
+                                  "type": "string",
+                                  "description": "The Media Session ID uniquely identifies an instance of a content stream during an individual playback session"
                                 },
                                 "statesStart": {
                                   "type": "array",
@@ -3694,7 +4250,8 @@
                                     "properties": {
                                       "name": {
                                         "type": "string",
-                                        "pattern": "^[a-zA-Z0-9_.]{1,64}$"
+                                        "pattern": "^[a-zA-Z0-9_.]{1,64}$",
+                                        "description": "The name of the state"
                                       }
                                     },
                                     "required": [
@@ -3709,7 +4266,8 @@
                                     "properties": {
                                       "name": {
                                         "type": "string",
-                                        "pattern": "^[a-zA-Z0-9_.]{1,64}$"
+                                        "pattern": "^[a-zA-Z0-9_.]{1,64}$",
+                                        "description": "The name of the state"
                                       }
                                     },
                                     "required": [
@@ -3717,28 +4275,29 @@
                                     ]
                                   }
                                 },
-                                "sessionID": {
-                                  "type": "string",
-                                  "description": "The sessionID generated on sessionStart"
-                                },
                                 "qoeDataDetails": {
                                   "type": "object",
+                                  "description": "QoE (Quality of Experience) Data Details capture performance-related metrics and user experience data",
                                   "properties": {
                                     "bitrate": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The bitrate value (in kbps)"
                                     },
                                     "droppedFrames": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The total count of frames dropped during playback"
                                     },
                                     "framesPerSecond": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "The current stream frame-rate (in frames per second)"
                                     },
                                     "timeToStart": {
                                       "type": "integer",
-                                      "format": "int32"
+                                      "format": "int32",
+                                      "description": "Duration (in seconds) between video load and start"
                                     }
                                   }
                                 }
@@ -3750,11 +4309,13 @@
                             },
                             "eventType": {
                               "type": "string",
-                              "default": "media.statesUpdate"
+                              "default": "media.adBreakComplete",
+                              "description": "The media event type"
                             },
                             "timestamp": {
                               "type": "string",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "description": "The time when a media event occurred"
                             }
                           },
                           "required": [
@@ -3774,6 +4335,12 @@
               "examples": {
                 "0": {
                   "value": "{\n    \"events\": [\n        {\n            \"xdm\": {\n                \"eventType\": \"media.statesUpdate\",\n                \"mediaCollection\": {\n                    \"sessionID\": \"bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f\",\n                    \"playhead\": 60,\n                    \"statesStart\": [\n                        {\n                            \"name\": \"mute\"\n                        },\n                        {\n                            \"name\": \"pictureInPicture\"\n                        }\n                    ],\n                    \"statesEnd\": [\n                        {\n                            \"name\": \"fullScreen\"\n                        }\n                    ]\n                },\n                \"timestamp\": \"2022-03-04T13:40:40+00:00\"\n            }\n        }\n    ]\n}"
+                },
+                "1": {
+                  "value": "{\n    \"events\": [\n        {\n            \"xdm\": {\n                \"eventType\": \"media.statesUpdate\",\n                \"mediaCollection\": {\n                    \"sessionID\": \"bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f\",\n                    \"playhead\": 65,\n                    \"statesStart\": [\n                        {\n                            \"name\": \"mute\"\n                        }\n                    ]\n                },\n                \"timestamp\": \"2022-03-04T13:40:40+00:00\"\n            }\n        }\n    ]\n}"
+                },
+                "2": {
+                  "value": "{\n     \"events\": [\n         {\n             \"xdm\": {\n                 \"eventType\": \"media.statesUpdate\",\n                 \"mediaCollection\": {\n                     \"sessionID\": \"bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f\",\n                     \"playhead\": 55,\n                     \"statesEnd\": [\n                         {\n                             \"name\": \"subtitles\"\n                         }\n                     ]\n                 },\n                 \"timestamp\": \"2022-03-04T13:40:40+00:00\"\n             }\n         }\n     ]\n }"
                 }
               }
             }
@@ -3789,39 +4356,47 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 400
+                      "default": 400,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
                       "type": "string",
-                      "description": "Error that caused the 400 status"
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "array",
+                          "description": "",
                           "items": {
                             "type": "object",
+                            "description": "",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "Field that contains the error"
+                                "description": "The path to the invalid property"
                               },
                               "reason": {
                                 "type": "string",
-                                "description": "Error for that specific field"
+                                "description": "The reason why the property is invalid"
                               }
                             }
                           }
@@ -3844,29 +4419,36 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Link containing a more detailed description of the error"
                     },
                     "status": {
                       "type": "integer",
-                      "default": 404
+                      "default": 404,
+                      "description": "The status code"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The category of the error"
                     },
                     "detail": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The error details"
                     },
                     "report": {
                       "type": "object",
+                      "description": "",
                       "properties": {
                         "requestId": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Id that uniquely identifies a request"
                         },
                         "details": {
                           "type": "string",
-                          "description": "Error that caused the 404 status"
+                          "description": "The error details"
                         }
                       }
                     }
