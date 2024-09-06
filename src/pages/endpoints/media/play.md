@@ -39,7 +39,7 @@ If successfully processed, the API returns `204 No Content`.
 
 This endpoint requires the following payload properties within the `xdm` object:
 
-| Property | Description |
+| XDM property | Description |
 | --- | --- |
 | `eventType` | The category of the event. Always set this property to `media.play` for this endpoint. |
 | `mediaCollection` | An object containing media collection details. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information. The `sessionID` and `playhead` properties are required. |

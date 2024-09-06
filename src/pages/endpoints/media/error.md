@@ -43,7 +43,7 @@ If successfully processed, the API returns `204 No Content`.
 
 This endpoint requires the following payload properties within the `xdm` object:
 
-| Property | Description |
+| XDM property | Description |
 | --- | --- |
 | `eventType` | The category of the event. Always set this property to `media.error` for this endpoint. |
 | `mediaCollection` | An object containing media collection details. See the table below for details. |
@@ -51,7 +51,7 @@ This endpoint requires the following payload properties within the `xdm` object:
 
 The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
 
-| Property | Description |
+| Media collection property | Description |
 | --- | --- |
 | `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
 | `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |

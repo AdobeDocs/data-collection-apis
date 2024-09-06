@@ -102,61 +102,119 @@ curl -X POST "https://edge.adobedc.net/ee/va/v1/sessionStart?configId={datastrea
 }
 ```
 
+### Request object
+
 This endpoint requires the following payload properties within the `xdm` object:
 
-| Property | Description |
+| XDM property | Description |
 | --- | --- |
 | `eventType` | The category of the event. Always set this property to `media.sessionStart` for this endpoint. |
 | `mediaCollection` | An object containing media collection details. See the table below for details. |
 
 The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
 
-| Property | Description |
+| Media collection property | Description |
 | --- | --- |
 | `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
 | `sessionDetails` | An object containing details on the session. See the table below for details. |
 
 The `sessionDetails` object requires several properties. See [Session Details Collection data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/session-details-collection) in the Experience Data Model guide for more information.
 
-| Property | Description |
+| Session details property | Description |
 | --- | --- |
 | `name` | The content ID, or unique identifier for the content played. |
 | `playerName` | The name of the content player. |
-| `contentType` | The broadcast content type. Media libraries provide preset values such as `song`, `audiobook`, or `VoD`. You can set thi
+| `contentType` | The broadcast content type. Media libraries provide preset values such as `song`, `audiobook`, or `VoD`. Any string is valid. |
 | `length` | The total length of the content, in seconds. |
 | `channel` | The content channel where the content is played. |
 
-## Session Complete event request
+### Response object
 
-The Session Complete event is sent when the end of the main content is reached. To make a Session Complete event request, use your `sessionId` in the payload of a call to the following endpoint:
+If successfully processed, the API returns an object with the following properties:
 
-**POST**  `https://edge.adobedc.net/ee-pre-prd/va/v1/sessionComplete \`
+| Response property | Description |
+| --- | --- |
+| `requestId` | The unique identifier for the request. Note that this property is not the `sessionID` required for all other endpoints; it is merely a unique identifier for the response itself. |
+| `handle[]` | An array of payloads returned from Adobe. Types of payloads include `media-analytics:new-session`, `locationHint:result`, and `state:store`. The desired payload is `media-analytics:new-session`, which contains a `sessionId` property. If your response payload does not contain `sessionId`, check your datastream settings to make sure that Media Analytics is enabled. |
 
-### Example request
+## `sessionComplete`
 
-The following example shows a Session Complete cURL request:
+The `sessionComplete` endpoint indicates that the visitor reached the end of the main content. It does not immediately end a session; if you want to immediately end a session, call the [`sessionEnd`](#sessionend) endpoint.
+
+Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](#sessionstart) endpoint first to obtain a valid session ID.
+
+**`POST https://edge.adobedc.net/ee/va/v1/sessionComplete?configId={datastreamID}`**
+
+<CodeBlock slots="heading, code" repeat="1" languages="CURL"/>
+
+#### Request
 
 ```sh
-curl -X 'POST' \
-  'https://edge.adobedc.net/ee-pre-prd/va/v1/sessionComplete' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
+curl -X POST "https://edge.adobedc.net/ee/va/v1/sessionComplete?configId={datastreamID}" \
+--header 'Content-Type: application/json' \
+--data '{
   "events": [
     {
       "xdm": {
         "eventType": "media.sessionComplete",
         "mediaCollection": {
-          "sessionID": "af8bb22766e458fa0eef98c48ea42c9e351c463318230e851a19946862020333",
-          "playhead": 25
+          "sessionID": "ffab5[...]45ec3",
+          "playhead": 0
         },
-        "timestamp": "YYYY-03-04T13:39:00+00:00"
+        "timestamp": "YYYY-08-20T22:41:40+00:00"
       }
     }
   ]
 }'
 ```
 
-The successful respone indicates a status of 200 and does not include any content.
+If successfully processed, the API returns `204 No Content`.
 
-For more information on Session Complete endpoint parameters and examples, see the [Media Edge Swagger](swagger.md) file.
+This endpoint requires the following payload properties within the `xdm` object:
+
+| XDM property | Description |
+| --- | --- |
+| `eventType` | The category of the event. Always set this property to `media.sessionComplete` for this endpoint. |
+| `mediaCollection` | An object containing media collection details. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information. The `sessionID` and `playhead` properties are required. |
+| `timestamp` | The timestamp of the event. |
+
+## `sessionEnd`
+
+The `sessionEnd` endpoint immediately ends a media playback session. Sessions end automatically when no events are received for 10 minutes, or when no playhead movement happens for 30 minutes. You can call this endpoint when you consider a session "done" and do not want any subsequent events tracked as part of the same session.
+
+Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](#sessionstart) endpoint first to obtain a valid session ID. Calling this endpoint immediately ends the session for the given session ID, meaning that you cannot use that same session ID in subsequent API calls. If you want to track additional events after calling this endpoint, call the [`sessionStart`](#sessionstart) endpoint to obtain a new session ID.
+
+**`POST https://edge.adobedc.net/ee/va/v1/sessionEnd?configId={datastreamID}`**
+
+<CodeBlock slots="heading, code" repeat="1" languages="CURL"/>
+
+#### Request
+
+```sh
+curl -X POST "https://edge.adobedc.net/ee/va/v1/sessionEnd?configId={datastreamID}" \
+--header 'Content-Type: application/json' \
+--data '{
+  "events": [
+    {
+      "xdm": {
+        "eventType": "media.sessionEnd",
+        "mediaCollection": {
+          "sessionID": "ffab5[...]45ec3",
+          "playhead": 0
+        },
+        "timestamp": "YYYY-08-20T22:41:40+00:00"
+      }
+    }
+  ]
+}'
+```
+
+If successfully processed, the API returns `204 No Content`.
+
+This endpoint requires the following payload properties within the `xdm` object:
+
+| XDM property | Description |
+| --- | --- |
+| `eventType` | The category of the event. Always set this property to `media.sessionEnd` for this endpoint. |
+| `mediaCollection` | An object containing media collection details. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information. The `sessionID` and `playhead` properties are required. |
+| `timestamp` | The timestamp of the event. |
