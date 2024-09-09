@@ -1,15 +1,14 @@
 ---
 title: Authentication
 description: Learn how to configure authentication for the Adobe Experience Platform Edge Network Server API.
-exl-id: 73c7a186-9b85-43fe-a586-4c6260b6fa8c
 ---
 # Authentication {#authentication}
 
 ## Overview 
 
-The [!DNL Edge Network Server API] handles both authenticated and unauthenticated data collection, depending on the source of events and the API collection domain.
+The [!DNL Edge Network Server API] handles both authenticated and non-authenticated data collection, depending on the source of events and the API collection domain.
 
-For each request, the [!DNL Server API] verifies the datastream [!DNL access type] setting. Using this setting, customers can configure a datastream to accept either authenticated data, or both authenticated and unauthenticated data. By default, both types of data are accepted.
+For each request, the [!DNL Server API] verifies the datastream [!DNL access type] setting. Using this setting, customers can configure a datastream to accept either authenticated data, or both authenticated and non-authenticated data. By default, both types of data are accepted.
 
 For details on configuring the datastream access type, see the documentation on how to [create and configure a datastream](../datastreams/overview.md#create).
 

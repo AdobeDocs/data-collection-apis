@@ -1,35 +1,31 @@
 ---
-title: Edge Network Server API overview
-description: Learn what the Edge Network Server API is and how you can use it.
-exl-id: 46bd8798-d7f9-405b-9ca8-856ad4aa688c
+title: Data collection API endpoints
+description: Learn what endpoints are available and how you can use them.
 ---
-# Edge Network Server API overview {#overview}
+# Data collection API endpoints
 
-The Adobe Experience Platform Edge Network provides an optimized way for customers to interact with any Adobe Experience Cloud or Adobe Experience Platform Edge services.
+The Adobe Experience Platform Edge Network provides an optimized way for customers to send data to any Adobe Experience Cloud product or Adobe Experience Platform service. You can use these APIs for various data collection, personalization, advertising and marketing use cases. Since they do not rely on any libraries to load, they provide a lightning-fast way to interact with the Adobe Experience Platform Edge Network and supported solutions.
 
-The [!DNL Edge Network Server API] can be used for various data collection, personalization, advertising and marketing use cases. The [!DNL Server API] can be used on servers, [!DNL IoT] devices, set-top boxes, and various other devices.
+<Media slots="video"/>
 
-Since the [!DNL Server API] does not rely on any libraries to load, it provides a lightning-fast way to interact with the Adobe Experience Platform Edge Network and supported solutions.
+<https://video.tv.adobe.com/v/341448/>
 
-The benefits of the [!DNL Server API] architecture include:
+Adobe offers several endpoints that facilitate the interaction with the Edge Network:
+
+* Edge Network APIs: Includes the `interact` and `collect` endpoints, sending data directly to a datastream
+* Media Edge APIs: Includes 18 endpoints that allow you to compose a streaming media session on Adobe's servers. When the session completes, those events are aggregated into a smaller number of events and sent to the desired datastream.
+
+The benefits of using these endpoints include:
 
 * Reduced page load time
 * Improved latency
 * First-party data collection
 * Streamlined, server-side communication between services
+
+## Authenticated data collection
  
-The [!DNL Server API] supports interactive and batch data collection, via two dedicated endpoints:
+The Edge Network API supports both client-to-server and server-to-server API calls. Authenticated API calls enable use cases that allow for secure collection of sensitive data according to your organization's privacy policies. In addition to authentication, the Edge Network API supports marking datastreams to accept only authenticated communication.
 
-1. The interactive endpoint supports communication with Adobe Experience Platform and Adobe Experience Cloud services that support advanced segmentation, personalization, and other marketing use cases.
-2. The batch endpoint allows requests to be sent in batch when data must be onboarded without receiving a response from the applications being called. 
- 
-The [!DNL Server API] supports the following type of requests:
+The Media Edge API currently supports client-to-server API calls only.
 
-* Authenticated requests via [Adobe Developer](https://developer.adobe.com/), using the `server.adobedc.net` endpoint.
-* Unauthenticated requests via the `edge.adobedc.net` endpoint.
-
-This enables use cases that allow for secure, authenticated collection of sensitive data, according to your organization's privacy policies. In addition to authentication, the Server API supports marking datastreams to accept only authenticated communication via the API.
-
-Watch the video below for a streamlined overview of the Server API.
-
->[!VIDEO](https://video.tv.adobe.com/v/341448/)
+Authenticated API calls use `server.adobedc.net` endpoints. Non-authenticated API calls use `edge.adobedc.net` endpoints.

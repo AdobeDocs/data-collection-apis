@@ -6,6 +6,7 @@ keywords:
   - API Documentation
   - Media Edge API Reference
   - Media Edge API Swagger
+  - Streaming Media API
 layout: none
 ---
 <RedoclyAPIBlock src="/data-collection-apis/media-edge.json"/>

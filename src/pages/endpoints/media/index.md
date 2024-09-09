@@ -6,9 +6,9 @@ description: Get started using the Media Edge API endpoints.
 
 The Adobe Experience Platform Media Edge APIs allow you to send media data within the framework of [XDM schemas](https://experienceleague.adobe.com/docs/experience-platform/xdm/home.html). Use of these APIs require the Streaming Media Collection Add-on.
 
-* With [Adobe Customer Journey Analytics](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-overview/cja-overview.html), customers can get near real-time, granular details of duration, starts, and stops to evaluate and combine for media metrics. Customers migrating from Adobe Analytics have all reporting metrics available in Adobe Customer Journey Analytics.
-* With [Adobe Real-Time Customer Data Platform](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/overview.html), customers can enrich their real-time profiles with media consumption data.
-* With [Adobe Journey Optimizer](https://experienceleague.adobe.com/docs/journey-optimizer/using/get-started/get-started.html), customers can optimize omnichannel campaigns and automate journeys with media consumption signals.
+* With [Adobe Customer Journey Analytics](https://experienceleague.adobe.com/docs/analytics-platform/using/cja-overview/cja-overview.html), you can get near real-time, granular details of duration, starts, and stops to evaluate and combine for media metrics. If migrating from Adobe Analytics, all reporting metrics are available in Customer Journey Analytics.
+* With [Adobe Real-Time Customer Data Platform](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/overview.html), you can enrich real-time profiles with media consumption data.
+* With [Adobe Journey Optimizer](https://experienceleague.adobe.com/docs/journey-optimizer/using/get-started/get-started.html), you can optimize omnichannel campaigns and automate journeys with media consumption signals.
 
 ## Optimizing media tracking data flows
 
