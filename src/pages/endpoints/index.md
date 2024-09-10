@@ -22,6 +22,10 @@ The benefits of using these endpoints include:
 * First-party data collection
 * Streamlined, server-side communication between services
 
+<InlineAlert variant="warning" slots="text" />
+
+These endpoints are subject to additive changes and its behavior can evolve without notice. For example, new objects or properties can be added to response payloads in the future. Make sure that any implementations using these APIs can accommodate additional fields without failing! Any "breaking changes", such as the removal of request or response objects, are released as a new incremental API version.
+
 ## Authenticated data collection
  
 The Edge Network API supports both client-to-server and server-to-server API calls. Authenticated API calls enable use cases that allow for secure collection of sensitive data according to your organization's privacy policies. In addition to authentication, the Edge Network API supports marking datastreams to accept only authenticated communication.

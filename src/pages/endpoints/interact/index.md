@@ -1,32 +1,57 @@
 ---
-title: Interactive data collection
-description: Learn how the Adobe Experience Platform Edge Network Server API performs interactive data collection.
-exl-id: 1b06e755-b6a9-42dd-96c1-98ad67e7d222
+title: Interact endpoint (interactive collection)
+description: Learn how the Adobe Experience Platform Edge Network API performs interactive data collection.
 ---
-# Interactive data collection
+# Interact endpoint (interactive collection)
 
-## Overview {#overview}
+The `interact` endpoint sends a single event to a datastream. When sending an event to this endpoint, a response is returned that can contain content from Edge Network services. These types of interactions are valuable for both collecting data and personalizing content.
 
-Interactive data collection endpoints receive a single event and are used when the client expects a response to be returned by the Adobe Experience Platform Edge Network server. These endpoints can also return content from other Edge Network services, while performing data collection.
+Batch events are not supported using this endpoint; if you need to queue events or send multiple events simultaneously, consider using the [`collect`](../collect/index.md) endpoint.
 
->[!IMPORTANT]
->
->The `/interact` endpoint is designed primarily to be used by the Experience Platform SDKs. This endpoint is subject to additive changes and its behavior can evolve without notice. For example, new items might be added to the response payload in the future.
+This endpoint supports both [authenticated](../../getting-started/authentication.md) and non-authenticated events. The payload for each endpoint use an identical format. Make sure that you use the correct endpoint for your organization's use case.
 
-The server response includes one or more `Handle` objects, as shown below.
+**`POST https://edge.adobedc.net/ee/v2/interact?datastreamId={Datastream ID}`** (Non-authenticated)
 
-## API call example
+**`POST https://server.adobedc.net/ee/v2/interact?datastreamId={Datastream ID}`** (Authenticated)
 
-### API format {#format}
+<CodeBlock slots="heading, code" repeat="3" languages="CURL,CURL,JSON"/>
 
-```http
-POST /ee/v2/interact
+#### Non-authenticated request
+
+```sh
+curl -X POST "https://server.adobedc.net/ee/v2/collect?dataStreamId={DATASTREAM_ID}"
+-H "Content-Type: application/json" 
+-d '{
+   "event": {
+      "xdm": {
+         "identityMap": {
+            "Email_LC_SHA256": [
+               {
+                  "id": "0c7e6[...]e8a3b",
+                  "primary": true
+               }
+            ]
+         },
+         "eventType": "web.webpagedetails.pageViews",
+         "web": {
+            "webPageDetails": {
+               "URL": "https://example.com/",
+               "name": "home-demo-Home Page"
+            }
+         },
+         "timestamp": "YYYY-08-09T14:09:20.859Z"
+      },
+      "data": {
+         "prop1": "custom value"
+      }
+   }
+}'
 ```
 
-### Request {#request}
+#### Authenticated request
 
-```shell
-curl -X POST "https://server.adobedc.net/ee/v2/interact?dataStreamId={DATASTREAM_ID}" 
+```sh
+curl -X POST "https://server.adobedc.net/ee/v2/collect?dataStreamId={DATASTREAM_ID}" 
 -H "Authorization: Bearer {TOKEN}" 
 -H "x-gw-ims-org-id: {ORG_ID}" 
 -H "x-api-key: {API_KEY}" 
@@ -37,7 +62,7 @@ curl -X POST "https://server.adobedc.net/ee/v2/interact?dataStreamId={DATASTREAM
          "identityMap": {
             "Email_LC_SHA256": [
                {
-                  "id": "0c7e6a405862e402eb76a70f8a26fc732d07c32931e9fae9ab1582911d2e8a3b",
+                  "id": "0c7e6[...]e8a3b",
                   "primary": true
                }
             ]
@@ -45,11 +70,11 @@ curl -X POST "https://server.adobedc.net/ee/v2/interact?dataStreamId={DATASTREAM
          "eventType": "web.webpagedetails.pageViews",
          "web": {
             "webPageDetails": {
-               "URL": "https://alloystore.dev/",
+               "URL": "https://example.com/",
                "name": "home-demo-Home Page"
             }
          },
-         "timestamp": "2021-08-09T14:09:20.859Z"
+         "timestamp": "YYYY-08-09T14:09:20.859Z"
       },
       "data": {
          "prop1": "custom value"
@@ -58,18 +83,56 @@ curl -X POST "https://server.adobedc.net/ee/v2/interact?dataStreamId={DATASTREAM
 }'
 ```
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `dataStreamId` | `String` | Yes. | Datastream ID. |
-| `requestId` | `String` | No | Provide a client random ID for correlating internal server requests. If none is provided, the Edge Network will generate one and return it in the response.|
-
-### Response {#response}
-
-A successful response returns HTTP status `200 OK`, with one or more `Handle` objects, depending on the real-time edge services enabled in the datastream configuration.
+#### Response
 
 ```json
 {
-   "requestId": "c85402f5-83a1-4fb3-abdd-f4c17bf6dd49",
-   "handle": []
+  "requestId": "60a2f[...]2294d",
+  "handle": [
+    {
+      "payload": [
+        {
+          "scope": "Target",
+          "hint": "35",
+          "ttlSeconds": 1800
+        },
+        {
+          "scope": "AAM",
+          "hint": "9",
+          "ttlSeconds": 1800
+        },
+        {
+          "scope": "EdgeNetwork",
+          "hint": "or2",
+          "ttlSeconds": 1800
+        }
+      ],
+      "type": "locationHint:result"
+    },
+    {
+      "payload": [
+        {
+          "key": "kndctr_53A[...]C99_AdobeOrg_identity",
+          "value": "CiYzM[...]snTI=",
+          "maxAge": 34128000
+        },
+        {
+          "key": "kndctr_53A[...]C99_AdobeOrg_cluster",
+          "value": "or2",
+          "maxAge": 1800
+        }
+      ],
+      "type": "state:store"
+    }
+  ]
 }
 ```
+
+The following query string parameters are available for this endpoint:
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `dataStreamId` | `String` | Yes | The ID of the datastream used by the data collection endpoint. |
+| `requestId` | `String` | No | Provide an external request tracing ID. If none is provided, the Edge Network generates one for you and includes it in the response. |
+
+A successful response returns HTTP status `200 OK`, with one or more `Handle` objects, depending on the real-time edge services enabled in the datastream configuration.

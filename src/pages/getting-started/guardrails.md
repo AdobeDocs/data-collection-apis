@@ -1,20 +1,10 @@
 ---
-title: Performance guardrails for Edge Network Server API
-description: Learn how to use the Server API within optimal performance guardrails.
-exl-id: 063d0fbb-26d1-4727-9dea-8e7223b2173d
+title: Performance guardrails for Edge Network API
+description: Learn how to use the API within optimal performance guardrails.
 ---
+# Performance guardrails
 
-# Performance guardrails for Edge Network Server API
-
-## Overview {#overview}
-
-Performance guardrails define usage limits related to your Server API use cases. Exceeding the performance guardrails outlined in this article could result in performance degradation.
-
-Adobe is not responsible for performance degradation caused by exceeded usage limits. Customers who consistently exceed the performance guardrails can request additional processing capacity to avoid performance degradation.
-
->[!IMPORTANT]
->
->Check your license entitlements in your Sales Order and corresponding [Product Description](https://helpx.adobe.com/legal/product-descriptions.html) on actual usage limits in addition to this guardrails page.
+Performance guardrails define usage limits related to your API use cases. Exceeding the performance guardrails outlined in this article can result in performance degradation. Adobe is not responsible for performance degradation caused by exceeded usage limits. Organizations who consistently exceed the performance guardrails can request additional processing capacity to avoid performance degradation. Check your license entitlements in your contract and corresponding [Product Description](https://helpx.adobe.com/legal/product-descriptions.html) on actual usage limits in addition to this guardrails page.
 
 ## Definitions
 
@@ -22,8 +12,8 @@ Adobe is not responsible for performance degradation caused by exceeded usage li
 * **Monthly uptime percentage** for a given region is calculated as the average of the availability for all five-minute intervals in a month.
 * An **upstream** is a service behind the Edge Network, enabled for a specific datastream, such as Adobe Server Side Forwarding, Adobe Edge Segmentation, or Adobe Target.
 * A **request unit** corresponds to a 8 KB fragment of a request and one upstream configured for a datastream.
-* A **request** is a single message sent by a customer-owned application to the [!DNL Server API]. A request can contain one or more request units.
-* An **error** is any request that fails due to an Edge Network [internal service error](error-handling.md).
+* A **request** is a single message sent by a customer-owned application to the API. A request can contain one or more request units.
+* An **error** is any request that fails due to an Edge Network [internal service error](troubleshooting.md).
 
 ## Service limits
 
@@ -44,20 +34,18 @@ All limits are applied and normalised over a **request unit (RU)**, defined as a
 
 ### Request units limits
 
-The table below shows the default limit values. If you need higher request unit limits, reach out to your account representative.
+The table below shows the default limit values. If you need higher request unit limits, reach out to your Adobe Account Team.
 
 | Endpoint | Requests units per second |
 | --- | --- |
 | `/v2/interact` | 4000 |
 | `/v2/collect` | 6000 |
 
-
 ### HTTP Request size limit
 
 | Payload format | Max size for a request | Max 8 KB request fragments |
 | --- | --- | --- |
 | JSON plain-text | 64 KB | 8 |
-
 
 >[!NOTE]
 >

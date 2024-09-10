@@ -1,69 +1,81 @@
 ---
 title: Authentication
-description: Learn how to configure authentication for the Adobe Experience Platform Edge Network Server API.
+description: Learn how to configure authentication for the Adobe Experience Platform Edge Network API.
 ---
-# Authentication {#authentication}
+# Authentication
 
-## Overview 
+Some endpoints, such as [`collect`](../endpoints/collect/index.md) or [`interact`](../endpoints/interact/index.md), support both authenticated events and non-authenticated events.
 
-The [!DNL Edge Network Server API] handles both authenticated and non-authenticated data collection, depending on the source of events and the API collection domain.
+* Non-authenticated events are best suited for client-to-server data collection. For example, a visitor arrives on your site, and the API call is sent from the visitor's browser.
+* Authenticated events are best suited for server-to-server data collection. For example, a visitor arrives on your site, and the API call is generated from your server when the visitor requests your website content.
 
-For each request, the [!DNL Server API] verifies the datastream [!DNL access type] setting. Using this setting, customers can configure a datastream to accept either authenticated data, or both authenticated and non-authenticated data. By default, both types of data are accepted.
+You can configure a datastream to accept either authenticated or non-authenticated events, or you can configure it to only accept authenticated events. See [Create and configure datastreams](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#@advanced-options) in the Datastreams guide for more information. A datastream accepts both authenticated and non-authenticated events by default.
 
-For details on configuring the datastream access type, see the documentation on how to [create and configure a datastream](../datastreams/overview.md#create).
+All authenticated events require the following three headers in every API call:
 
-Below is a summary of the behavior, based on the datastream [!DNL Access Type] configuration and the endpoint on which the request is received.
+* [`Authorization`](#authorization)
+* [`x-api-key`](#x-api-key)
+* [`x-gw-ims-org-id`](#x-gw-ims-org-id)
 
-| [!DNL Access Type]    | edge.adobedc.net              | server.adobedc.net    |
-|-----------------|-------------------------------|-----------------------|
-| mixed (default) | Does not authenticate request  | Authenticates request |
-| authenticated   | Authenticates request         | Authenticates request |
+## Prerequisites
 
-API calls coming from a private server on `server.adobedc.net` should always be authenticated.
+Before you make calls to the Edge Network API, make sure that you meet the following prerequisites:
 
-## Prerequisites {#prerequisites}
+* You have an account with access to Adobe Experience Platform in the desired IMS org.
+* You are added as both a developer and a user for Adobe Experience Platform in the Adobe Admin Console. Contact your organization's product or system admin to be added to the correct product profiles or user groups.
 
-Before you can make calls to the [!DNL Server API], make sure you meet the following prerequisites:
+If you meet both of the above criteria, you can perform both of the following vital tasks:
 
-* You have an organization account with access to Adobe Experience Platform.
-* Your Experience Platform account has the `developer` and `user` roles enabled for the Adobe Experience Platform API product profile. Contact your [Admin Console](../access-control/home.md) administrator to enable these roles for your account.
-* You have an Adobe ID. If you do not have an Adobe ID, go to the [Adobe Developer Console](https://developer.adobe.com/console) and create a new account.
+* Create or edit datastreams inside the Adobe Experience Platform UI
+* Create or edit API projects inside the Adobe Developer Console
 
-## Gather credentials {#credentials}
+## `Authorization`
 
-In order to make calls to Platform APIs, you must first complete the [authentication tutorial](../landing/api-authentication.md). Completing the authentication tutorial provides the values for each of the required headers in all Experience Platform API calls, as shown below:
+The `Authorization` header contains a token that authenticates your API call. You can quickly generate an access token in your Adobe Developer project using the following steps:
 
-* Authorization: Bearer `{ACCESS_TOKEN}`
-* x-api-key: `{API_KEY}`
-* x-gw-ims-org-id: `{ORG_ID}`
+1. Log in to the [Adobe Developer Console](https://developer.adobe.com/console).
+1. Navigate to **Projects**, and select the desired project (or create one).
+1. Under **Credentials**, select **OAuth Server-to-Server**.
+1. Click the **Generate access token** button.
 
-Resources in Experience Platform can be isolated to specific virtual sandboxes. In requests to Platform APIs, you can specify the name and ID of the sandbox that the operation will take place in. These are optional parameters.
+See [Server to server authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/) in the Adobe Developer authentication guide for instructions on how to programmatically obtain this token. This header uses the following format:
 
-* x-sandbox-name: `{SANDBOX_NAME}`
+`Authorization: Bearer eyJ[...]rtw`
 
->[!NOTE]
->
->For more information on sandboxes in Experience Platform, see the [sandbox overview documentation](../sandboxes/home.md).
+## `x-api-key`
 
-All requests that contain a payload (POST, PUT, PATCH) require an additional media type header:
+The `x-api-key` header contains the API sandbox identifier. You can obtain this key in your Adobe Developer project:
 
-* Content-Type: `application/json`
+1. Log in to the [Adobe Developer Console](https://developer.adobe.com/console).
+1. Navigate to **Projects**, and select the desired project (or create one).
+1. Under **Credentials**, select **OAuth Server-to-Server**.
+1. Copy the **Client ID** on the page.
 
-## Configure dataset write permissions {#dataset-write-permissions}
+This header uses the following format:
 
-To configure dataset write permissions, go to the [Admin Console](https://adminconsole.adobe.com), locate the product profile attached to your API key, and set the following permissions:
+`x-api-key: a52cf[...]1ed71`
 
-* In the [!UICONTROL Sandboxes] section, select the datastream sandbox.
-* In the [!UICONTROL Data Management] section, select the **[!UICONTROL Manage Datasets]** permission.
+## `x-gw-ims-org-id`
 
-## Troubleshooting authorization errors {#troubleshooting-authorization}
+The `x-gw-ims-org-id` contains the IMS org of the API project you're working in. You can obtain this identifier using the following steps:
+
+1. Log in to [Adobe Experience Platform](https://platform.adobe.com)
+1. On any page in the Platform UI, press `[Ctrl]` + `[I]`.
+1. Locate the **Currnt Org ID** in the **User Information** tab. You might need to scroll to locate this field.
+
+This header uses the following format:
+
+`x-gw-ims-org-id: 53A[...]C99@AdobeOrg`
+
+## Troubleshooting
+
+See the following table for common authorization issue and how to resolve them.
 
 | Error code | Error message | Description |
 | --- | --- | --- |
-| `EXEG-0500-401` | Invalid authorization token | This error message is displayed in any of the following situations:  <ul><li>The `authorization` header value is missing.</li><li>The `authorization` header value does not include the required `Bearer` token.</li><li>The provided authorization token has an invalid format.</li><li>The datastream requires authentication but the request is missing required headers.</li></ul> |
-| `EXEG-0501-401` | Invalid user authorization token | This error message is displayed in any of the following situations: <ul><li>The API call is missing the required `x-user-token` header.</li><li>The provided user token has an invalid format.</li></ul> |
-| `EXEG-0502-401` | Invalid authorization token | This error message is displayed when the provided authorization token has a valid format (JWT), but its signature is invalid. Check the [authentication tutorial](../landing/api-authentication.md) to learn how to get a valid JWT token. |
-| `EXEG-0503-401` | Invalid authorization token | This error message is displayed when the provided authorization token is expired. Go through the [authentication tutorial](../landing/api-authentication.md) to generate a new token. |
-| `EXEG-0504-401` | Required product context is missing | This error message is displayed in any of the following situations:  <ul><li>The developer account does not have access to Adobe Experience Platform product context.</li><li>The company account is not yet entitled to Adobe Experinece Platform.</li></ul>|
+| `EXEG-0500-401` | Invalid authorization token | This error message is displayed in any of the following situations:  <ul><li>The `Authorization` header value is missing.</li><li>The `Authorization` header value does not include the required `Bearer` token.</li><li>The provided authorization token has an invalid format.</li><li>The datastream requires authentication but the request is missing required headers.</li></ul> |
+| `EXEG-0502-401` | Invalid authorization token | The authorization token is in a correct format, but the token itself is invalid. |
+| `EXEG-0503-401` | Invalid authorization token | The authorization token is expired. Generate a new token to resolve this issue. |
+| `EXEG-0504-401` | Required product context is missing | This error message is displayed in any of the following situations: <ul><li>The developer account does not have access to Adobe Experience Platform product context.</li><li>The company account is not yet entitled to Adobe Experinece Platform.</li></ul> |
 | `EXEG-0505-401` | Required authorization token scope is missing | This error applies only to service account authentication. The error message is displayed when the service authorization token included in the call belongs to a service account which does not have access to the `acp.foundation` IMS scope.|
-| `EXEG-0506-401` | Sandbox not accessible for write | This error message is displayed when the developer account does not have `WRITE` access to the Experience Platform sandbox in which the datastream is defined. |
+| `EXEG-0506-401` | Sandbox not accessible for write | This error message is displayed when the developer account does not have `WRITE` access to the Experience Platform sandbox that the datastream belongs in. |

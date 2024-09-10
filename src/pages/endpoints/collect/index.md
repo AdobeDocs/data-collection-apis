@@ -1,6 +1,6 @@
 ---
 title: Collect endpoint (non-interactive collection)
-description: Learn how the Adobe Experience Platform Edge Network Server API performs non-interactive data collection.
+description: Learn how the Adobe Experience Platform Edge Network API performs non-interactive data collection.
 ---
 # Collect endpoint (non-interactive collection)
 
@@ -10,9 +10,9 @@ Batch events do not necessarily need to belong to the same visitor, meaning that
 
 This endpoint supports both [authenticated](../../getting-started/authentication.md) and non-authenticated events. The payload for each endpoint use an identical format. Make sure that you use the correct endpoint for your organization's use case.
 
-* **Non-authenticated**: **`POST https://edge.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`**
+**`POST https://edge.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`** (Non-authenticated)
 
-* **Authenticated**: **`POST https://server.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`**
+**`POST https://server.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`** (Authenticated)
 
 <CodeBlock slots="heading, code" repeat="3" languages="CURL,CURL,JSON"/>
 
@@ -141,14 +141,13 @@ curl -X POST "https://server.adobedc.net/ee/v2/collect?dataStreamId={DATASTREAM_
 }
 ```
 
-This endpoint provides the following query string parameters:
+The following query string parameters are available for this endpoint:
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `dataStreamId` | `String` | Yes | The ID of the datastream used by the data collection endpoint. |
-| `requestId` | `String` | No | Provide an external request tracing ID. If none is provided, the Edge Network will generate one for you and return it back in the response body / headers.|
-| `silent` | `Boolean` | No | Optional boolean parameter indicating whether the Edge Network should return a `204 No Content` response with an empty payload or not. Critical errors are reported using the corresponding HTTP status code and payload.|
-
+| `requestId` | `String` | No | Provide an external request tracing ID. If none is provided, the Edge Network generates one for you and includes it in the response. |
+| `silent` | `Boolean` | No | Optional boolean parameter indicating whether the Edge Network should return a `204 No Content` response with an empty payload or not. Critical errors are reported using the corresponding HTTP status code and payload. |
 
 A successful response returns one of the following statuses, and a `requestID` if none was provided in the requst.
 
