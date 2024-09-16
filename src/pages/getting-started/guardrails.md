@@ -4,7 +4,7 @@ description: Learn how to use the API within optimal performance guardrails.
 ---
 # Performance guardrails
 
-Performance guardrails define usage limits related to your API use cases. Exceeding the performance guardrails outlined in this article can result in performance degradation. Adobe is not responsible for performance degradation caused by exceeded usage limits. Organizations who consistently exceed the performance guardrails can request additional processing capacity to avoid performance degradation. Check your license entitlements in your contract and corresponding [Product Description](https://helpx.adobe.com/legal/product-descriptions.html) on actual usage limits in addition to this guardrails page.
+Performance guardrails define usage limits related to your API use cases. Exceeding the performance guardrails outlined in this article can result in performance degradation. Adobe is not responsible for performance degradation caused by exceeded usage limits. If you frequently encounter these limits, you can request additional processing capacity to avoid performance degradation. Check your license entitlements in your contract and corresponding [Product Description](https://helpx.adobe.com/legal/product-descriptions.html) on actual usage limits in addition to this guardrails page.
 
 ## Definitions
 
@@ -21,9 +21,7 @@ All datastreams enforce certain usage limits, which mainly control how many even
 
 ### Request units
 
-All limits are applied and normalised over a **request unit (RU)**, defined as a **8 KB fragment** of a request going to one upstream service configured in a datastream.
-
-#### Examples
+All limits are applied and normalised over a **request unit**, defined as a **8 KB fragment** of a request going to one upstream service configured in a datastream.
 
 | Upstreams configured per datastream | Average request size | Request units |
 | --- | --- | --- |
@@ -47,16 +45,4 @@ The table below shows the default limit values. If you need higher request unit 
 | --- | --- | --- |
 | JSON plain-text | 64 KB | 8 |
 
->[!NOTE]
->
->Depending on the payload itself, binary formats are generally 20-40% more compact, allowing you to push more data than you would in plain-text JSON. Please get in contact with your Customer Care representative if you need a higher capacity for your datastreams.
-
-## Next steps
-
-See the following documentation for more information on other Experience Platform services guardrails, on end-to-end latency information, and licensing information from Real-Time CDP Product Description documents:
-
-* [Real-Time CDP guardrails](/help/rtcdp/guardrails/overview.md)
-* [End-to-end latency diagrams](https://experienceleague.adobe.com/docs/blueprints-learn/architecture/architecture-overview/deployment/guardrails.html?lang=en#end-to-end-latency-diagrams) for various Experience Platform services.
-* [Real-Time Customer Data Platform (B2C Edition - Prime and Ultimate Packages)](https://helpx.adobe.com/legal/product-descriptions/real-time-customer-data-platform-b2c-edition-prime-and-ultimate-packages.html)
-* [Real-Time Customer Data Platform (B2P - Prime and Ultimate Packages)](https://helpx.adobe.com/legal/product-descriptions/real-time-customer-data-platform-b2p-edition-prime-and-ultimate-packages.html)
-* [Real-Time Customer Data Platform (B2B - Prime and Ultimate Packages)](https://helpx.adobe.com/legal/product-descriptions/real-time-customer-data-platform-b2b-edition-prime-and-ultimate-packages.html)
+Depending on the payload itself, binary formats are generally 20-40% more compact, allowing you to push more data than you would in plain-text JSON. Contact Customer Care if you need a higher capacity for your datastreams.
