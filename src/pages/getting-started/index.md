@@ -51,12 +51,6 @@ You can use [Postman](https://www.postman.com/downloads/) to test API calls befo
    * HTTP method: **`POST`**
    * URL: **`https://edge.adobedc.net/ee/v2/interact?datastreamId={DATASTREAM_ID}`**
    * Make sure that you replace `{DATASTREAM_ID}` with the Datastream ID copied from the Platform UI.
-1. Select the **Pre-request Script** tab and paste the following code. This snippet automatically grabs the current time so that you do not need to worry about the `timestamp` property.
-
-    ```js
-    pm.variables.set("currentTimestamp", new Date().toISOString());
-    ```
-
 1. Select the **Body** tab and set the content type to **raw JSON**.
 1. Paste the following into the body:
 
@@ -64,22 +58,21 @@ You can use [Postman](https://www.postman.com/downloads/) to test API calls befo
     {
       "event": {
         "xdm": {
-        "identityMap": {
+          "identityMap": {
             "email": [
-            {
+              {
                 "id": "user@example.com",
                 "primary": true
-            }
-          ]
-        },
-        "eventType": "web.webpagedetails.pageViews",
-        "web": {
+              }
+            ]
+          },
+          "eventType": "web.webpagedetails.pageViews",
+          "web": {
             "webPageDetails": {
-            "URL": "https://example.com/",
-            "name": "home-demo-Home Page"
+              "URL": "https://example.com/",
+              "name": "home-demo-Home Page"
             }
-        },
-        "timestamp": "{{currentTimestamp}}"
+          }
         }
       }
     }

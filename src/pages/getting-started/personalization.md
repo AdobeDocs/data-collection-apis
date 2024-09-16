@@ -530,7 +530,7 @@ If the visitor qualifies for a personalization activity based on data sent to Of
 
 Other content is returned under the `handle` object as well. Other content types are not relevant to Offer Decisioning personalization. If the visitor qualifies for multiple activities, they are contained in an array. 
 
-| Property | Description |Example |
+| Property | Description | Example |
 | --- | --- | --- |
 | `scope` | The decision scope associated with the proposed offers that were returned. | `"scope": "eyJhY3Rpdm[...]EwMGMifQ=="` |
 | `activity.id` | The unique ID of the offer activity. | `"id": "xcore:offer-activity:11cfb1fa93381aca"` |
