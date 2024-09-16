@@ -19,7 +19,7 @@ This endpoint supports both [authenticated](../../getting-started/authentication
 #### Non-authenticated request
 
 ```sh
-curl -X POST "https://server.adobedc.net/ee/v2/collect?dataStreamId={DATASTREAM_ID}"
+curl -X POST "https://server.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID}"
 -H "Content-Type: application/json" 
 -d '{
    "event": {
@@ -51,7 +51,7 @@ curl -X POST "https://server.adobedc.net/ee/v2/collect?dataStreamId={DATASTREAM_
 #### Authenticated request
 
 ```sh
-curl -X POST "https://server.adobedc.net/ee/v2/collect?dataStreamId={DATASTREAM_ID}" 
+curl -X POST "https://server.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID}" 
 -H "Authorization: Bearer {TOKEN}" 
 -H "x-gw-ims-org-id: {ORG_ID}" 
 -H "x-api-key: {API_KEY}" 
@@ -132,7 +132,7 @@ The following query string parameters are available for this endpoint:
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| `dataStreamId` | `String` | Yes | The ID of the datastream used by the data collection endpoint. |
+| `datastreamId` | `String` | Yes | The ID of the datastream used by the data collection endpoint. |
 | `requestId` | `String` | No | Provide an external request tracing ID. If none is provided, the Edge Network generates one for you and includes it in the response. |
 
 A successful response returns HTTP status `200 OK`, with one or more `Handle` objects, depending on the real-time edge services enabled in the datastream configuration.

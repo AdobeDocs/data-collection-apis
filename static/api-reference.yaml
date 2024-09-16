@@ -52,7 +52,7 @@ paths:
         - IMSAuth: []
       parameters:
         - $ref: "#/components/parameters/xGatewayImsOrgId"
-        - $ref: "#/components/parameters/dataStreamId"
+        - $ref: "#/components/parameters/datastreamId"
         - $ref: "#/components/parameters/requestId"
         - $ref: "#/components/parameters/requestIdHeader"
         - $ref: "#/components/parameters/fpid"
@@ -101,7 +101,7 @@ paths:
         - ApiKeyAuth: []
         - IMSAuth: []
       parameters:
-        - $ref: "#/components/parameters/dataStreamId"
+        - $ref: "#/components/parameters/datastreamId"
         - $ref: "#/components/parameters/xGatewayImsOrgId"
         - $ref: "#/components/parameters/requestId"
         - $ref: "#/components/parameters/requestIdHeader"
@@ -184,9 +184,9 @@ components:
         default: "8888888"
       description: "Is a global unique identifier (used by V1 APIs) which scopes the SDK instance/call to a more granular level than the Org ID would do"
       required: true
-    dataStreamId:
+    datastreamId:
       in: query
-      name: "dataStreamId"
+      name: "datastreamId"
       schema:
         type: string
         default: "8888888"
