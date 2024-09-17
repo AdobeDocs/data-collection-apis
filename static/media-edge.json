@@ -7,9 +7,6 @@
   },
   "servers": [
     {
-      "url": "https://edge.adobedc.net/ee-pre-prd/va/v1"
-    },
-    {
       "url": "https://edge.adobedc.net/ee/va/v1"
     }
   ],
