@@ -11,39 +11,31 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/dev-site-documentation-template/',
+  pathPrefix: process.env.PATH_PREFIX || '/data-collection-apis/docs/',
   siteMetadata: {
-    versions: [
-      {
-        title: 'v2.0',
-        selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/dev-site'
-      }
-    ],
     pages: [
       {
-        title: 'Cat Analytics',
+        title: 'Data collection APIs',
         path: '/'
       },
       {
-        title: 'Guides',
-        path: '/guides/'
+        title: 'Getting started',
+        path: '/getting-started/'
       },
       {
-        title: 'API Reference',
+        title: 'Endpoint guides',
+        path: '/endpoints/'
+      },
+      {
+        title: 'API references',
         menu: [
           {
-            title: 'Cat Reference v2.0',
-            description: 'Cat Reporting API',
-            path: '/api/index.md'
+            title: 'Edge Network API',
+            path: '/api/'
           },
           {
-            title: 'Cat Reference v1.4',
-            description: 'Cat API Spec',
-            path: '/api/1.4.md'
+            title: 'Media Edge API',
+            path: '/api/media-edge/'
           }
         ]
       },
@@ -54,54 +46,95 @@ module.exports = {
     ],
     subPages: [
       {
-        title: 'Get Started',
-        path: '/guides/',
+        title: 'Getting Started',
+        path: '/getting-started/',
         pages: [
           {
-            title: 'Dummy an OAuth Client',
-            path: '/guides/dummy_oauth_client/'
+            title: 'Authentication',
+            path: '/getting-started/authentication/'
           },
           {
-            title: 'Dummy OAuth using POSTMAN',
-            path: '/guides/dummy_using_postman/'
+            title: 'Guardrails',
+            path: '/getting-started/guardrails/'
+          },
+          {
+            title: 'Location hints',
+            path: '/getting-started/location-hints/'
+          },
+          {
+            title: 'Personalization',
+            path: '/getting-started/personalization/'
+          },
+          {
+            title: 'Troubleshooting',
+            path: '/getting-started/troubleshooting/'
           }
         ]
       },
       {
-        title: 'Cat Metrics API',
-        path: '/guides/dummy_metrics_api/'
-      },
-      {
-        title: 'Migrating',
-        path: '/guides/migrating/'
-      },
-      {
-        title: 'Overview',
-        path: '/support/',
-        header: true,
+        title: 'Endpoint guides',
+        path: '/endpoints/',
         pages: [
           {
-            title: 'Help',
-            path: '/support/'
+            title: 'Collect',
+            path: '/endpoints/collect/'
+            /* In case we need to add more pages
+            pages: [
+              {
+                title: 'Another page',
+                path: '/endpoints/collect/anotherpage/'
+              }
+            ]*/
           },
           {
-            title: 'FAQ',
-            path: '/support/FAQ/'
+            title: 'Interact',
+            path: '/endpoints/interact/'
           },
           {
-            title: 'How to contribute',
-            path: '/support/contribute/'
-          }
-        ]
-      },
-      {
-        title: 'Community',
-        path: '/support/community/',
-        header: true,
-        pages: [
-          {
-            title: 'Information',
-            path: '/support/community/'
+            title: 'Media Edge',
+            path: '/endpoints/media/',
+            pages: [
+              {
+                title: 'Ads',
+                path: '/endpoints/media/ads/'
+              },
+              {
+                title: 'Bitrate change',
+                path: '/endpoints/media/bitratechange/'
+              },
+              {
+                title: 'Buffer start',
+                path: '/endpoints/media/bufferstart/'
+              },
+              {
+                title: 'Chapters',
+                path: '/endpoints/media/chapters/'
+              },
+              {
+                title: 'Error',
+                path: '/endpoints/media/error/'
+              },
+              {
+                title: 'Pause start',
+                path: '/endpoints/media/pausestart/'
+              },
+              {
+                title: 'Ping',
+                path: '/endpoints/media/ping/'
+              },
+              {
+                title: 'Play',
+                path: '/endpoints/media/ping/'
+              },
+              {
+                title: 'Sessions',
+                path: '/endpoints/media/sessions/'
+              },
+              {
+                title: 'States update',
+                path: '/endpoints/media/statesupdate'
+              }
+            ]
           }
         ]
       }
