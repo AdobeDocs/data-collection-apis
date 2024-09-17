@@ -33,9 +33,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/gatsby-theme-aio@npm:^4.11.0":
-  version: 4.11.0
-  resolution: "@adobe/gatsby-theme-aio@npm:4.11.0"
+"@adobe/gatsby-theme-aio@npm:^4.14.10":
+  version: 4.14.10
+  resolution: "@adobe/gatsby-theme-aio@npm:4.14.10"
   dependencies:
     "@adobe/focus-ring-polyfill": ^0.1.5
     "@adobe/gatsby-source-github-file-contributors": ^0.3.1
@@ -108,7 +108,7 @@ __metadata:
     penpal: ^6.2.2
     postcss: ^8.4.16
     preact: ^10.11.0
-    preact-render-to-string: ^5.2.4
+    preact-render-to-string: ^6.5.5
     prism-react-renderer: 1.3.5
     prop-types: ^15.8.1
     react-helmet: ^6.1.0
@@ -131,7 +131,7 @@ __metadata:
     gatsby: ^4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 846821c771b0ee163658e7c33c09f07a8e6572bf3f6045587c217e7470e817fbe388ce5957f9719fa81a384236d8ebb6c1478184d9e3d1a0858d2d90fb1b719e
+  checksum: 32a5e03af2a846c0ad2b9b29a33b683cafebfda6061bf22bb17e3300d233f45e65e698f52d6e43d51ed2e35e60b865ca59b430ef30ed1dcd2db41b879f4ad24c
   languageName: node
   linkType: hard
 
@@ -7625,6 +7625,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"data-collection-apis@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "data-collection-apis@workspace:."
+  dependencies:
+    "@adobe/gatsby-theme-aio": ^4.14.10
+    gatsby: 4.22.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    remark-cli: ^11.0.0
+    remark-validate-links: ^12.1.0
+  languageName: unknown
+  linkType: soft
+
 "data-urls@npm:^1.0.0":
   version: 1.1.0
   resolution: "data-urls@npm:1.1.0"
@@ -7941,19 +7954,6 @@ __metadata:
   checksum: b48da9340481742547263d5d985e65d078592557863402ecf538511735e83575867e94f91fe74405ea19b61351feb99efccae7e55de9a151d5654e3417cea05b
   languageName: node
   linkType: hard
-
-"dev-site-documentation-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "dev-site-documentation-template@workspace:."
-  dependencies:
-    "@adobe/gatsby-theme-aio": ^4.11.0
-    gatsby: 4.22.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    remark-cli: ^11.0.0
-    remark-validate-links: ^12.1.0
-  languageName: unknown
-  linkType: soft
 
 "devcert@npm:^1.2.0":
   version: 1.2.2
@@ -16349,14 +16349,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preact-render-to-string@npm:^5.2.4":
-  version: 5.2.6
-  resolution: "preact-render-to-string@npm:5.2.6"
-  dependencies:
-    pretty-format: ^3.8.0
+"preact-render-to-string@npm:^6.5.5":
+  version: 6.5.11
+  resolution: "preact-render-to-string@npm:6.5.11"
   peerDependencies:
     preact: ">=10"
-  checksum: be8d5d8fb502d422c503e68af7bcccb6facd942f3ae9a4d093ebe3f1d4f0b15c540624bdac434d53a2a8e8fb7afa4606383414e937c40933ca43445470a026ff
+  checksum: 6dcf890fa1bfb9dfe52ef1ae18cb39c792756ed306bea1f83ad2d007a6398be689e369b9d8365a7efd6c8a02a262fdadfacb412b2d96738b9be3dfa9bd8d3f23
   languageName: node
   linkType: hard
 
@@ -16402,13 +16400,6 @@ __metadata:
     lodash: ^4.17.20
     renderkid: ^2.0.4
   checksum: 16775d06f9a695d17103414d610b1281f9535ee1f2da1ce1e1b9be79584a114aa7eac6dcdcc5ef151756d3c014dfd4ac1c7303ed8016d0cec12437cfdf4021c6
-  languageName: node
-  linkType: hard
-
-"pretty-format@npm:^3.8.0":
-  version: 3.8.0
-  resolution: "pretty-format@npm:3.8.0"
-  checksum: 21a114d43ef06978f8f7f6212be4649b0b094f05d9b30e14e37550bf35c8ca24d8adbca9e5adc4cc15d9eaf7a1e7a30478a4dc37b30982bfdf0292a5b385484c
   languageName: node
   linkType: hard
 
