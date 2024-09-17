@@ -76,6 +76,10 @@ module.exports = {
         path: '/endpoints/',
         pages: [
           {
+            title: 'Interact',
+            path: '/endpoints/interact/'
+          },
+          {
             title: 'Collect',
             path: '/endpoints/collect/'
             /* In case we need to add more pages
@@ -85,10 +89,6 @@ module.exports = {
                 path: '/endpoints/collect/anotherpage/'
               }
             ]*/
-          },
-          {
-            title: 'Interact',
-            path: '/endpoints/interact/'
           },
           {
             title: 'Media Edge',

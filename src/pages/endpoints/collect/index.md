@@ -19,7 +19,7 @@ This endpoint supports both [authenticated](../../getting-started/authentication
 #### Non-authenticated request
 
 ```sh
-curl -X POST "https://server.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID}"
+curl -X POST "https://edge.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID}"
 -H "Content-Type: application/json" 
 -d '{
    "events": [
@@ -151,6 +151,6 @@ The following query string parameters are available for this endpoint:
 
 A successful response returns one of the following statuses, and a `requestID` if none was provided in the requst.
 
-* `202 Accepted` when the request was successfully processed;
-* `204 No Content` when the request was successfully processed and the `silent` parameter was set to `true`;
-* `400 Bad Request` when the request was not properly formed (e.g., the mandatory primary identity was not found).
+* `202 Accepted` when the request was successfully processed
+* `204 No Content` when the request was successfully processed and the `silent` parameter was set to `true`
+* `400 Bad Request` when the request was not properly formed (e.g., the mandatory primary identity was not found)
