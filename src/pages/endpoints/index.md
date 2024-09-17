@@ -12,8 +12,8 @@ The Adobe Experience Platform Edge Network provides an optimized way for custome
 
 Adobe offers several endpoints that facilitate the interaction with the Edge Network:
 
-* Edge Network APIs: Includes the `interact` and `collect` endpoints, sending data directly to a datastream
-* Media Edge APIs: Includes 18 endpoints that allow you to compose a streaming media session on Adobe's servers. When the session completes, those events are aggregated into a smaller number of events and sent to the desired datastream.
+* **Edge Network APIs**: Includes the `interact` and `collect` endpoints, sending data directly to a datastream
+* **Media Edge APIs**: Includes 18 endpoints that allow you to compose a streaming media session on Adobe's servers. When the session completes, those events are aggregated into a smaller number of events and sent to the desired datastream.
 
 The benefits of using these endpoints include:
 
@@ -24,7 +24,7 @@ The benefits of using these endpoints include:
 
 <InlineAlert variant="warning" slots="text" />
 
-These endpoints are subject to additive changes and its behavior can evolve without notice. For example, new objects or properties can be added to response payloads in the future. Make sure that any implementations using these APIs can accommodate additional fields without failing! Any "breaking changes", such as the removal of request or response objects, are released as a new incremental API version.
+These endpoints are subject to additive changes and its behavior can evolve without notice. For example, new objects or properties can be added to response payloads in the future. Make sure that any implementations using these APIs can accommodate additional fields without failing. Any "breaking changes", such as the removal of request or response objects, are released as a new incremental API version.
 
 ## Authenticated data collection
  

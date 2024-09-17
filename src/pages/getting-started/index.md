@@ -80,4 +80,4 @@ You can use [Postman](https://www.postman.com/downloads/) to test API calls befo
 
 1. Hit **Send**.
 
-In the response body, you should get a `200 OK`, indicating that data was successfully sent to the datastream. After approximately 30 minutes, you can log in to **Adobe Experience Platform** > **Datasets** to view all ingested and failed batches.
+If successful, the API returns a `200 OK` response, indicating that data was sent to the datastream. After approximately 30 minutes, you can log in to **Adobe Experience Platform** > **Datasets** to view all ingested batches.
