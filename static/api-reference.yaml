@@ -5,24 +5,24 @@ info:
   title: "Adobe Experience Platform Edge Network APIs"
 
 servers:
-  - url: https://edge.adobedc.net/ee
-    description: PROD Environment
+  - url: https://edge.adobedc.net/ee/
+    description: Production environment
 
 tags:
-  - name: "Device event collection"
+  - name: "Client-to-server collection"
     description: "Real-time events originating client-side, such as browsers or mobile devices"
-  - name: "Server event collection"
+  - name: "Server-to-server collection"
     description: "Real-time events forwarded by a private server"
-  - name: "ProfileUpdates"
+  - name: "Profile updates"
     description: "Collect specific data for Platform profile(s)"
 
 paths:
   /v1/interact:
     post:
       tags:
-        - "Device event collection"
-      summary: "Push multiple events and expect responses from real-time (interactive) upstreams"
-      description: ""
+        - "Client-to-server collection"
+      summary: "Interact (non-authenticated)"
+      description: "Push a single event and expect a response from real-time (interactive) upstreams"
       parameters:
         - $ref: "#/components/parameters/configId"
         - $ref: "#/components/parameters/requestId"
@@ -32,7 +32,7 @@ paths:
         $ref: "#/components/requestBodies/BatchV1RequestPayload"
       responses:
         200:
-          description: "Successfully processed. All the events have been received and processed in order."
+          description: "Successfully processed. The event has been received and processed in order."
           content:
             application/json:
               schema:
@@ -45,8 +45,9 @@ paths:
   /v2/interact:
     post:
       tags:
-        - "Server event collection"
-      summary: "Push a single event and expect response from real-time (interactive) upstreams"
+        - "Server-to-server collection"
+      summary: "Interact (authenticated)"
+      description: "Push a single event and expect a response from real-time (interactive) upstreams"
       security:
         - ApiKeyAuth: []
         - IMSAuth: []
@@ -75,8 +76,9 @@ paths:
   /v1/collect:
     post:
       tags:
-        - "Device event collection"
-      summary: "Push multiple events without expecting a response content"
+        - "Client-to-server collection"
+      summary: "Collect (non-authenticated)"
+      description: "Push multiple events without expecting a response content. Events can come from different end-users."
       parameters:
         - $ref: "#/components/parameters/configId"
         - $ref: "#/components/parameters/requestId"
@@ -95,8 +97,9 @@ paths:
   /v2/collect:
     post:
       tags:
-        - "Server event collection"
-      summary: "Push multiple events without expecting a response content. Events can come from different end-users."
+        - "Server-to-server collection"
+      summary: "Collect (authenticated)"
+      description: "Push multiple events without expecting a response content. Events can come from different end-users."
       security:
         - ApiKeyAuth: []
         - IMSAuth: []
@@ -127,9 +130,9 @@ paths:
   /v1/privacy/set-consent:
     post:
       tags:
-        - "ProfileUpdates"
-      summary: "Manage explicit consent for Marketing Activities"
-      description: "All consent preferences previously saved in the user's profile(s) will be overwritten through this operation."
+        - "Profile updates"
+      summary: "Set consent (non-authenticated)"
+      description: "Manage explicit consent for marketing activities. All consent preferences previously saved in the user's profile(s) are overwritten through this operation."
       parameters:
         - $ref: "#/components/parameters/configId"
         - $ref: "#/components/parameters/requestId"
@@ -141,7 +144,7 @@ paths:
               $ref: "#/components/schemas/ConsentReplaceRequest"
       responses:
         200:
-          description: "Successfully processed. Consent preferences have been successfully saved for the supplied profile(s)."
+          description: "Successfully processed. Consent preferences are successfully saved for the supplied profile(s)."
           content:
             application/json:
               schema:
@@ -154,7 +157,8 @@ paths:
   /v1/identity/acquire:
     post:
       tags:
-        - "Device event collection"
+        - "Client-to-server collection"
+      description: "Acquire identity"
       summary: "Fetch the identities specified in the passed namespaces."
       parameters:
         - $ref: "#/components/parameters/configId"
@@ -182,7 +186,7 @@ components:
       schema:
         type: string
         default: "8888888"
-      description: "Is a global unique identifier (used by V1 APIs) which scopes the SDK instance/call to a more granular level than the Org ID would do"
+      description: "The datastream ID. The v1 APIs use configId instead of datastreamId."
       required: true
     datastreamId:
       in: query
@@ -190,7 +194,7 @@ components:
       schema:
         type: string
         default: "8888888"
-      description: "Is a global unique identifier (used by V2 APIs) which scopes the SDK instance/call to a more granular level than the Org ID would do"
+      description: "The datastream ID."
       required: true
     silent:
       in: query
