@@ -7,5 +7,6 @@ keywords:
   - Edge Network API Reference
   - Edge Network API Swagger
   - Server API
+openAPISpec: /data-collection-apis/docs/api-reference.yaml
 ---
 <!--<RedoclyAPIBlock src="/data-collection-apis/docs/api-reference.yaml"/>-->
