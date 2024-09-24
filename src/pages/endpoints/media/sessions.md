@@ -38,7 +38,7 @@ curl -X POST "https://edge.adobedc.net/ee/va/v1/sessionStart?configId={datastrea
             "playerName": "sample-html5-api-player",
             "contentType": "VOD",
             "length": 60,
-            "channel": "sample-channel",
+            "channel": "sample-channel"
           },
           "playhead": 0
         }
