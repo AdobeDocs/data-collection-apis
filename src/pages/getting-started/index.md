@@ -38,7 +38,9 @@ A _datastream_ is a location in the Edge Network that forwards your data to conf
 1. Give the datastream a name, and select the schema created previously under **Mapping Schema**. Click **Save**.
 1. Select **Add Service** in the center.
 1. Select **Adobe Experience Platform** in the drop-down menu.
-1. Select the dataset created in the previous step under **Event Dataset**. Click **Save**.
+1. Select the dataset created in the previous step under **Event Dataset**.
+1. Make sure that Offer Decisioning, Edge Segmentation, Personalization Destinations, and Adobe Journey Optimizer are all **unchecked**.
+1. Click **Save**.
 
 Everything is now configured to start sending data. Copy the **Datastream ID** on the right to your clipboard.
 
