@@ -78,20 +78,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.adBreakComplete",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.adBreakComplete",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -139,7 +139,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -188,7 +188,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -288,25 +288,25 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.adBreakStart",
-                                  "mediaCollection": {
-                                      "advertisingPodDetails": {
-                                          "friendlyName": "Mid-roll",
-                                          "offset": 0,
-                                          "index": 1
-                                      },
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 15
-                                  },
-                                  "timestamp": "2022-03-04T13:38:15+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.adBreakStart",
+                          "mediaCollection": {
+                            "advertisingPodDetails": {
+                              "friendlyName": "Mid-roll",
+                              "offset": 0,
+                              "index": 1
+                            },
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 15
+                          },
+                          "timestamp": "2022-03-04T13:38:15+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -354,7 +354,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -403,7 +403,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -486,20 +486,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.adComplete",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.adComplete",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -547,7 +547,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -596,7 +596,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -679,20 +679,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.adSkip",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.adSkip",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -740,7 +740,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -789,7 +789,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -924,7 +924,7 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
                     "events": [
                       {
@@ -1012,7 +1012,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -1073,7 +1073,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -1157,26 +1157,26 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.bitrateChange",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 30,
-                                      "qoeDataDetails": {
-                                          "framesPerSecond": 1,
-                                          "bitrate": 35000,
-                                          "droppedFrames": 30,
-                                          "timeToStart": 1364
-                                      }
-                                  },
-                                  "timestamp": "2022-03-04T13:38:40+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.bitrateChange",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 30,
+                            "qoeDataDetails": {
+                              "framesPerSecond": 1,
+                              "bitrate": 35000,
+                              "droppedFrames": 30,
+                              "timeToStart": 1364
+                            }
+                          },
+                          "timestamp": "2022-03-04T13:38:40+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -1224,7 +1224,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -1273,7 +1273,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -1357,20 +1357,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.bufferStart",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.bufferStart",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -1418,7 +1418,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -1467,7 +1467,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -1550,20 +1550,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.chapterComplete",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.chapterComplete",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -1611,7 +1611,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -1660,7 +1660,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -1743,20 +1743,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.chapterSkip",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.chapterSkip",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -1804,7 +1804,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -1853,7 +1853,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -1969,32 +1969,32 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.chapterStart",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 10,
-                                      "chapterDetails": {
-                                          "friendlyName": "Chapter 1",
-                                          "length": 10,
-                                          "index": 1,
-                                          "offset": 0
-                                      },
-                                      "customMetadata": [
-                                      {
-                                        "name": "c1",
-                                        "value": "myCustomValue1"
-                                      }
-                                    ]
-                                  },
-                                  "timestamp": "2022-03-04T13:37:56+00:00"
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.chapterStart",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 10,
+                            "chapterDetails": {
+                              "friendlyName": "Chapter 1",
+                              "length": 10,
+                              "index": 1,
+                              "offset": 0
+                            },
+                            "customMetadata": [
+                              {
+                                "name": "c1",
+                                "value": "myCustomValue1"
                               }
-                          }
-                      ]
+                            ]
+                          },
+                          "timestamp": "2022-03-04T13:37:56+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -2042,7 +2042,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -2095,7 +2095,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -2195,28 +2195,28 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.error",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 35,
-                                      "qoeDataDetails": {
-                                          "bitrate": 35000,
-                                          "droppedFrames": 30
-                                      },
-                                      "errorDetails": {
-                                          "name": "test-buffer-start",
-                                          "source": "player"
-                                      }
-                                  },
-                                  "timestamp": "2022-03-04T13:39:15+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.error",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 35,
+                            "qoeDataDetails": {
+                              "bitrate": 35000,
+                              "droppedFrames": 30
+                            },
+                            "errorDetails": {
+                              "name": "test-buffer-start",
+                              "source": "player"
+                            }
+                          },
+                          "timestamp": "2022-03-04T13:39:15+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -2264,7 +2264,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -2313,7 +2313,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -2396,20 +2396,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.pauseStart",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.pauseStart",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -2457,7 +2457,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -2506,7 +2506,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -2590,20 +2590,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.ping",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.ping",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -2651,7 +2651,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -2700,7 +2700,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -2783,20 +2783,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.play",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.play",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -2844,7 +2844,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -2893,7 +2893,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -2977,20 +2977,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.sessionComplete",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.sessionComplete",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -3038,7 +3038,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -3087,7 +3087,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -3171,20 +3171,20 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.sessionEnd",
-                                  "mediaCollection": {
-                                      "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
-                                      "playhead": 25
-                                  },
-                                  "timestamp": "2022-03-04T13:39:00+00:00"
-                              }
-                          }
-                      ]
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.sessionEnd",
+                          "mediaCollection": {
+                            "sessionID": "5c32e1a6ef6b58be5136ba8db2f79f1d251d3121a898bc8fb60123b8fdb9aa1c",
+                            "playhead": 25
+                          },
+                          "timestamp": "2022-03-04T13:39:00+00:00"
+                        }
+                      }
+                    ]
                   }
       responses:
         "204":
@@ -3232,7 +3232,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -3281,7 +3281,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
@@ -3516,7 +3516,7 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
                     "events": [
                       {
@@ -3622,55 +3622,55 @@ paths:
                           description: ""
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
-                        "requestId": "dd850e05-8c3e-4ae4-9ea8-506490978004",
-                        "handle": [
+                      "requestId": "dd850e05-8c3e-4ae4-9ea8-506490978004",
+                      "handle": [
+                        {
+                          "payload": [
                             {
-                                "payload": [
-                                    {
-                                        "sessionId": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f"
-                                    }
-                                ],
-                                "type": "media-analytics:new-session",
-                                "eventIndex": 0
-                            },
-                            {
-                                "payload": [
-                                    {
-                                        "scope": "Target",
-                                        "hint": "34",
-                                        "ttlSeconds": 1800
-                                    },
-                                    {
-                                        "scope": "AAM",
-                                        "hint": "7",
-                                        "ttlSeconds": 1800
-                                    },
-                                    {
-                                        "scope": "EdgeNetwork",
-                                        "hint": "va6",
-                                        "ttlSeconds": 1800
-                                    }
-                                ],
-                                "type": "locationHint:result"
-                            },
-                            {
-                                "payload": [
-                                    {
-                                        "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_cluster",
-                                        "value": "va6",
-                                        "maxAge": 1800
-                                    },
-                                    {
-                                        "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_identity",
-                                        "value": "CiY0Mzg5NTEyNzMzNTUxMDc5MzgzMzU2MjU5NDY5MTY3Mzc3MTc2OFIOCJ-YppX6MBgBKgNWQTbwAZ-YppX6MA==",
-                                        "maxAge": 34128000
-                                    }
-                                ],
-                                "type": "state:store"
+                              "sessionId": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f"
                             }
-                        ]
+                          ],
+                          "type": "media-analytics:new-session",
+                          "eventIndex": 0
+                        },
+                        {
+                          "payload": [
+                            {
+                              "scope": "Target",
+                              "hint": "34",
+                              "ttlSeconds": 1800
+                            },
+                            {
+                              "scope": "AAM",
+                              "hint": "7",
+                              "ttlSeconds": 1800
+                            },
+                            {
+                              "scope": "EdgeNetwork",
+                              "hint": "va6",
+                              "ttlSeconds": 1800
+                            }
+                          ],
+                          "type": "locationHint:result"
+                        },
+                        {
+                          "payload": [
+                            {
+                              "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_cluster",
+                              "value": "va6",
+                              "maxAge": 1800
+                            },
+                            {
+                              "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_identity",
+                              "value": "CiY0Mzg5NTEyNzMzNTUxMDc5MzgzMzU2MjU5NDY5MTY3Mzc3MTc2OFIOCJ-YppX6MBgBKgNWQTbwAZ-YppX6MA==",
+                              "maxAge": 34128000
+                            }
+                          ],
+                          "type": "state:store"
+                        }
+                      ]
                     }
         "207":
           description: Multi-Status
@@ -3737,62 +3737,62 @@ paths:
                                     description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
-                        "requestId": "e3d87437-5054-4bc2-8953-be4be8d0b900",
-                        "handle": [
+                      "requestId": "e3d87437-5054-4bc2-8953-be4be8d0b900",
+                      "handle": [
+                        {
+                          "payload": [
                             {
-                                "payload": [
-                                    {
-                                        "scope": "Target",
-                                        "hint": "34",
-                                        "ttlSeconds": 1800
-                                    },
-                                    {
-                                        "scope": "AAM",
-                                        "hint": "7",
-                                        "ttlSeconds": 1800
-                                    },
-                                    {
-                                        "scope": "EdgeNetwork",
-                                        "hint": "va6",
-                                        "ttlSeconds": 1800
-                                    }
-                                ],
-                                "type": "locationHint:result"
+                              "scope": "Target",
+                              "hint": "34",
+                              "ttlSeconds": 1800
                             },
                             {
-                                "payload": [
-                                    {
-                                        "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_cluster",
-                                        "value": "va6",
-                                        "maxAge": 1800
-                                    },
-                                    {
-                                        "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_identity",
-                                        "value": "CiY0Mzg5NTEyNzMzNTUxMDc5MzgzMzU2MjU5NDY5MTY3Mzc3MTc2OFIOCI-qtpf6MBgBKgNWQTbwAY-qtpf6MA==",
-                                        "maxAge": 34128000
-                                    }
-                                ],
-                                "type": "state:store"
-                            }
-                        ],
-                        "errors": [
+                              "scope": "AAM",
+                              "hint": "7",
+                              "ttlSeconds": 1800
+                            },
                             {
-                                "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
-                                "status": 400,
-                                "title": "Invalid request",
-                                "report": {
-                                    "eventIndex": 0,
-                                    "details": [
-                                        {
-                                            "name": "$.xdm.mediaCollection.sessionDetails.name",
-                                            "reason": "Missing required field"
-                                        }
-                                    ]
-                                }
+                              "scope": "EdgeNetwork",
+                              "hint": "va6",
+                              "ttlSeconds": 1800
                             }
-                        ]
+                          ],
+                          "type": "locationHint:result"
+                        },
+                        {
+                          "payload": [
+                            {
+                              "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_cluster",
+                              "value": "va6",
+                              "maxAge": 1800
+                            },
+                            {
+                              "key": "kndctr_EA0C49475E8AE1870A494023_AdobeOrg_identity",
+                              "value": "CiY0Mzg5NTEyNzMzNTUxMDc5MzgzMzU2MjU5NDY5MTY3Mzc3MTc2OFIOCI-qtpf6MBgBKgNWQTbwAY-qtpf6MA==",
+                              "maxAge": 34128000
+                            }
+                          ],
+                          "type": "state:store"
+                        }
+                      ],
+                      "errors": [
+                        {
+                          "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
+                          "status": 400,
+                          "title": "Invalid request",
+                          "report": {
+                            "eventIndex": 0,
+                            "details": [
+                              {
+                                "name": "$.xdm.mediaCollection.sessionDetails.name",
+                                "reason": "Missing required field"
+                              }
+                            ]
+                          }
+                        }
+                      ]
                     }
         "400":
           description: Bad request
@@ -3827,7 +3827,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/EXEG-0003-400",
                       "status": 400,
@@ -3931,76 +3931,76 @@ paths:
                       - xdm
             examples:
               "0":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.statesUpdate",
-                                  "mediaCollection": {
-                                      "sessionID": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f",
-                                      "playhead": 60,
-                                      "statesStart": [
-                                          {
-                                              "name": "mute"
-                                          },
-                                          {
-                                              "name": "pictureInPicture"
-                                          }
-                                      ],
-                                      "statesEnd": [
-                                          {
-                                              "name": "fullScreen"
-                                          }
-                                      ]
-                                  },
-                                  "timestamp": "2022-03-04T13:40:40+00:00"
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.statesUpdate",
+                          "mediaCollection": {
+                            "sessionID": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f",
+                            "playhead": 60,
+                            "statesStart": [
+                              {
+                                "name": "mute"
+                              },
+                              {
+                                "name": "pictureInPicture"
                               }
-                          }
-                      ]
+                            ],
+                            "statesEnd": [
+                              {
+                                "name": "fullScreen"
+                              }
+                            ]
+                          },
+                          "timestamp": "2022-03-04T13:40:40+00:00"
+                        }
+                      }
+                    ]
                   }
               "1":
-                value: |-
+                value:
                   {
-                      "events": [
-                          {
-                              "xdm": {
-                                  "eventType": "media.statesUpdate",
-                                  "mediaCollection": {
-                                      "sessionID": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f",
-                                      "playhead": 65,
-                                      "statesStart": [
-                                          {
-                                              "name": "mute"
-                                          }
-                                      ]
-                                  },
-                                  "timestamp": "2022-03-04T13:40:40+00:00"
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.statesUpdate",
+                          "mediaCollection": {
+                            "sessionID": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f",
+                            "playhead": 65,
+                            "statesStart": [
+                              {
+                                "name": "mute"
                               }
-                          }
-                      ]
+                            ]
+                          },
+                          "timestamp": "2022-03-04T13:40:40+00:00"
+                        }
+                      }
+                    ]
                   }
               "2":
-                value: |-
+                value:
                   {
-                       "events": [
-                           {
-                               "xdm": {
-                                   "eventType": "media.statesUpdate",
-                                   "mediaCollection": {
-                                       "sessionID": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f",
-                                       "playhead": 55,
-                                       "statesEnd": [
-                                           {
-                                               "name": "subtitles"
-                                           }
-                                       ]
-                                   },
-                                   "timestamp": "2022-03-04T13:40:40+00:00"
-                               }
-                           }
-                       ]
-                   }
+                    "events": [
+                      {
+                        "xdm": {
+                          "eventType": "media.statesUpdate",
+                          "mediaCollection": {
+                            "sessionID": "bfba9a5f2986d69a9a9424f6a99702562512eb244f2b65c4f1c1553e7fe9997f",
+                            "playhead": 55,
+                            "statesEnd": [
+                              {
+                                "name": "subtitles"
+                              }
+                            ]
+                          },
+                          "timestamp": "2022-03-04T13:40:40+00:00"
+                        }
+                      }
+                    ]
+                  }
       responses:
         "204":
           description: No content
@@ -4047,7 +4047,7 @@ paths:
                               description: The reason why the property is invalid
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0400-400",
                       "status": 400,
@@ -4096,7 +4096,7 @@ paths:
                         description: The error details
               examples:
                 "0":
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/va-edge-0404-404",
                       "status": 404,
