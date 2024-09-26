@@ -10,7 +10,8 @@ paths:
     post:
       tags:
         - Ad Break
-      summary: Signals the end of the ad series
+      summary: Ad break complete
+      description: Signals the end of the ad series
       operationId: adBreakComplete
       parameters: []
       requestBody:
@@ -203,7 +204,8 @@ paths:
     post:
       tags:
         - Ad Break
-      summary: Signals the start of an ad series
+      summary: Ad break start
+      description: Signals the start of an ad series
       operationId: adBreakStart
       parameters: []
       requestBody:
@@ -416,7 +418,8 @@ paths:
                     }
   /adComplete:
     post:
-      summary: Signals the end of an ad
+      summary: Ad complete
+      description: Signals the end of an ad
       tags:
         - Ad
       parameters: []
@@ -609,7 +612,8 @@ paths:
                     }
   /adSkip:
     post:
-      summary: Signals that an ad was skipped
+      summary: Ad skip
+      description: Signals that an ad was skipped
       tags:
         - Ad
       operationId: adSkip
@@ -802,7 +806,8 @@ paths:
                     }
   /adStart:
     post:
-      summary: Signals the start of an ad
+      summary: Ad start
+      description: Signals the start of an ad
       tags:
         - Ad
       operationId: adStart
@@ -1086,7 +1091,8 @@ paths:
                     }
   /bitrateChange:
     post:
-      summary: Signals that the bitrate changed
+      summary: Bitrate change
+      description: Signals that the bitrate changed
       tags:
         - Bitrate
       operationId: bitrateChange
@@ -1286,8 +1292,8 @@ paths:
                     }
   /bufferStart:
     post:
-      summary: Signals the start of buffering
-      description: 'Sent when buffering starts. Note: Because there is no bufferResume event type, it is inferred when you send a play event after bufferStart'
+      summary: Buffer start
+      description: Sent when buffering starts. Since there is no bufferResume event type, it is inferred when you send a play event after bufferStart.
       tags:
         - Buffer
       operationId: bufferStart
@@ -1480,7 +1486,8 @@ paths:
                     }
   /chapterComplete:
     post:
-      summary: Signals the completion of a chapter
+      summary: Chapter complete
+      description: Signals the completion of a chapter
       tags:
         - Chapter
       operationId: chapterComplete
@@ -1673,7 +1680,8 @@ paths:
                     }
   /chapterSkip:
     post:
-      summary: Signals that the chapter was skipped
+      summary: Chapter skip
+      description: Signals that the chapter was skipped
       tags:
         - Chapter
       operationId: chapterSkip
@@ -1866,7 +1874,8 @@ paths:
                     }
   /chapterStart:
     post:
-      summary: Signals the start of a chapter
+      summary: Chapter start
+      description: Signals the start of a chapter
       tags:
         - Chapter
       operationId: chapterStart
@@ -2108,7 +2117,8 @@ paths:
                     }
   /error:
     post:
-      summary: Signals that an error occurred
+      summary: Error
+      description: Signals that an error occurred
       tags:
         - Error
       operationId: error
@@ -2326,7 +2336,8 @@ paths:
                     }
   /pauseStart:
     post:
-      summary: Signals that a pause was triggered
+      summary: Pause start
+      description: Signals that a pause was triggered
       tags:
         - Pause
       operationId: pauseStart
@@ -2519,8 +2530,8 @@ paths:
                     }
   /ping:
     post:
-      summary: Signals a ping event
-      description: Use the Ping request during main content playback in cases when content must be sent every 10 seconds, regardless of other API events that have been sent. The first ping event should fire 10 seconds after main content playback has begun.
+      summary: Ping
+      description: Signals a ping event. Used during main content playback in cases when content must be sent every 10 seconds, regardless of other API events that have been sent. Send the first ping event 10 seconds after main content playback begins.
       tags:
         - Ping
       operationId: ping
@@ -2713,7 +2724,8 @@ paths:
                     }
   /play:
     post:
-      summary: Signals that a play event occurred
+      summary: Play
+      description: Signals that a play event occurred
       tags:
         - Play
       operationId: play
@@ -2906,8 +2918,8 @@ paths:
                     }
   /sessionComplete:
     post:
-      summary: Signals the complete of the session
-      description: Signals the complete of the session when the end of the content was reached
+      summary: Session complete
+      description: Signals when the end of the main content was reached
       tags:
         - Session
       operationId: sessionComplete
@@ -3100,8 +3112,8 @@ paths:
                     }
   /sessionEnd:
     post:
-      summary: Signals the end of the session
-      description: Notifies the Media Analytics backend to immediately close the session when the user has abandoned their viewing of the content and they are unlikely to return. If you don't send a sessionEnd, an abandoned session will time-out normally (after no events are received for 10 minutes, or when no playhead movement occurs for 30 minutes), and the session is deleted by the backend.
+      summary: Session end
+      description: Notifies Adobe to immediately close the session. Used when the user has abandoned their viewing of the content and they are unlikely to return. If you don't use this endpoint, an abandoned session times out normally (after no events are received for 10 minutes, or when no playhead movement occurs for 30 minutes), ending the session.
       tags:
         - Session
       operationId: sessionEnd
@@ -3294,7 +3306,7 @@ paths:
                     }
   /sessionStart:
     post:
-      summary: Signals the start of a session
+      summary: Session start
       description: Signals the start of a new session. When the response returns, the "sessionId" must be extracted and sent for all subsequent event calls to the Edge API server
       tags:
         - Session
@@ -3839,7 +3851,8 @@ paths:
                     }
   /statesUpdate:
     post:
-      summary: Signals the change of one or multiple states
+      summary: States update
+      description: Signals the change of one or multiple states
       tags:
         - States
       operationId: sessionStart
