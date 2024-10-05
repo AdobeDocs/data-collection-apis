@@ -59,7 +59,7 @@ module.exports = {
           },
           {
             title: 'Media Edge examples',
-            path: '/gettings-started/media-edge-examples/'
+            path: '/getting-started/media-edge-examples/'
           },
           {
             title: 'Location hints',
