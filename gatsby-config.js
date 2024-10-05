@@ -58,6 +58,10 @@ module.exports = {
             path: '/getting-started/guardrails/'
           },
           {
+            title: 'Media Edge examples',
+            path: '/gettings-started/media-edge-examples/'
+          },
+          {
             title: 'Location hints',
             path: '/getting-started/location-hints/'
           },

@@ -13,7 +13,7 @@ Usage of these endpoints require an active session. Make sure that you call the 
 
 ## `adBreakStart`
 
-The `adBreakStart` endpoint indicates the start of a sequence of ads. Adobe recommends setting both ad break and ad events, even when a single advertisement is shown. If an ad break triggers but an ad does not, this scenario can point to possible issues loading advertisements.
+The `adBreakStart` endpoint indicates the start of a sequence of ads. Adobe recommends setting both ad break and ad events, even when a single advertisement is shown. If an ad break triggers but an ad does not, this scenario can point to possible issues loading advertisements. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 **`POST https://edge.adobedc.net/ee/va/v1/adBreakStart?configId={datastreamID}`**
 
@@ -64,7 +64,7 @@ The `mediaCollection` object requires several properties. See [Media Collection 
 
 ## `adBreakComplete`
 
-The `adBreakComplete` endpoint indicates the completion of a sequence of ads. Call this endpoint when a visitor finishes all ads in a pod.
+The `adBreakComplete` endpoint indicates the completion of a sequence of ads. Call this endpoint when a visitor finishes all ads in a pod. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 **`POST https://edge.adobedc.net/ee/va/v1/adBreakComplete?configId={datastreamID}`**
 
@@ -105,7 +105,7 @@ The `advertisingPodDetails` object is not allowed when using this endpoint.
 
 ## `adStart`
 
-The `adStart` endpoint indicates the start of an individual advertisement. Call this endpoint once an ad successfully loads and starts playing.
+The `adStart` endpoint indicates the start of an individual advertisement. Call this endpoint once an ad successfully loads and starts playing. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 **`POST https://edge.adobedc.net/ee/va/v1/adStart?configId={datastreamID}`**
 
@@ -158,7 +158,7 @@ The `mediaCollection` object requires several properties. See [Media Collection 
 
 ## `adComplete`
 
-The `adComplete` endpoint indicates the completion of an individual advertisement. Call this endpoint when an ad finishes.
+The `adComplete` endpoint indicates the completion of an individual advertisement. Call this endpoint when an ad finishes. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 **`POST https://edge.adobedc.net/ee/va/v1/adComplete?configId={datastreamID}`**
 

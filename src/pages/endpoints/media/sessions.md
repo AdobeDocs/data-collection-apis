@@ -16,7 +16,7 @@ If you use a session ID that is either invalid or expired, that data is irretrie
 
 ## `sessionStart`
 
-The `sessionstart` endpoint creates a media tracking session for a visitor. A successful response includes a session ID, which is required for all other endpoints. Make sure that you follow [Getting started](index.md) to obtain a datastream ID.
+The `sessionstart` endpoint creates a media tracking session for a visitor. A successful response includes a session ID, which is required for all other endpoints. Make sure that you follow [Getting started](index.md) to obtain a datastream ID. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
  
 **`POST https://edge.adobedc.net/ee/va/v1/sessionStart?configId={datastream ID}`**
 
@@ -139,7 +139,7 @@ If successfully processed, the API returns an object with the following properti
 
 ## `sessionComplete`
 
-The `sessionComplete` endpoint indicates that the visitor reached the end of the main content. It does not immediately end a session; if you want to immediately end a session, call the [`sessionEnd`](#sessionend) endpoint.
+The `sessionComplete` endpoint indicates that the visitor reached the end of the main content. It does not immediately end a session; if you want to immediately end a session, call the [`sessionEnd`](#sessionend) endpoint. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](#sessionstart) endpoint first to obtain a valid session ID.
 
@@ -180,7 +180,7 @@ This endpoint requires the following payload properties within the `xdm` object:
 
 ## `sessionEnd`
 
-The `sessionEnd` endpoint immediately ends a media playback session. Sessions end automatically when no events are received for 10 minutes, or when no playhead movement happens for 30 minutes. You can call this endpoint when you consider a session "done" and do not want any subsequent events tracked as part of the same session.
+The `sessionEnd` endpoint immediately ends a media playback session. Sessions end automatically when no events are received for 10 minutes, or when no playhead movement happens for 30 minutes. You can call this endpoint when you consider a session "done" and do not want any subsequent events tracked as part of the same session. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](#sessionstart) endpoint first to obtain a valid session ID. Calling this endpoint immediately ends the session for the given session ID, meaning that you cannot use that same session ID in subsequent API calls. If you want to track additional events after calling this endpoint, call the [`sessionStart`](#sessionstart) endpoint to obtain a new session ID.
 
