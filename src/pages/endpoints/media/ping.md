@@ -4,7 +4,7 @@ description: Track the state of the media player at regular intervals.
 ---
 # Ping endpoint
 
-The `ping` endpoint allows you to track the state of the media player at regular intervals, regardless of other API events that you send. Adobe recommends sending the first ping 10 seconds after main playback starts, and every 10 seconds after that. Adobe recommends sending ping events every 1 second during ad tracking.
+The `ping` endpoint allows you to track the state of the media player at regular intervals, regardless of other API events that you send. Adobe recommends sending the first ping 10 seconds after main playback starts, and every 10 seconds after that. Adobe recommends sending ping events every 1 second during ad tracking. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 

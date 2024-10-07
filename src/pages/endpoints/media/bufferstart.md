@@ -4,7 +4,7 @@ description: Indicates when a media player enters a buffering state.
 ---
 # Buffer start endpoint
 
-The `bufferStart` endpoint lets you track the quality and consistency of content playback based on the visitor's connection or media availability. Call this endpoint whenever the media player enters a buffering state.
+The `bufferStart` endpoint lets you track the quality and consistency of content playback based on the visitor's connection or media availability. Call this endpoint whenever the media player enters a buffering state. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 A "Buffer resume" endpoint does not exist using this API; instead, it is inferred when you call the `play` endpoint following `bufferStart`. Call the `play` endpoint when the media player exits a buffered state and resumes playing content.
 

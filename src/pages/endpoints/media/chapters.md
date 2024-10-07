@@ -10,7 +10,7 @@ Usage of these endpoints require an active session. Make sure that you call the 
 
 ## `chapterStart`
 
-The `chapterStart` endpoint indicates the start of a chapter.
+The `chapterStart` endpoint indicates the start of a chapter. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 **`POST https://edge.adobedc.net/ee/va/v1/chapterStart?configId={datastreamID}`**
 
@@ -62,7 +62,7 @@ The `mediaCollection` object requires several properties. See [Media Collection 
 
 ## `chapterComplete`
 
-The `chapterComplete` endpoint indicates the completion of a chapter.
+The `chapterComplete` endpoint indicates the completion of a chapter. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
 
 **`POST https://edge.adobedc.net/ee/va/v1/chapterComplete?configId={datastreamID}`**
 
