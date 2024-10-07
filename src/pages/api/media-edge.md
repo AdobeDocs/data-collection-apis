@@ -9,4 +9,4 @@ keywords:
   - Streaming Media API
 layout: none
 ---
-<RedoclyAPIBlock src="/data-collection-apis/docs/media-edge.yaml"/>
+<RedoclyAPIBlock src="/data-collection-apis/docs/media-edge.yaml" scrollYOffset={64}/>

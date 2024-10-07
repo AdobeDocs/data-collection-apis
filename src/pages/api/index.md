@@ -9,4 +9,4 @@ keywords:
   - Server API
 layout: none
 ---
-<RedoclyAPIBlock src="/data-collection-apis/docs/api-reference.yaml"/>
+<RedoclyAPIBlock src="/data-collection-apis/docs/api-reference.yaml" scrollYOffset={64}/>
