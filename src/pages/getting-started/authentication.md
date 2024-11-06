@@ -2,6 +2,7 @@
 title: Authentication
 description: Learn how to configure authentication for the Adobe Experience Platform Edge Network API.
 ---
+
 # Authentication
 
 Some endpoints, such as [`collect`](../endpoints/collect/index.md) or [`interact`](../endpoints/interact/index.md), support both authenticated events and non-authenticated events.
@@ -9,7 +10,7 @@ Some endpoints, such as [`collect`](../endpoints/collect/index.md) or [`interact
 * Non-authenticated events are best suited for client-to-server data collection. For example, a visitor arrives on your site, and the API call is sent from the visitor's browser.
 * Authenticated events are best suited for server-to-server data collection. For example, a visitor arrives on your site, and the API call is generated from your server when the visitor requests your website content.
 
-You can configure a datastream to accept either authenticated or non-authenticated events, or you can configure it to only accept authenticated events. See [Create and configure datastreams](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#@advanced-options) in the Datastreams guide for more information. A datastream accepts both authenticated and non-authenticated events by default.
+You can configure a datastream to accept either authenticated or non-authenticated events, or you can configure it to only accept authenticated events. See the documentation on how to [create and configure datastreams](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#@advanced-options) for more information. A datastream accepts both authenticated and non-authenticated events by default.
 
 All authenticated events require the following three headers in every API call:
 
@@ -17,7 +18,7 @@ All authenticated events require the following three headers in every API call:
 * [`x-api-key`](#x-api-key)
 * [`x-gw-ims-org-id`](#x-gw-ims-org-id)
 
-## Prerequisites
+## Prerequisites {#prerequisites}
 
 Before you make calls to the Edge Network API, make sure that you meet the following prerequisites:
 
@@ -26,10 +27,10 @@ Before you make calls to the Edge Network API, make sure that you meet the follo
 
 If you meet both of the above criteria, you can perform both of the following vital tasks:
 
-* Create or edit datastreams inside the Adobe Experience Platform UI
-* Create or edit API projects inside the Adobe Developer Console
+* [Create or edit datastreams](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure) within the Adobe Experience Platform UI
+* [Create or edit API projects](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) within the Adobe Developer Console
 
-## `Authorization`
+## `Authorization` {#authorization}
 
 The `Authorization` header contains a token that authenticates your API call. You can quickly generate an access token in your Adobe Developer project using the following steps:
 
@@ -38,11 +39,11 @@ The `Authorization` header contains a token that authenticates your API call. Yo
 1. Under **Credentials**, select **OAuth Server-to-Server**.
 1. Click the **Generate access token** button.
 
-See [Server to server authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/) in the Adobe Developer authentication guide for instructions on how to programmatically obtain this token. This header uses the following format:
+See [server to server authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/) in the Adobe Developer authentication guide for instructions on how to programmatically obtain this token. This header uses the following format:
 
 `Authorization: Bearer eyJ[...]rtw`
 
-## `x-api-key`
+## `x-api-key` {#x-api-key}
 
 The `x-api-key` header contains the API sandbox identifier. You can obtain this key in your Adobe Developer project:
 
@@ -55,7 +56,7 @@ This header uses the following format:
 
 `x-api-key: a52cf[...]1ed71`
 
-## `x-gw-ims-org-id`
+## `x-gw-ims-org-id` {#x-gw-ims-org-id}
 
 The `x-gw-ims-org-id` contains the IMS org of the API project you're working in. You can obtain this identifier using the following steps:
 
@@ -67,7 +68,7 @@ This header uses the following format:
 
 `x-gw-ims-org-id: 53A[...]C99@AdobeOrg`
 
-## Troubleshooting
+## Troubleshooting {#troubleshooting}
 
 See the following table for common authorization issue and how to resolve them.
 

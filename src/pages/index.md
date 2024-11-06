@@ -22,12 +22,14 @@ The Adobe Experience Platform data collection APIs provide a universal way to in
 
 ## Overview
 
-The Adobe Experience Platform data collection APIs provide endpoints for sending data to Adobe Experience Platform. Data collection libraries, such as the Web SDK or Mobile SDK, provide methods that facilitate the usage of these endpoints. You can call data collection endpoints directly instead of using the Web SDK or Mobile SDK. This option is valuable when your project is in a code base that neither the Web SDK or Mobile SDK supports.
+The Adobe Experience Platform data collection APIs provide endpoints for sending data to Adobe Experience Platform.
+
+Data collection libraries, such as the Web SDK or Mobile SDK, provide methods that facilitate the usage of these endpoints. You can call data collection endpoints directly instead of using the Web SDK or Mobile SDK. This option is valuable when your project is in a code base that neither the Web SDK nor the Mobile SDK supports.
 
 There are two main categories of endpoints:
 
 * The **Edge Network API** provides the most straightforward way to send data to Adobe. These endpoints offer both authenticated and non-authenticated methods to send data to Adobe.
-* The **Media Edge API** provides a set of endpoints that allows you to send media tracking data to Adobe. Usage of these endpoints require the Streaming Media Collection Add-on. Contact your Adobe Account Team for more information.
+* The **Media Edge API** provides a set of endpoints which allow you to send media tracking data to Adobe. Usage of these endpoints require the Streaming Media Collection Add-on. Contact your Adobe Account Team for more information.
 
 If you are looking for the API that allows you to use Adobe Experience Platform, see the [Adobe Experience Platform API documentation](https://developer.adobe.com/experience-platform-apis/).
 
