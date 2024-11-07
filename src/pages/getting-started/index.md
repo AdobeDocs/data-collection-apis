@@ -25,20 +25,20 @@ A [dataset](https://experienceleague.adobe.com/en/docs/experience-platform/catal
 
 ## Create a datastream
 
-A _datastream_ is a location in the Edge Network that forwards your data to configured apps and services in the correct format.
+A [datastream](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/overview) is a location in the Edge Network that forwards your data to configured apps and services in the correct format. Follow the documentation on how to [create and configure a datastream](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure), and use the settings described below.
 
 1. In the left navigation menu, select **Datastreams** within the Data Collection section.
 1. Select **New Datastream** in the top right.
 1. Give the datastream a name, and select the schema created previously under **Mapping Schema**. Click **Save**.
-1. Select **Add Service** in the center.
+1. Select **Add Service**.
 1. Select **Adobe Experience Platform** in the drop-down menu.
 1. Select the dataset created in the previous step under **Event Dataset**.
-1. Make sure that Offer Decisioning, Edge Segmentation, Personalization Destinations, and Adobe Journey Optimizer are all **unchecked**.
+1. Make sure that **Offer Decisioning**, **Edge Segmentation**, **Personalization Destinations**, and **Adobe Journey Optimizer** are all **unchecked**.
 1. Click **Save**.
 
 Everything is now configured to start sending data. Copy the **Datastream ID** on the right to your clipboard.
 
-## Send data to the datastream
+## Send data to the datastream {#send-data-to-datastream}
 
 You can use [Postman](https://www.postman.com/downloads/) to test API calls before implementing them in your project.
 

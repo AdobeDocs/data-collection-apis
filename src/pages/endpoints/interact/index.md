@@ -6,13 +6,12 @@ description: Learn how the Adobe Experience Platform Edge Network API performs i
 
 The `interact` endpoint sends a single event to a datastream. When sending an event to this endpoint, a response is returned that can contain content from Edge Network services. These types of interactions are valuable for both collecting data and personalizing content.
 
-Batch events are not supported using this endpoint; if you need to queue events or send multiple events simultaneously, consider using the [`collect`](../collect/index.md) endpoint.
+This endpoint does not support batch events. If you need to queue events or send multiple events simultaneously, use the [`collect`](../collect/index.md) endpoint instead.
 
-This endpoint supports both [authenticated](../../getting-started/authentication.md) and non-authenticated events. The payload for each endpoint use an identical format. Make sure that you use the correct endpoint for your organization's use case.
+This endpoint supports both [authenticated](../../getting-started/authentication.md) and non-authenticated events. The payloads for each endpoint use an identical format. Make sure that you use the correct endpoint for your organization's use case.
 
-**`POST https://edge.adobedc.net/ee/v2/interact?datastreamId={Datastream ID}`** (Non-authenticated)
-
-**`POST https://server.adobedc.net/ee/v2/interact?datastreamId={Datastream ID}`** (Authenticated)
+* Authenticated: **`POST https://server.adobedc.net/ee/v2/interact?datastreamId={Datastream ID}`**
+* Non-authenticated: **`POST https://edge.adobedc.net/ee/v2/interact?datastreamId={Datastream ID}`**
 
 <CodeBlock slots="heading, code" repeat="3" languages="CURL,CURL,JSON"/>
 
