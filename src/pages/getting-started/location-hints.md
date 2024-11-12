@@ -14,7 +14,6 @@ Location hints help maintain consistency for user profile processing to ensure t
 
 Location hints are included in the response of the initial Edge Network request and in all subsequent requests, as shown in the example below:
 
-
 ```json
 {
    "payload":[
