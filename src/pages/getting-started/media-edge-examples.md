@@ -12,7 +12,7 @@ Some helpful tips to keep in mind regarding these examples:
 
 * The playhead position (the current position indicated in the horizontal timeline of the video) does not advance during buffering, pausing, or an ad break, even though real time has elapsed. Both playhead position and the passing of real time are measured in seconds.
 * The events sent are ordered based on the timestamp at which they were sent. If they are sent at the same second, as illustrated in the examples below, they are still sent with different ascending timestamps.
-* For media tracking, you must fire ping events every 10 seconds, tracked in real-time, beginning after 10 seconds have elapsed from the session start. This must happen regardless of other API events that you have sent. 
+* For media tracking, you must fire ping events every 10 seconds, tracked in real-time, beginning after 10 seconds have elapsed from the session start. This must happen regardless of other API events that you have sent.
 * The `timestamp` values in the payload examples below are generic for the year, month, and day, but show specific hours, minutes, seconds, and milliseconds. This is to show how the values correspond to the progressing events. The session starts with the following `timestamp` value: `YYYY-MM-DDT02:00:00.000Z`.
 
 ## Prerequisites
@@ -268,7 +268,7 @@ The following diagram shows a timeline of actions for this example session. Each
 
 ![Action timeline](../assets/ad-break-action.png)
 
-The Client request column in the table below shows the final path parameter and the other parameters required to include in the call. 
+The Client request column in the table below shows the final path parameter and the other parameters required to include in the call.
 
 | Number | Action | Elapsed Real-Time (from beginning in seconds) | Playhead Position (in seconds)| Client request |
 | --- | --- | --- | --- | --- |

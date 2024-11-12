@@ -4,7 +4,7 @@ description: Learn about the possible errors you might encounter when performing
 ---
 # Troubleshooting
 
-API errors in Adobe Experience Platform Edge Network API can have a variety of causes, internal (Edge Network itself) or external (input, configuration, or upstream related). 
+API errors in Adobe Experience Platform Edge Network API can have a variety of causes, internal (Edge Network itself) or external (input, configuration, or upstream related).
 
 ## Error types
 

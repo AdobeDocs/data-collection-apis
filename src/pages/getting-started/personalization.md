@@ -50,8 +50,6 @@ Retrieving personalized content requires an explicit request query object for a 
 }
 ```
 
-
-
 | Attribute | Type |Required / Optional| Description |
 | --- | --- | --- | ---|
 | `schemas` | `String[]` | Required for Target personalization. Optional for Offer Decisioning. | List of schemas used in the decision, to select the type of offers returned.|
@@ -242,10 +240,9 @@ curl -X POST "https://edge.adobedc.net/ee/v2/interact?datastreamId={DATASTREAM_I
 
 Returns a `200 OK` status and one or more `Handle` objects, depending on the edge services that are enabled in the datastream configuration.
 
-
 ## Notifications
 
-Send notifications when a prefetched content or view has been visited or rendered to the end user. In order for notifications to be fired off for the right scope, make sure to keep track of the corresponding `id` for each scope. 
+Send notifications when a prefetched content or view has been visited or rendered to the end user. In order for notifications to be fired off for the right scope, make sure to keep track of the corresponding `id` for each scope.
 
 Notifications with the right `id` for the corresponding scopes are required to be fired in order for reporting to be reflected correctly.
 
@@ -359,7 +356,7 @@ After configuring your datastream, you must define the decision scopes to be use
 "eyJhY3Rpdm[...]EwMGMifQ=="
 ```
 
-After you have created your offers and collections, define a [decision scope](https://experienceleague.adobe.com/docs/journey-optimizer/using/offer-decisioniong/create-manage-activities/create-offer-activities.html#add-decision-scopes). Copy the Base64-encoded decision scope. It is used in the `query` object of the API request. 
+After you have created your offers and collections, define a [decision scope](https://experienceleague.adobe.com/docs/journey-optimizer/using/offer-decisioniong/create-manage-activities/create-offer-activities.html#add-decision-scopes). Copy the Base64-encoded decision scope. It is used in the `query` object of the API request.
 
 ![UI image showing the Offer Decisioning UI, highlighting the decision scope.](../assets/decision-scope.png)
 
@@ -528,7 +525,7 @@ curl -X POST 'https://edge.adobedc.net/ee/v2/interact?datastreamId={DATASTREAM_I
 
 If the visitor qualifies for a personalization activity based on data sent to Offer Decisioning, then the relevant activity content is found under the `handle` object, where the type is `personalization:decisions`.
 
-Other content is returned under the `handle` object as well. Other content types are not relevant to Offer Decisioning personalization. If the visitor qualifies for multiple activities, they are contained in an array. 
+Other content is returned under the `handle` object as well. Other content types are not relevant to Offer Decisioning personalization. If the visitor qualifies for multiple activities, they are contained in an array.
 
 | Property | Description | Example |
 | --- | --- | --- |
