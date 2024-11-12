@@ -2,6 +2,7 @@
 title: Interact endpoint (interactive collection)
 description: Learn how the Adobe Experience Platform Edge Network API performs interactive data collection.
 ---
+
 # Interact endpoint (interactive collection)
 
 The `interact` endpoint sends a single event to a datastream. When sending an event to this endpoint, a response is returned that can contain content from Edge Network services. These types of interactions are valuable for both collecting data and personalizing content.

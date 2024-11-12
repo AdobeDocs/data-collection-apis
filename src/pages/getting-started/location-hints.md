@@ -6,13 +6,14 @@ description: Route requests to the same server for processing.
 
 The Adobe Experience Platform Edge Network uses several globally-distributed servers to ensure fast response times regardless of the end user location. It also uses DNS-based routing to ensure that requests are always routed to the Edge Network location that is closest to the end users.
 
-If end users connect to a VPN, or switch network types on their mobile devices over the course of a session, Edge Network requests can often be routed to a different location. Mid-session routing between servers can be problematic, as Adobe Experience Platform and Adobe Experience Cloud solutions store end user profile information on the Edge Network.
+If end users connect to a VPN or switch network types on their mobile devices during a session, Edge Network requests can often be routed to a different location. Mid-session routing between servers can be problematic, as Adobe Experience Platform and Adobe Experience Cloud solutions store end user profile information on the Edge Network.
 
-Location hints help maintain consistency for user profile processing to ensure that events are processed on the same server. This feature allows users to have a consistent experience, no matter what network changes they experience over the course of a session.  
+Location hints help maintain consistency for user profile processing to ensure that events are processed on the same server. This feature allows users to have a consistent experience, no matter what network changes they experience during a session.
 
 ## Location hints usage
 
-Location hints are included in the response of the initial Edge Network request, and in all subsequent requests, as shown in the example below:
+Location hints are included in the response of the initial Edge Network request and in all subsequent requests, as shown in the example below:
+
 
 ```json
 {
