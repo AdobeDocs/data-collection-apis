@@ -18,7 +18,7 @@ All authenticated events require the following three headers in every API call:
 * `x-api-key`
 * `x-gw-ims-org-id`
 
-## Prerequisites {#prerequisites}
+## Prerequisites
 
 Before you make calls to the Edge Network API, make sure that you meet the following prerequisites:
 
@@ -30,7 +30,7 @@ If you meet both of the above criteria, you can perform both of the following vi
 * [Create or edit datastreams](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure) within the Adobe Experience Platform UI
 * [Create or edit API projects](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) within the Adobe Developer Console
 
-## `Authorization` {#authorization}
+## `Authorization`
 
 The `Authorization` header contains a token that authenticates your API call. You can quickly generate an access token in your Adobe Developer project using the following steps:
 
@@ -43,7 +43,7 @@ See [server to server authentication](https://developer.adobe.com/developer-cons
 
 `Authorization: Bearer eyJ[...]rtw`
 
-## `x-api-key` {#x-api-key}
+## `x-api-key`
 
 The `x-api-key` header contains the API sandbox identifier. You can obtain this key in your Adobe Developer project:
 
@@ -56,7 +56,7 @@ This header uses the following format:
 
 `x-api-key: a52cf[...]1ed71`
 
-## `x-gw-ims-org-id` {#x-gw-ims-org-id}
+## `x-gw-ims-org-id`
 
 The `x-gw-ims-org-id` contains the IMS org of the API project you're working in. You can obtain this identifier using the following steps:
 
@@ -68,7 +68,7 @@ This header uses the following format:
 
 `x-gw-ims-org-id: 53A[...]C99@AdobeOrg`
 
-## Troubleshooting {#troubleshooting}
+## Troubleshooting
 
 See the following table for common authorization issue and how to resolve them.
 
