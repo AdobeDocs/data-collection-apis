@@ -14,9 +14,9 @@ You can configure a datastream to accept either authenticated or non-authenticat
 
 All authenticated events require the following three headers in every API call:
 
-* [`Authorization`](#authorization)
-* [`x-api-key`](#x-api-key)
-* [`x-gw-ims-org-id`](#x-gw-ims-org-id)
+* `Authorization`
+* `x-api-key`
+* `x-gw-ims-org-id`
 
 ## Prerequisites {#prerequisites}
 
