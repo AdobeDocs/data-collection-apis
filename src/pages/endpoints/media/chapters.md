@@ -4,7 +4,7 @@ description: Endpoints that you can call related to tracking chapters of content
 ---
 # Chapter endpoints
 
-These endpoints allow you to track content consumption in context of chapters. 
+These endpoints allow you to track content consumption in context of chapters.
 
 Usage of these endpoints require an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 

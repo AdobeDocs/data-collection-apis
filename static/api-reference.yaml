@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  description: "API reference for the Edge Network APIs."
+  description: "API reference for the Adobe Experience Platform Edge Network API."
   version: "1.0.0"
-  title: "Adobe Experience Platform Edge Network APIs"
+  title: "Adobe Experience Platform Edge Network API"
 
 servers:
   - url: https://edge.adobedc.net/ee/

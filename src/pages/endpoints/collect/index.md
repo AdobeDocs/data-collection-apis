@@ -4,15 +4,16 @@ description: Learn how the Adobe Experience Platform Edge Network API performs n
 ---
 # Collect endpoint (non-interactive collection)
 
-The `collect` endpoint sends a batch of events to a datastream. This endpoint is recommended when events are queued locally for a short period of time. For example, in mobile applications where a lack of network connection is common.
+The `collect` endpoint sends a batch of events to a datastream.
+
+Use this endpoint when events are queued locally for a short period of time. For example, in mobile applications where a lack of network connection is common.
 
 Batch events do not necessarily need to belong to the same visitor, meaning that events can hold different identities within their `identityMap` object.
 
 This endpoint supports both [authenticated](../../getting-started/authentication.md) and non-authenticated events. The payload for each endpoint use an identical format. Make sure that you use the correct endpoint for your organization's use case.
 
-**`POST https://edge.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`** (Non-authenticated)
-
-**`POST https://server.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`** (Authenticated)
+* Authenticated: **`POST https://server.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`**
+* Non-authenticated: **`POST https://edge.adobedc.net/ee/v2/collect?datastreamId={Datastream ID}`**
 
 <CodeBlock slots="heading, code" repeat="3" languages="CURL,CURL,JSON"/>
 
