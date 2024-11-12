@@ -268,7 +268,7 @@ The following diagram shows a timeline of actions for this example session. Each
 
 ![Action timeline](../assets/ad-break-action.png)
 
-The Client request column in the table below shows the final path parameter and the other parameters required to include in the call. 
+The Client request column in the table below shows the final path parameter and the other parameters required to include in the call.
 
 | Number | Action | Elapsed Real-Time (from beginning in seconds) | Playhead Position (in seconds)| Client request |
 | --- | --- | --- | --- | --- |

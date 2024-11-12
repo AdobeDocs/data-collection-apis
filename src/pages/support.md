@@ -25,7 +25,7 @@ Ask/answer questions, participate in discussions, or submit ideas around the Dat
 
 <DiscoverBlock slots="link, text" width="25%"/>
 
-[Adobe Developer forum](https://experienceleaguecommunities.adobe.com/t5/adobe-i-o-console/ct-p/adobe-io-console) 
+[Adobe Developer forum](https://experienceleaguecommunities.adobe.com/t5/adobe-i-o-console/ct-p/adobe-io-console)
 
 Ask/answer questions or participate in discussions around the Adobe Developer console.
 
