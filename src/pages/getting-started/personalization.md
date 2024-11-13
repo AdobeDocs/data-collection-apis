@@ -1,6 +1,6 @@
 ---
 title: Personalization
-description: Learn how to use the Adobe Experience Platform Edge Network Server API to retrieve personalized content from Adobe personalization solutions.
+description: Learn how to use the Adobe Experience Platform Edge Network API to retrieve personalized content from Adobe personalization solutions.
 ---
 # Personalization
 

@@ -2,9 +2,10 @@
 title: Troubleshooting
 description: Learn about the possible errors you might encounter when performing API requests to the Adobe Experience Platform Edge Network API.
 ---
+
 # Troubleshooting
 
-API errors in Adobe Experience Platform Edge Network API can have a variety of causes, internal (Edge Network itself) or external (input, configuration, or upstream related).
+API errors in the Edge Network API can have a variety of causes, internal (Edge Network itself) or external (input, configuration, or upstream related).
 
 ## Error types
 
@@ -17,7 +18,7 @@ API errors in Adobe Experience Platform Edge Network API can have a variety of c
 
 ## Severity
 
-Server API errors can also be split by severity:
+Edge Network API errors can also be split by severity:
 
 * **Fatal errors** halt the dispatch pipeline.
 * **Non-fatal errors** could signal a partial processing, while allowing for request processing to continue. When present, the overall status code of the request becomes `207 Multi-Status`.
