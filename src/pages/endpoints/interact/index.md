@@ -19,7 +19,7 @@ This endpoint supports both [authenticated](../../getting-started/authentication
 #### Non-authenticated request
 
 ```sh
-curl -X POST "https://server.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID}"
+curl -X POST "https://edge.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID}"
 -H "Content-Type: application/json" 
 -d '{
    "event": {
