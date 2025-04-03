@@ -139,13 +139,13 @@ The table below includes all the available Edge Network API error codes, along w
 | `0101-400` | Invalid JSON request | The JSON request is invalid. Fix the request and try again. |
 | `0102-400` | Invalid request field | The value supplied for the `{fieldPath}` field does not match your input schema. Update the `{fieldPath}` value and try again. |
 | `0103-400` | Missing required value | The `{fieldPath}` field is mandatory. Provide a valid `{fieldPath}` value and try again. |
-| `0104-422` | Input validation error | The request is invalid. See the attached report for detailed infoßrmation. Update your request and try again. |
+| `0104-422` | Input validation error | The request is invalid. See the attached report for detailed information. Update your request and try again. |
 | `0105-400` | Input validation error | The request is invalid. Update your request and try again. |
 | `0106-400` | Invalid Content-Type header | The provided Content-Type header value is invalid. Update the Content-Type header value to one of the supported types and try again. The supported Content-Type header values are `{supportedContentTypes}`. |
 | `0107-400` | Missing required parameter | The required parameter `{paramName}` is missing from your request. Provide a valid `{parameterName}` value and try again. |
 | `0108-400` | Invalid parameter type | The `{parameterName}` parameter type is not supported. Use one of the supported parameter types and try again. |
 | `0109-408` | Empty request | The request body is empty. Update your request and try again. |
-| `0110-400` | Missing parameter value | The `{parameterName}` value is required when cookie support is enabled. Provide a valid `ß{parameterName}` value and try again. |
+| `0110-400` | Missing parameter value | The `{parameterName}` value is required when cookie support is enabled. Provide a valid `{parameterName}` value and try again. |
 | `0111-415` | Invalid request | The request content type is not supported. Supported types are 'application/json', 'application/x-jackson-smile', 'text/plain' and 'text/javascript'. Update your request and try again. |
 | `0112-413` | Invalid request | The request payload is too large. The maximum accepted size for request payloads is `{maxSize}`. Update your request and try again. |
 | `0113-400` | Invalid request | The configuration override payload is invalid. See the attached report for details. Update your request and try again. |
