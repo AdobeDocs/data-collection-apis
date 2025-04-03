@@ -139,13 +139,13 @@ The table below includes all the available Edge Network API error codes, along w
 | `0101-400` | Invalid JSON request | The JSON request is invalid. Fix the request and try again. |
 | `0102-400` | Invalid request field | The value supplied for the `{fieldPath}` field does not match your input schema. Update the `{fieldPath}` value and try again. |
 | `0103-400` | Missing required value | The `{fieldPath}` field is mandatory. Provide a valid `{fieldPath}` value and try again. |
-| `0104-422` | Input validation error | The request is invalid. See the attached report for detailed information. Update your request and try again. |
+| `0104-422` | Input validation error | The request is invalid. See the attached report for detailed infoßrmation. Update your request and try again. |
 | `0105-400` | Input validation error | The request is invalid. Update your request and try again. |
 | `0106-400` | Invalid Content-Type header | The provided Content-Type header value is invalid. Update the Content-Type header value to one of the supported types and try again. The supported Content-Type header values are `{supportedContentTypes}`. |
 | `0107-400` | Missing required parameter | The required parameter `{paramName}` is missing from your request. Provide a valid `{parameterName}` value and try again. |
 | `0108-400` | Invalid parameter type | The `{parameterName}` parameter type is not supported. Use one of the supported parameter types and try again. |
 | `0109-408` | Empty request | The request body is empty. Update your request and try again. |
-| `0110-400` | Missing parameter value | The `{parameterName}` value is required when cookie support is enabled. Provide a valid `{parameterName}` value and try again. |
+| `0110-400` | Missing parameter value | The `{parameterName}` value is required when cookie support is enabled. Provide a valid `ß{parameterName}` value and try again. |
 | `0111-415` | Invalid request | The request content type is not supported. Supported types are 'application/json', 'application/x-jackson-smile', 'text/plain' and 'text/javascript'. Update your request and try again. |
 | `0112-413` | Invalid request | The request payload is too large. The maximum accepted size for request payloads is `{maxSize}`. Update your request and try again. |
 | `0113-400` | Invalid request | The configuration override payload is invalid. See the attached report for details. Update your request and try again. |
@@ -172,12 +172,3 @@ The table below includes all the available Edge Network API error codes, along w
 | `0504-401` | Missing required product context | The user authorization token is missing the following required product context: `{productContext}`. Add the required product context to the user account and try again. |
 | `0505-401` | Missing required authorization token scope | The service authorization token is missing the following required scope: `{scope}`. Assign the required scope and try again. |
 | `0506-401` | Missing sandbox write permissions | The user authorization token does not have `DATASET.WRITE` permissions for the `{sandboxName}` sandbox. Check the user permissions and try again. |
-| `0600-429` | Inlet unavailable | The inlet with the ID `{inletId}` is currently unavailable due to a large number of requests. Try again later. |
-| `0601-400` | Inlet inactive | The inlet with the ID `{inletId}` is inactive. Provide an ID of an active inlet and try again. |
-| `0602-400` | Inlet does not exist | The inlet with the ID `{inletId}` does not exist. Provide a valid inlet ID and try again. |
-| `0610-500` | The message could not be published | An internal error occurred during message ingestion. Please try again. If this error persists, contact your Adobe representative. |
-| `0611-400` | Invalid XDM message | The XDM message on the request is invalid. Update your request and try again. |
-| `0612-207` | Message partially ingested | The request contains attributes which are not present in the target schema. These attributes were not published. To publish the missing attributes, add them to your target schema and try again. Otherwise, remove them from future requests. |
-| `4000-400` | Invalid routing set configuration | The routing set with the ID `{routingSetId}` is disabled. Update your routing set configuration and try again. |
-| `4001-400` | Invalid event | The event could not be evaluated due to an error with the XDM content. Update your request and try again. |
-| `4002-404` | Routing set not found | The routing set configuration with the ID `{routingSetId}` was not found. Update the request with a valid routing set ID and try again. |
