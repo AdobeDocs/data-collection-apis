@@ -107,13 +107,68 @@ Non-fatal errors are represented in the _Problem Details_ format, but are embedd
 }
 ```
 
-## Handling `4xx` and `5xx` responses
+## General error codes guidance
+
+The table below includes general information about the most frequently encountered types of errors. For more detailed information about other error codes, see the detailed error codes list further below on this page.
 
 | Error code | Description |
 | --- | --- |
 | `4xx Bad Request` | Most `4xx` errors, like 400, 403, 404, should not be retried on behalf of the client, except for `429`. These are client errors and will not succeed. The client must address the error before retrying the request. |
-| `429 Too Many Requests` | `429` HTTP response code indicates that the Adobe Experience Platform Edge Network or an upstream service is rate limiting the requests. In this case, the  In such a scenario the caller must respect the `Retry-After` response header. Any responses flowing back must carry the HTTP response code with a domain specific error code. |
+| `429 Too Many Requests` | `429` HTTP response code indicates that the Adobe Experience Platform Edge Network or an upstream service is rate limiting the requests. In such a scenario the caller must respect the `Retry-After` response header. Any responses flowing back must carry the HTTP response code with a domain specific error code. |
 | `500 Internal Server Error` | `500` errors are generic, catch-all errors. `500` errors must not be retried, except for `502` and `503`. Intermediaries must respond with a `500` error and may respond with a generic error code/message, or a more domain-specific error code/message. |
 | `502 Bad Gateway` | Indicates that the Adobe Experience Platform Edge Network received an invalid response from upstream servers. This can happen due to network issues between servers. The temporary network issue may resolve and thus a retry may resolve the issue, so recipients of `502` errors may retry the request after some time. |
 | `503 Service Unavailable` | This error code indicates that the service is temporarily unavailable. This can happen during maintenance periods. Recipients of `503` errors may retry the request, but must respect the `Retry-After` header. |
 | `504 Gateway Timeout` | Indicates that Adobe Experience Platform Edge Network request to the upstream servers has timed-out. This can happen due to network issues between servers, DNS issues, or other network issues. The temporary network issues may be resolved after some time and a retry may solve the issue. |
+
+## Detailed error codes list
+
+The table below includes all the available Edge Network API error codes, along with their descriptions. Refer to this table if you encounter errors with your integration.
+
+| Error code | Error message | Description |
+| --- | --- | --- |
+| `0000-503` | Service unavailable | The service is temporarily unable to process your request. Try again later. |
+| `0001-500` | Unexpected error | An unexpected error has occurred while processing the request. Please try again. If this error persists, contact your Adobe representative. |
+| `0002-400` | Missing datastream parameter | The required datastream parameter `{paramName}` is missing from your request. Provide a valid `{paramName}` value and try again. |
+| `0003-400` | Invalid datastream ID | The datastream ID `{dataStreamId}` referenced in your request does not exist. Update the request with a valid datastream ID and try again. |
+| `0004-422` | Datastream disabled | The datastream with the ID `{dataStreamId}` is disabled. Enable your datastream or update the request with a valid datastream ID and try again. |
+| `0010-422` | Invalid datastream configuration | The Experience Platform datastream configuration is missing for IMS Org `{imsOrg}`. Update your datastream configuration and try again. |
+| `0011-422` | Could not retrieve sandbox details | The sandbox details could not be retrieved because Adobe Experience Platform is not enabled for the datastream `{configId}`. Update your datastream configuration and try again. |
+| `0012-422` | The referenced sandbox cannot be resolved | The referenced sandbox `{sandboxName}` does not exist or is not owned by IMS Org `{imsOrg}`. Update your datastream configuration and try again. |
+| `0013-422` | The referenced identity namespace code `{identityNamespaceCode}` cannot be resolved | The referenced identity namespace code `{identityNamespaceCode}` does not exist for IMS Org `{orgId}` and sandbox `{sandboxName}`. Update the configuration and try again. |
+| `0100-500` | JSON processing error | An error occurred while processing your JSON request. Fix the JSON formatting and try again. |
+| `0101-400` | Invalid JSON request | The JSON request is invalid. Fix the request and try again. |
+| `0102-400` | Invalid request field | The value supplied for the `{fieldPath}` field does not match your input schema. Update the `{fieldPath}` value and try again. |
+| `0103-400` | Missing required value | The `{fieldPath}` field is mandatory. Provide a valid `{fieldPath}` value and try again. |
+| `0104-422` | Input validation error | The request is invalid. See the attached report for detailed information. Update your request and try again. |
+| `0105-400` | Input validation error | The request is invalid. Update your request and try again. |
+| `0106-400` | Invalid Content-Type header | The provided Content-Type header value is invalid. Update the Content-Type header value to one of the supported types and try again. The supported Content-Type header values are `{supportedContentTypes}`. |
+| `0107-400` | Missing required parameter | The required parameter `{paramName}` is missing from your request. Provide a valid `{parameterName}` value and try again. |
+| `0108-400` | Invalid parameter type | The `{parameterName}` parameter type is not supported. Use one of the supported parameter types and try again. |
+| `0109-408` | Empty request | The request body is empty. Update your request and try again. |
+| `0110-400` | Missing parameter value | The `{parameterName}` value is required when cookie support is enabled. Provide a valid `{parameterName}` value and try again. |
+| `0111-415` | Invalid request | The request content type is not supported. Supported types are 'application/json', 'application/x-jackson-smile', 'text/plain' and 'text/javascript'. Update your request and try again. |
+| `0112-413` | Invalid request | The request payload is too large. The maximum accepted size for request payloads is `{maxSize}`. Update your request and try again. |
+| `0113-400` | Invalid request | The configuration override payload is invalid. See the attached report for details. Update your request and try again. |
+| `0200-504` | The service call has timed out | The service call to `{serviceName}` exceeded the allowed time and was canceled. Try again. |
+| `0201-503` | The service is temporarily unavailable | The `{serviceName}` service is temporarily unable to serve this request. Try again later. |
+| `0202-502` | The service failed to process this request | The `{serviceName}` service failed to process this request. Check your input/configuration and try again. |
+| `0203-502` | The service call has failed | An error occurred while calling the `{serviceName}` service for this request. Try again. |
+| `0204-200` | The service call completed with warning(s) | A warning occurred while calling the `{serviceName}` service for this request. If this warning persists, contact your Adobe representative. |
+| `0205-502` | Data exchange producer request failed | The `{serviceName}` service failed to return data for the `{shareableName}` shareable component. |
+| `0300-502` | Could not check user consent | An error occurred while checking user consent. Please try again later. |
+| `0301-200` | User consent missing | This request was ignored due to lack of user consent. |
+| `0302-409` | Update operation not supported | The update cannot be performed because the user has already opted out of all advertising solutions. This operation may be supported in the future. |
+| `0303-200` | Unauthorized to fetch identities | Unauthorized to fetch identities from the following namespaces: `{unauthorizedNamespaces}`. The allowed namespaces are `{allowedNamespaces}`. |
+| `0304-400` | Unexpected identities provided | The unexpected identities `{unexpectedIdentities}` were provided for the following event: `#{index}`. Update the request and try again. |
+| `0305-400` | Invalid identity provided | The request contains an invalid identity (`{invalidIdValue}`) in the `{invalidIdNamespace}` namespace. Update the request and try again. |
+| `0306-400` | Event is missing primary identity | There was no primary identity provided for event `#{index}`. Update the request according to your schema and try again. |
+| `0307-502` | User consent update error | An error occurred while updating user consent settings. Try again later. |
+| `0308-400` | Invalid identity format | Event `#{index}` contains an ID (`{invalidIdValue}`) in invalid format in the `{invalidIdNamespace}` namespace. Update the request and try again. |
+| `0400-403` | Request ignored due to geographical restrictions | Requests from this country are not allowed. |
+| `0500-401` | Invalid authorization token | The required authorization token is missing or has an invalid format. Add a valid token to the request and try again. |
+| `0501-401` | Invalid user authorization token | The required user token is missing or it has an invalid format. Check the `{headerName}` header value and try again. |
+| `0502-401` | Invalid authorization token signature | The authorization token signature is invalid. Check the authorization token and try again. |
+| `0503-401` | Authorization token expired | The authorization token has expired. Generate a new authorization token and try again. |
+| `0504-401` | Missing required product context | The user authorization token is missing the following required product context: `{productContext}`. Add the required product context to the user account and try again. |
+| `0505-401` | Missing required authorization token scope | The service authorization token is missing the following required scope: `{scope}`. Assign the required scope and try again. |
+| `0506-401` | Missing sandbox write permissions | The user authorization token does not have `DATASET.WRITE` permissions for the `{sandboxName}` sandbox. Check the user permissions and try again. |
