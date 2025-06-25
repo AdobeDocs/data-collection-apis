@@ -113,10 +113,10 @@ This endpoint requires the following payload properties within the `xdm` object:
 
 The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
 
-| Media collection property | Description |
-| --- | --- |
-| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
-| `sessionDetails` | An object containing details on the session. See the table below for details. |
+| Media collection property | Description                                                                                                                                                                                                                         |
+| --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `playhead` | The current playback position within the media content.  Live content: The current second of the day, between 0 and 86400.  Recorded content: The current second of the content's duration, between 0 and the total content length. |
+| `sessionDetails` | An object containing details on the session. See the table below for details.                                                                                                                                                       |
 
 The `sessionDetails` object requires several properties. See [Session Details Collection data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/session-details-collection) in the Experience Data Model guide for more information.
 
