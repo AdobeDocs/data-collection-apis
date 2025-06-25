@@ -14,7 +14,7 @@ You can use these API endpoints for various data collection, personalization, ad
 
 Adobe offers several endpoints that facilitate the interaction with the Edge Network, through the APIs below:
 
-* **Edge Network API**: Includes the [`interact`](interact/index.md) and [`collect`](collect/index.md) endpoints, sending data directly to a datastream
+* **Edge Network API**: Includes the ['interact'](interact/index.md) and ['collect'](collect/index.md) endpoints, sending data directly to a datastream
 * **Media Edge API**: Includes 18 endpoints that allow you to compose a streaming media session on Adobe's servers. When the session completes, those events are aggregated into a smaller number of events and sent to the desired datastream.
 
 The benefits of using these endpoints include:
