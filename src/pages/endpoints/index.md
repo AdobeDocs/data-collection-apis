@@ -37,6 +37,3 @@ The Edge Network API supports both client-to-server and server-to-server API cal
 Authenticated API calls enable use cases that allow for secure collection of sensitive data according to your organization's privacy policies. In addition to authentication, the Edge Network API supports marking datastreams to accept only authenticated communication.
 
 The Media Edge API currently supports client-to-server API calls only.
-
-* Authenticated API calls use `server.adobedc.net` endpoints.
-* Non-authenticated API calls use `edge.adobedc.net` endpoints.
