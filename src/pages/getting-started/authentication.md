@@ -28,7 +28,7 @@ Before you make calls to the Edge Network API, make sure that you meet the follo
 If you meet both of the above criteria, you can perform both of the following vital tasks:
 
 * [Create or edit datastreams](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure) within the Adobe Experience Platform UI
-* [Create or edit API projects](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/) within the Adobe Developer Console
+* [Create or edit API projects](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty) within the Adobe Developer Console
 
 ## `Authorization`
 
