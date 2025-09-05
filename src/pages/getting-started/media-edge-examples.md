@@ -488,7 +488,7 @@ Ad break starts. It will contain two ads.
 }
 ```
 
-<AccordionItem slots="heading, table, text, code"/>
+<AccordionItem slots="heading, table, text, code, code"/>
 
 ### 9. Pings
 
