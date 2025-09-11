@@ -56,10 +56,10 @@ This endpoint requires the following payload properties within the `xdm` object:
 
 The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
 
-| Media collection property | Description |
-| --- | --- |
-| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
-| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
+| Media collection property | Description                                                                                                                                                                                                                                                                    |
+| --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint.                                                                                                                                                                                          |
+| `playhead` | The current playback position within the media content. Live content: The current second of the day, between 0 and 86400. Recorded content: The current second of the content's duration, between 0 and the total content length.                                              |
 | `advertisingPodDetails` | An object containing details on the ad pod. See [Advertising Pod Details Collection](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/advertising-pod-details-collection) for more information. The `index` and `offset` properties are required. |
 
 ## `adBreakComplete`
@@ -150,10 +150,10 @@ This endpoint requires the following payload properties within the `xdm` object:
 
 The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
 
-| Media collection property | Description |
-| --- | --- |
-| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
-| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
+| Media collection property | Description                                                                                                                                                                                                                                                                                     |
+| --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint.                                                                                                                                                                                                           |
+| `playhead` | The current playback position within the media content.  Live content: The current second of the day, between 0 and 86400.  Recorded content: The current second of the content's duration, between 0 and the total content length.                                                             |
 | `advertisingDetails` | An object containing details on the ad. See [Advertising Details Collection](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/advertising-details-collection) for more information. The `name`, `length`, `playerName`, and `podPosition` properties are required. |
 
 ## `adComplete`

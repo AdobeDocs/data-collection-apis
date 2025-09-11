@@ -57,9 +57,9 @@ The following table shows a timeline of actions to be tracked for this example. 
 
 Each timeline action shown in the previous table is described in detail below. Each description includes the payload that is sent as part of a Media Edge API request.
 
-<Accordion>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="1. Start play">
+### 1. Start play
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -86,9 +86,9 @@ This call signals the intention of the user to play a video. The player state is
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text"/>
 
-<AccordionItem header="2. Ping event timer">
+### 2. Ping event timer
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -96,9 +96,9 @@ This call signals the intention of the user to play a video. The player state is
 
 The application starts the [ping timer](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/analytics-only/streaming-media-apis/mc-api-impl/mc-api-sed-pings.html). A call is not sent for this event, but the first ping call should be fired 10 seconds later.
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="3. Track buffer start">
+### 3. Track buffer start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -117,9 +117,9 @@ Player enters the `buffering` state. Because content is not being played the pla
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="4. Track buffer end">
+### 4. Track buffer end
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -138,9 +138,9 @@ Player buffering ends after 3 seconds so a `play` call is sent to put the player
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="5. Ping">
+### 5. Ping
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -159,9 +159,9 @@ A ping call is sent to the backend every 10 seconds.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="6. User pauses">
+### 6. User pauses
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -180,9 +180,9 @@ The user pauses the video. This moves the play state to `paused`.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="7. Ping">
+### 7. Ping
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -201,9 +201,9 @@ A ping call is sent to the backend every 10 seconds. The player remains in a `pa
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="8. User presses play">
+### 8. User presses play
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -222,9 +222,9 @@ The user presses `play`. This moves the play state to `playing`. There is no nee
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="9. User closes player">
+### 9. User closes player
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client Request |
 | --- | --- | --- | --- | --- |
@@ -242,10 +242,6 @@ The user closes the app. `sessionEnd` is sent to the Media Edge API to signal th
   }
 }
 ```
-
-</AccordionItem>
-
-</Accordion>
 
 ## Example 2: Two chapters separated by an ad break
 
@@ -293,9 +289,9 @@ The Client request column in the table below shows the final path parameter and 
 
 Each timeline action shown in the previous table is described in detail below. Each description includes the payload that is sent as part of a Media Edge API request.
 
-<Accordion>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="1. Session start">
+### 1. Session start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -322,9 +318,9 @@ This call signals the intent of the user to play a video and returns a Session I
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text"/>
 
-<AccordionItem header="2. Ping timer starts">
+### 2. Ping timer starts
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -332,9 +328,9 @@ This call signals the intent of the user to play a video and returns a Session I
 
 The application starts the [ping timer](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/analytics-only/streaming-media-apis/mc-api-impl/mc-api-sed-pings.html). A call is not sent for this event, but the first ping call should be fired 10 seconds later.
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="3. Track play">
+### 3. Track play
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -353,9 +349,9 @@ Tracking enters the *playing* state using the `play` event.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="4. Track Chapter 1 start">
+### 4. Track Chapter 1 start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -380,9 +376,9 @@ Tracks the start `Chapter 1`.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="5. Ping">
+### 5. Ping
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -401,9 +397,9 @@ A ping call is sent to the back-end every 10 seconds.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="6. Track Chapter 1 completion">
+### 6. Track Chapter 1 completion
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -422,9 +418,9 @@ A ping call is sent to the back-end every 10 seconds.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="7. Ad break start">
+### 7. Ad break start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -448,9 +444,9 @@ Ad break starts. It will contain two ads.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="8. Track Ad 1 start">
+### 8. Track Ad 1 start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -492,9 +488,9 @@ Ad break starts. It will contain two ads.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code, code"/>
 
-<AccordionItem header="9. Pings">
+### 9. Pings
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -524,9 +520,9 @@ A ping call is sent to the back-end every 10 seconds. In this particular case, t
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="10. Track ad 1 completion">
+### 10. Track ad 1 completion
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -545,9 +541,9 @@ The completion of `Ad 1` is tracked. On the backend, this call also generates a 
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="11. Track ad 2 start">
+### 11. Track ad 2 start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -579,9 +575,9 @@ The completion of `Ad 1` is tracked. On the backend, this call also generates a 
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="12. Ping">
+### 12. Ping
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -600,9 +596,9 @@ A ping call is sent to the backend every 10 seconds. In this scenario, at timeli
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="13. Track ad 2 completion">
+### 13. Track ad 2 completion
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -621,9 +617,9 @@ The completion of `Ad 2` is tracked. On the backend, this call also generates a 
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="14. Ad break completion">
+### 14. Ad break completion
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -642,9 +638,9 @@ The completion of the ad break is tracked.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="15. Track Chapter 2 start">
+### 15. Track Chapter 2 start
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -669,9 +665,9 @@ The start of `Chapter 2` is tracked directly after the completion of the ad brea
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="16. Ping">
+### 16. Ping
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -690,9 +686,9 @@ A ping call is sent to the backend every 10 seconds.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="17. Track Chapter 2 completion">
+### 17. Track Chapter 2 completion
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -711,9 +707,9 @@ The completion of `Chapter 2` is tracked.
 }
 ```
 
-</AccordionItem>
+<AccordionItem slots="heading, table, text, code"/>
 
-<AccordionItem header="18. Session complete">
+### 18. Session complete
 
 | Number | Action | Elapsed Real-Time (from beginning) | Playhead Position | Client request |
 | --- | --- | --- | --- | --- |
@@ -731,9 +727,5 @@ The completion of `Chapter 2` is tracked.
   }
 }
 ```
-
-</AccordionItem>
-
-</Accordion>
 
 See [Media Edge API overview](../endpoints/media/index.md) for a full list of endpoints that you can use to build a media tracking session.

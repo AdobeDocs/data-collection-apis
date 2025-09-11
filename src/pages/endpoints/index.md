@@ -8,9 +8,9 @@ The Adobe Experience Platform Edge Network provides an optimized way for you to 
 
 You can use these API endpoints for various data collection, personalization, advertising and marketing use cases. Since they do not rely on any libraries to load, they provide a lightning-fast way to interact with the Edge Network and supported solutions.
 
-<Media slots="video"/>
+<Embed slots="video"/>
 
-<https://video.tv.adobe.com/v/341448/>
+https://video.tv.adobe.com/v/341448/
 
 Adobe offers several endpoints that facilitate the interaction with the Edge Network, through the APIs below:
 

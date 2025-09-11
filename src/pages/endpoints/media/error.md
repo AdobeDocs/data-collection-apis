@@ -51,8 +51,8 @@ This endpoint requires the following payload properties within the `xdm` object:
 
 The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
 
-| Media collection property | Description |
-| --- | --- |
-| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
-| `playhead` | The current playback position within the media content.<br/>Live content: The current second of the day, between 0 and 86400.<br/>Recorded content: The current second of the content's duration, between 0 and the total content length. |
+| Media collection property | Description                                                                                                                                                                                                                                                                                                                     |
+| --- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint.                                                                                                                                                                                                                                           |
+| `playhead` | The current playback position within the media content. Live content: The current second of the day, between 0 and 86400. Recorded content: The current second of the content's duration, between 0 and the total content length.                                                                                               |
 | `errorDetails` | An object containing details on the error. See [Error Details Collection](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/error-details-collection) for more information. The `name` and `source` properties are required. The `source` property allows only two values: `player` and `external`. |
