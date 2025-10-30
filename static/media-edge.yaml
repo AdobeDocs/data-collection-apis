@@ -3545,7 +3545,7 @@ paths:
                       - xdm
             examples:
               '0':
-                value: |-
+                value:
                   {
                       "events": [
                           {
@@ -3733,7 +3733,7 @@ paths:
                           description: ""
               examples:
                 '0':
-                  value: |-
+                  value:
                     {
                         "requestId": "dd850e05-8c3e-4ae4-9ea8-506490978004",
                         "handle": [
@@ -3848,7 +3848,7 @@ paths:
                                     description: "The error details"
               examples:
                 '0':
-                  value: |-
+                  value:
                     {
                         "requestId": "e3d87437-5054-4bc2-8953-be4be8d0b900",
                         "handle": [
@@ -3938,7 +3938,7 @@ paths:
                         description: "The error details"
               examples:
                 '0':
-                  value: |-
+                  value:
                     {
                       "type": "https://ns.adobe.com/aep/errors/EXEG-0003-400",
                       "status": 400,
