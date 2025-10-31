@@ -3567,7 +3567,7 @@ paths:
                                   },
                                   "mediaDownloadedEvents": [
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:52:24+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:52:24+00:00",
                                           "mediaEventType": "media.sessionStart",
                                           "mediaCollection": {
                                               "playhead": 0,
@@ -3587,7 +3587,7 @@ paths:
                                           }
                                       },
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:52:25+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:52:25+00:00",
                                           "mediaEventType": "media.play",
                                           "mediaCollection": {
                                               "playhead": 0,
@@ -3597,7 +3597,7 @@ paths:
                                           }
                                       },
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:52:35+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:52:35+00:00",
                                           "mediaEventType": "media.chapterStart",
                                           "mediaCollection": {
                                               "playhead": 10,
@@ -3610,21 +3610,21 @@ paths:
                                           }
                                       },
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:52:45+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:52:45+00:00",
                                           "mediaEventType": "media.ping",
                                           "mediaCollection": {
                                               "playhead": 20
                                           }
                                       },
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:52:55+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:52:55+00:00",
                                           "mediaEventType": "media.chapterComplete",
                                           "mediaCollection": {
                                               "playhead": 30
                                           }
                                       },
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:52:56+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:52:56+00:00",
                                           "mediaEventType": "media.adBreakStart",
                                           "mediaCollection": {
                                               "advertisingPodDetails": {
@@ -3636,7 +3636,7 @@ paths:
                                           }
                                       },                  
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:52:57+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:52:57+00:00",
                                           "mediaEventType": "media.adStart",
                                           "mediaCollection": {
                                               "advertisingDetails": {
@@ -3656,14 +3656,14 @@ paths:
                                           }
                                       },
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:53:03+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:53:03+00:00",
                                           "mediaEventType": "media.adComplete",
                                           "mediaCollection": {
                                               "playhead": 30
                                           }
                                       },                  
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:53:05+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:53:05+00:00",
                                           "mediaEventType": "media.adBreakComplete",
                                           "mediaCollection": {
                                               "playhead": 30
@@ -3684,10 +3684,10 @@ paths:
                                                   "timeToStart": 365330
                                               }
                                           },
-                                          "mediaEventTimestamp": "20XX-09-26T15:53:07+00:00"
+                                          "mediaEventTimestamp": "2025-09-26T15:53:07+00:00"
                                       },
                                       {
-                                          "mediaEventTimestamp": "20XX-09-26T15:53:08+00:00",
+                                          "mediaEventTimestamp": "2025-09-26T15:53:08+00:00",
                                           "mediaEventType": "media.sessionComplete",
                                           "mediaCollection": {
                                               "playhead": 30
