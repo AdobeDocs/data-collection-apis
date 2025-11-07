@@ -63,7 +63,6 @@ curl -X POST "https://edge.adobedc.net/ee/va/v1/downloaded?configId={datastreamI
             }
           }
         ],
-        "timestamp": "{{currentTimestamp}}"
       }
     }
   ]
