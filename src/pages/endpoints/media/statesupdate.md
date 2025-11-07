@@ -64,11 +64,11 @@ This endpoint requires the following payload properties within the `xdm` object:
 
 The `mediaCollection` object requires several properties. See [Media Collection Details data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/media-collection-details) in the Experience Data Model guide for more information.
 
-| Media collection property | Description                                                                                                                                                                                                                                                                     |
-| --- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint.                                                                                                                                                                                           |
-| `playhead` | The current playback position within the media content. Live content: The current second of the day, between 0 and 86400. Recorded content: The current second of the content's duration, between 0 and the total content length.                                               |
+| Media collection property | Description |
+| --- | --- |
+| `sessionID` | The session ID obtained from the [`sessionStart`](sessions.md#sessionstart) endpoint. |
+| `playhead` | The current playback position within the media content. Live content: The current second of the day, between 0 and 86400. Recorded content: The current second of the content's duration, between 0 and the total content length. |
 | `statesStart[]` | An array of enumerated names that represent the start of that state. See [List of States Start data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/list-of-states-start-collection) for more information. The `name` property is required. |
-| `statesEnd[]` | An array of enumerated names that represent the end of that states. See [List of States End data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/list-of-states-end-collection) for more information. The `name` property is required.      |
+| `statesEnd[]` | An array of enumerated names that represent the end of that states. See [List of States End data type](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/data-types/list-of-states-end-collection) for more information. The `name` property is required. |
 
 Valid values for the `name` property include `fullscreen`, `mute`, `closedCaptioning`, `pictureInPicture`, and `inFocus`.

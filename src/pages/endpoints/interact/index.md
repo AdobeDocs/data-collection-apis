@@ -22,29 +22,29 @@ This endpoint supports both [authenticated](../../getting-started/authentication
 curl -X POST "https://edge.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID}"
 -H "Content-Type: application/json" 
 -d '{
-   "event": {
-      "xdm": {
-         "identityMap": {
-            "Email_LC_SHA256": [
-               {
-                  "id": "0c7e6[...]e8a3b",
-                  "primary": true
-               }
-            ]
-         },
-         "eventType": "web.webpagedetails.pageViews",
-         "web": {
-            "webPageDetails": {
-               "URL": "https://example.com/",
-               "name": "home-demo-Home Page"
-            }
-         },
-         "timestamp": "YYYY-08-09T14:09:20.859Z"
+  "event": {
+    "xdm": {
+      "identityMap": {
+        "Email_LC_SHA256": [
+          {
+            "id": "0c7e6[...]e8a3b",
+            "primary": true
+          }
+        ]
       },
-      "data": {
-         "prop1": "custom value"
-      }
-   }
+      "eventType": "web.webpagedetails.pageViews",
+      "web": {
+        "webPageDetails": {
+          "URL": "https://example.com/",
+          "name": "home-demo-Home Page"
+        }
+      },
+      "timestamp": "YYYY-08-09T14:09:20.859Z"
+    },
+    "data": {
+      "prop1": "custom value"
+    }
+  }
 }'
 ```
 
@@ -57,29 +57,29 @@ curl -X POST "https://server.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_
 -H "x-api-key: {API_KEY}" 
 -H "Content-Type: application/json" 
 -d '{
-   "event": {
-      "xdm": {
-         "identityMap": {
-            "Email_LC_SHA256": [
-               {
-                  "id": "0c7e6[...]e8a3b",
-                  "primary": true
-               }
-            ]
-         },
-         "eventType": "web.webpagedetails.pageViews",
-         "web": {
-            "webPageDetails": {
-               "URL": "https://example.com/",
-               "name": "home-demo-Home Page"
-            }
-         },
-         "timestamp": "YYYY-08-09T14:09:20.859Z"
+  "event": {
+    "xdm": {
+      "identityMap": {
+        "Email_LC_SHA256": [
+          {
+            "id": "0c7e6[...]e8a3b",
+            "primary": true
+          }
+        ]
       },
-      "data": {
-         "prop1": "custom value"
-      }
-   }
+      "eventType": "web.webpagedetails.pageViews",
+      "web": {
+        "webPageDetails": {
+          "URL": "https://example.com/",
+          "name": "home-demo-Home Page"
+        }
+      },
+      "timestamp": "YYYY-08-09T14:09:20.859Z"
+    },
+    "data": {
+      "prop1": "custom value"
+    }
+  }
 }'
 ```
 

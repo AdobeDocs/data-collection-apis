@@ -23,7 +23,7 @@ Both [Media Collection APIs](https://experienceleague.adobe.com/docs/media-analy
 The following table shows a possible Adobe API service for various media analytics cases:
 
 | Use case | API service |
-| -------- | ----------- |
+| --- | --- |
 | Adobe Experience Platform solution | Media Edge |
 | Real-Time CDP + Customer Journey Analytics | Media Edge |
 | Adobe Analytics + Adobe Experience Platform solution | Media Edge |
