@@ -37,4 +37,4 @@ There are two main categories of endpoints:
 
 If you are looking for the API that allows you to use Adobe Experience Platform, see the [Adobe Experience Platform API documentation](https://developer.adobe.com/experience-platform-apis/).
 
-This user guide adheres to Adobe's Code of Conduct. Contributions are encouraged and appreciated. See Adobe's [Code of Conduct](https://github.com/AdobeDocs/analytics-2.0-apis/blob/main/CODE_OF_CONDUCT.md) and [Contribution Guidelines](https://github.com/AdobeDocs/analytics-2.0-apis/blob/main/.github/CONTRIBUTING.md) on GitHub for more information.
+This user guide adheres to Adobe's Code of Conduct. Contributions are encouraged and appreciated. See Adobe's [Code of Conduct](https://github.com/AdobeDocs/data-collection-apis/blob/main/CODE_OF_CONDUCT.md) and [Contribution Guidelines](https://github.com/AdobeDocs/data-collection-apis/blob/main/.github/CONTRIBUTING.md) on GitHub for more information.
