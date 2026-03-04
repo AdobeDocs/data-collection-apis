@@ -19,13 +19,13 @@ Adobe actively participates in several communities. You can use any of the follo
 
 ### Adobe Experience League
 
-[Data collection forum](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-platform-data/ct-p/adobe-launch-community)
+[Adobe Experience Platform community](https://experienceleaguecommunities.adobe.com/adobe-experience-platform-18)
 
 Ask/answer questions, participate in discussions, or submit ideas around the Data collection APIs.
 
 <DiscoverBlock slots="link, text" width="25%"/>
 
-[Adobe Developer forum](https://experienceleaguecommunities.adobe.com/t5/adobe-i-o-console/ct-p/adobe-io-console)
+[Adobe Developer community](https://experienceleaguecommunities.adobe.com/t5/adobe-i-o-console/ct-p/adobe-io-console)
 
 Ask/answer questions or participate in discussions around the Adobe Developer console.
 
