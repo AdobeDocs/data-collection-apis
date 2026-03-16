@@ -1,11 +1,7 @@
-
-# OS and IDE generated files #
-##############################
-.DS_Store
-.vscode
-.history
-.idea
 .editorconfig
+.idea
+.DS_Store
+.vscode/*
 
 # npm yarn
 node_modules
@@ -45,6 +41,6 @@ local-test.yml
 .yalc
 yalc.lock
 
-#txt
+# Added by update-bot
 linter-output.txt
 linter-report.txt
