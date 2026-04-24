@@ -136,3 +136,5 @@ The following query string parameters are available for this endpoint:
 | `requestId` | `String` | No | Provide an external request tracing ID. If none is provided, the Edge Network generates one for you and includes it in the response. |
 
 A successful response returns HTTP status `200 OK`, with one or more `Handle` objects, depending on the real-time edge services enabled in the datastream configuration.
+
+The `locationHint:result` handle in the response identifies the edge server that processed the request. To keep subsequent requests in the same session on that server, include the value in the URL path. See [Location hints](../../getting-started/location-hints.md) for details.

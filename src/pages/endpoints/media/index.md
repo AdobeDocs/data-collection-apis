@@ -78,3 +78,7 @@ curl -X POST "https://edge.adobedc.net/ee/va/v1/sessionStart?configId={datastrea
 ```
 
 If successfully processed, the API returns `200 OK` for the `sessionStart` endpoint or `204 No Content` for all other endpoints.
+
+## Keeping a media session on the same edge server
+
+A media tracking session is composed of many sequential calls that share state on the edge server. Use the location hint returned by the `sessionStart` response in every subsequent call in that session to ensure the events are processed together. See [Location hints](../../getting-started/location-hints.md) for details on the URL format and persisting the hint across requests.

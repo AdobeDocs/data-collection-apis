@@ -155,3 +155,5 @@ A successful response returns one of the following statuses, and a `requestID` i
 * `202 Accepted` when the request was successfully processed
 * `204 No Content` when the request was successfully processed and the `silent` parameter was set to `true`
 * `400 Bad Request` when the request was not properly formed (e.g., the mandatory primary identity was not found)
+
+If the events you send through this endpoint belong to a session that also calls [`interact`](../interact/index.md), reuse the location hint returned by that endpoint in the `collect` URL path so that the batch is processed on the same edge server. See [Location hints](../../getting-started/location-hints.md) for details.
