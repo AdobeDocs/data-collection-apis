@@ -49,5 +49,3 @@ The table below shows the default limit values. If you need higher request unit 
 | Payload format | Max size for a request | Max 8 KB request fragments |
 | --- | --- | --- |
 | JSON plain-text | 64 KB | 8 |
-
-Depending on the payload itself, binary formats are generally 20-40% more compact, allowing you to push more data than you would in plain-text JSON. Contact Customer Care if you need a higher capacity for your datastreams.
