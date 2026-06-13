@@ -67,7 +67,7 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/15094737?v=4"
       ],
-      "lastUpdated": "4/24/2026"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/ads",
@@ -75,7 +75,7 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "11/7/2025"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/bitratechange",
@@ -83,14 +83,14 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "11/7/2025"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/bufferstart",
       "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "10/5/2024"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/chapters",
@@ -99,14 +99,14 @@
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/15094737?v=4"
       ],
-      "lastUpdated": "11/7/2025"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/downloaded",
       "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "11/10/2025"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/error",
@@ -114,28 +114,28 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "11/7/2025"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/pausestart",
       "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "9/6/2024"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/ping",
       "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "10/5/2024"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/play",
       "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "10/5/2024"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/sessions",
@@ -143,7 +143,7 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "11/7/2025"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/endpoints/media/statesupdate",
@@ -151,7 +151,7 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "11/7/2025"
+      "lastUpdated": "6/13/2026"
     },
     {
       "page": "/getting-started/",
