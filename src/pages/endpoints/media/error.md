@@ -4,7 +4,7 @@ description: Track when the media player encounters an error.
 ---
 # Error endpoint
 
-The `error` endpoint tracks when the media player encounters an error.
+The `error` endpoint tracks when the media player encounters an error. See the [Error event](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/error) in the Streaming Media services documentation for additional details.
 
 Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 

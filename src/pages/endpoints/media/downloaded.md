@@ -19,6 +19,12 @@ The `downloaded` endpoint represents a full media session from start to finish. 
   * Adobe Analytics users can assign the `a.media.downloaded` context data variable to a dimension or metric using [Processing rules](https://experienceleague.adobe.com/en/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/report-suite-general/processing-rules/pr-overview) to obtain this flag in reports.
 * If your datastream sends streaming media data to Adobe Analytics, make sure that the report suite has [Timestamps optional](https://experienceleague.adobe.com/en/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/report-suite-general/timestamp-configuration) enabled. Timestamps optional is enabled by default for all new report suites.
 
+## Reporting output
+
+When Adobe processes a downloaded session, it automatically sets `xdm.mediaReporting.sessionDetails.isDownloaded` to `true` on the `sessionStart` reporting event written to a dataset. All other reporting events for downloaded sessions follow the same `mediaReporting` schema as live sessions. You can use this field to filter downloaded sessions in Customer Journey Analytics or create a segment in Adobe Analytics.
+
+For complete XDM payload examples showing the reporting data Adobe generates from this endpoint, see [XDM reporting schema](https://experienceleague.adobe.com/en/docs/media-analytics/using/implementation/edge/reporting-schema) in the Streaming Media services documentation.
+
 **`POST https://edge.adobedc.net/ee/va/v1/downloaded?configId={datastreamID}`**
 
 The following example shows a payload of only `sessionStart` and `sessionComplete` media event types. See the [API reference](../../api/media-edge.md) for an example using more media event types.

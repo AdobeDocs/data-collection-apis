@@ -4,7 +4,7 @@ description: Indicates a change in bitrate during playback.
 ---
 # Bitrate change endpoint
 
-The `bitrateChange` endpoint allows you to track changes in the quality of playback content to a user. Call this endpoint whenever the user experiences a change in the bitrate of the media player.
+The `bitrateChange` endpoint allows you to track changes in the quality of playback content to a user. Call this endpoint whenever the user experiences a change in the bitrate of the media player. See the [Bitrate change event](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/playback/bitrate-change) in the Streaming Media services documentation for additional details.
 
 Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 

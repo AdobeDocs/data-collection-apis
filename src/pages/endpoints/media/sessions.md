@@ -16,7 +16,7 @@ If you use a session ID that is either invalid or expired, that data is irretrie
 
 ## `sessionStart`
 
-The `sessionstart` endpoint creates a media tracking session for a visitor. A successful response includes a session ID, which is required for all other endpoints. Make sure that you follow [Getting started](index.md) to obtain a datastream ID. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
+The `sessionstart` endpoint creates a media tracking session for a visitor. See [Session start](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/session/session-start), [Session complete](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/session/session-complete), and [Session end](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/session/session-end) in the Streaming Media services documentation for additional details. A successful response includes a session ID, which is required for all other endpoints. Make sure that you follow [Getting started](index.md) to obtain a datastream ID. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
  
 **`POST https://edge.adobedc.net/ee/va/v1/sessionStart?configId={datastream ID}`**
 

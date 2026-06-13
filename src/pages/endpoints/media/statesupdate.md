@@ -4,7 +4,7 @@ description: Start or end a player state
 ---
 # States update endpoint
 
-The `statesUpdate` endpoint allows you to start or end the media player in a given state. The media player can be in multiple states simulataneously. You can start and end multiple player states in the same API call. The following states are available to start or end:
+The `statesUpdate` endpoint allows you to start or end the media player in a given state. The media player can be in multiple states simultaneously. You can start and end multiple player states in the same API call. See [State start](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/player-state/state-start) and [State end](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/player-state/state-end) in the Streaming Media services documentation for additional details. The following states are available to start or end:
 
 * **Full screen**: The media player is in a full screen state.
 * **Mute**: The media player is muted.

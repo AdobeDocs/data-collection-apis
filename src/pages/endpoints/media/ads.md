@@ -4,7 +4,7 @@ description: Endpoints that you can call related to ad tracking.
 ---
 # Ad endpoints
 
-These endpoints allow you to track media ads that play before or during content playback. They consist of two types of advertising events:
+These endpoints allow you to track media ads that play before or during content playback. They consist of two types of advertising events. See [Ad break start](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/ads/ad-break-start), [Ad start](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/ads/ad-start), [Ad complete](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/ads/ad-complete), [Ad skip](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/ads/ad-skip), and [Ad break complete](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/ads/ad-break-complete) in the Streaming Media services documentation for additional details.
 
 * **Ad break:** A sequence of ads. A single ad break consists of one or more ads.
 * **Ad:** An individual ad. Multiple ads can play during a single ad break.

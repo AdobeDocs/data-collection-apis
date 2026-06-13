@@ -4,7 +4,7 @@ description: Indicates when playback content starts or resumes.
 ---
 # Play endpoint
 
-The `play` endpoint allows you to track when the media player plays or resumes content. Examples include the initial start of main content or during autoplay. It also includes resuming content after buffering, being paused, or encountering an error. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint.
+The `play` endpoint allows you to track when the media player plays or resumes content. Examples include the initial start of main content or during autoplay. It also includes resuming content after buffering, being paused, or encountering an error. See [Media Edge API implementation examples](../../getting-started/media-edge-examples.md) for more examples calling this endpoint. See the [Play event](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/playback/play) in the Streaming Media services documentation for additional details.
 
 Usage of this endpoint requires an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 

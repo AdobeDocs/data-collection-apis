@@ -4,7 +4,7 @@ description: Endpoints that you can call related to tracking chapters of content
 ---
 # Chapter endpoints
 
-These endpoints allow you to track content consumption in context of chapters.
+These endpoints allow you to track content consumption in context of chapters. See [Chapter start](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/chapters/chapter-start), [Chapter complete](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/chapters/chapter-complete), and [Chapter skip](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/chapters/chapter-skip) in the Streaming Media services documentation for additional details.
 
 Usage of these endpoints require an active session. Make sure that you call the [`sessionStart`](sessions.md#sessionstart) endpoint first to obtain a valid session ID.
 

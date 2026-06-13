@@ -4,7 +4,7 @@ description: Indicates when a media player is paused.
 ---
 # Pause start endpoint
 
-The `pauseStart` endpoint lets you track when the media player is paused.
+The `pauseStart` endpoint lets you track when the media player is paused. See the [Pause start event](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/playback/pause-start) in the Streaming Media services documentation for additional details.
 
 A "Resume" endpoint does not exist using this API; instead, it is inferred when you call the `play` endpoint following `pauseStart`. Call the `play` endpoint when the media player resumes playing content.
 

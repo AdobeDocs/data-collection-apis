@@ -10,7 +10,7 @@ The Adobe Experience Platform Media Edge APIs allow you to send media data withi
 * With [Adobe Real-Time Customer Data Platform](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/overview.html), you can enrich real-time profiles with media consumption data.
 * With [Adobe Journey Optimizer](https://experienceleague.adobe.com/docs/journey-optimizer/using/get-started/get-started.html), you can optimize omnichannel campaigns and automate journeys with media consumption signals.
 
-See [Media Edge API examples](../../getting-started/media-edge-examples.md) to learn more about how to structure multiple API calls together to build a media tracking session.
+See [Media Edge API examples](../../getting-started/media-edge-examples.md) to learn more about how to structure multiple API calls together to build a media tracking session. For event sequencing rules and per-SDK implementation examples (Web SDK, Mobile SDK, Media SDK, and Media Collection API), see the [Events overview](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/events/overview) in the Streaming Media services documentation.
 
 ## Optimizing media tracking data flows
 
