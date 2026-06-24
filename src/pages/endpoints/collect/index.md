@@ -147,7 +147,7 @@ The following query string parameters are available for this endpoint:
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `datastreamId` | `String` | Yes | The ID of the datastream used by the data collection endpoint. |
-| `requestId` | `String` | No | Provide an external request tracing ID. If none is provided, the Edge Network generates one for you and includes it in the response. |
+| `requestId` | `String` | No | Provide an external request tracing ID. The Edge Network always appends an entropy suffix, so the `requestId` in the response always differs from the supplied value (format: `<requestId>-<entropy>`). If none is provided, the Edge Network generates a UUID and appends the entropy suffix. Match on the prefix of the returned value when correlating requests to responses. |
 | `silent` | `Boolean` | No | Optional boolean parameter indicating whether the Edge Network should return a `204 No Content` response with an empty payload or not. Critical errors are reported using the corresponding HTTP status code and payload. |
 
 A successful response returns one of the following statuses, and a `requestID` if none was provided in the requst.
