@@ -215,7 +215,9 @@ components:
         format: uuid
       description: |
         Provide an external request tracing ID; it can also be supplied in the x-request-id header.
-        If none is provided, the API generates one for you and return it back in the response body / headers.
+        The Edge Network always appends a 16-character hex entropy suffix to the provided value (or generates a new UUID if none is provided) to guarantee uniqueness across concurrent requests.
+        The returned identifier uses the format `<requestId>-<entropy>` (for example, `708e4f90-5bff-41c5-8f4b-6c15bab76b11-f46e48eb52594815`).
+        Because the entropy suffix is always added, the value in the response always differs from the value supplied in the request. When correlating requests to responses, match on the prefix of the returned requestId rather than an exact string match.
       required: false
     requestIdHeader:
       in: header
@@ -223,6 +225,11 @@ components:
       schema:
         type: string
         format: uuid
+      description: |
+        Alternate way to supply an external request tracing ID (equivalent to the requestId query parameter).
+        The Edge Network always appends a 16-character hex entropy suffix to the provided value (or generates a new UUID if none is provided) to guarantee uniqueness across concurrent requests.
+        The returned identifier uses the format `<x-request-id>-<entropy>` (for example, `708e4f90-5bff-41c5-8f4b-6c15bab76b11-f46e48eb52594815`).
+        Because the entropy suffix is always added, the value in the response always differs from the value supplied in the request. When correlating requests to responses, match on the prefix of the returned requestId rather than an exact string match.
       required: false
     xGatewayImsOrgId:
       in: header
@@ -327,7 +334,7 @@ components:
       type: object
       properties:
         requestId:
-          description: "The unique identifier of the given request."
+          description: "The entropy-augmented identifier for this request, in the format `<requestId>-<entropy>` (for example, `708e4f90-5bff-41c5-8f4b-6c15bab76b11-f46e48eb52594815`). If a requestId was supplied in the request it is used as the prefix; otherwise a generated UUID is used. This value always differs from any caller-supplied requestId. Match on the prefix when correlating requests to responses."
           type: string
         handle:
           description: "Contains one or multiple handles for each received event"
@@ -342,7 +349,7 @@ components:
       type: object
       properties:
         requestId:
-          description: "The unique identifier of the given request."
+          description: "The entropy-augmented identifier for this request, in the format `<requestId>-<entropy>` (for example, `708e4f90-5bff-41c5-8f4b-6c15bab76b11-f46e48eb52594815`). If a requestId was supplied in the request it is used as the prefix; otherwise a generated UUID is used. This value always differs from any caller-supplied requestId. Match on the prefix when correlating requests to responses."
           type: string
       required:
         - requestId

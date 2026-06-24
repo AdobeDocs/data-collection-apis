@@ -234,7 +234,7 @@ curl -X POST "https://edge.adobedc.net/ee/v2/interact?datastreamId={DATASTREAM_I
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `configId` | String | Yes | The datastream ID. |
-| `requestId` | String | No | Provide an external request tracing ID. If none is provided, the Edge Network will generate one for you and return it back in the response body / headers.|
+| `requestId` | String | No | Provide an external request tracing ID. The Edge Network always appends an entropy suffix, so the `requestId` in the response always differs from the supplied value (format: `<requestId>-<entropy>`). If none is provided, the Edge Network generates a UUID and appends the entropy suffix. Match on the prefix of the returned value when correlating requests to responses. |
 
 ### Response parameters
 
@@ -307,7 +307,7 @@ curl -X POST "https://edge.adobedc.net/ee/v2/collect?datastreamId={DATASTREAM_ID
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `datastreamId` | `String` | Yes | The ID of the datastream used by the data collection endpoint. |
-| `requestId` | `String` | No | External external request tracing ID. If none is provided, the Edge Network will generate one for you and return it back in the response body / headers.|
+| `requestId` | `String` | No | Provide an external request tracing ID. The Edge Network always appends an entropy suffix, so the `requestId` in the response always differs from the supplied value (format: `<requestId>-<entropy>`). If none is provided, the Edge Network generates a UUID and appends the entropy suffix. Match on the prefix of the returned value when correlating requests to responses. |
 | `silent` | `Boolean` | No | Optional boolean parameter indicating whether the Edge Network should return a `204 No Content` response with an empty payload. Critical errors are reported using the corresponding HTTP status code and payload.|
 
 ### Response parameters
