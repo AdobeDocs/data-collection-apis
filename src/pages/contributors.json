@@ -1,7 +1,7 @@
 {
-  "total": 27,
+  "total": 28,
   "offset": 0,
-  "limit": 27,
+  "limit": 28,
   "data": [
     {
       "page": "/",
@@ -34,7 +34,7 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "11/7/2025"
+      "lastUpdated": "10/20/2026"
     },
     {
       "page": "/endpoints/",
@@ -43,7 +43,7 @@
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/15094737?v=4"
       ],
-      "lastUpdated": "4/24/2026"
+      "lastUpdated": "10/20/2026"
     },
     {
       "page": "/endpoints/collect/",
@@ -164,20 +164,27 @@
     {
       "page": "/getting-started/authentication",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
-        "https://avatars.githubusercontent.com/u/15094737?v=4",
+        "https://avatars.githubusercontent.com/u/15094737?v=4"
+      ],
+      "lastUpdated": "10/20/2026"
+    },
+    {
+      "page": "/getting-started/error-codes",
+      "avatars": [
         "https://avatars.githubusercontent.com/u/33764851?v=4"
       ],
-      "lastUpdated": "9/11/2025"
+      "lastUpdated": "10/20/2026"
     },
     {
       "page": "/getting-started/guardrails",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/49495137?v=4",
-        "https://avatars.githubusercontent.com/u/15094737?v=4",
-        "https://avatars.githubusercontent.com/u/33764851?v=4"
+        "https://avatars.githubusercontent.com/u/15094737?v=4"
       ],
-      "lastUpdated": "5/20/2026"
+      "lastUpdated": "10/20/2026"
     },
     {
       "page": "/getting-started/location-hints",
@@ -194,7 +201,7 @@
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/15094737?v=4"
       ],
-      "lastUpdated": "2/25/2026"
+      "lastUpdated": "10/20/2026"
     },
     {
       "page": "/getting-started/personalization",
@@ -202,16 +209,16 @@
         "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/15094737?v=4"
       ],
-      "lastUpdated": "6/24/2026"
+      "lastUpdated": "10/20/2026"
     },
     {
       "page": "/getting-started/troubleshooting",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/33764851?v=4",
         "https://avatars.githubusercontent.com/u/49495137?v=4",
-        "https://avatars.githubusercontent.com/u/15094737?v=4",
-        "https://avatars.githubusercontent.com/u/33764851?v=4"
+        "https://avatars.githubusercontent.com/u/15094737?v=4"
       ],
-      "lastUpdated": "4/3/2025"
+      "lastUpdated": "10/20/2026"
     },
     {
       "page": "/support",
