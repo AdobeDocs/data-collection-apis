@@ -18,6 +18,7 @@
     - [Location hints](getting-started/location-hints.md)
     - [Personalization](getting-started/personalization.md)
     - [Troubleshooting](getting-started/troubleshooting.md)
+      - [Error codes](getting-started/error-codes.md)
   - [Endpoint guides](endpoints/index.md)
     - [Interact](endpoints/interact/index.md)
     - [Collect](endpoints/collect/index.md)

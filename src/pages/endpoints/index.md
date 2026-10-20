@@ -32,21 +32,8 @@ Make sure that any implementations using these APIs can accommodate additional f
 
 ## Authenticated data collection
 
-The Edge Network API supports both client-to-server and server-to-server API calls.
-
-Authenticated API calls enable use cases that allow for secure collection of sensitive data according to your organization's privacy policies. In addition to authentication, the Edge Network API supports marking datastreams to accept only authenticated communication.
-
-The Media Edge API currently supports client-to-server API calls only.
-
-* Authenticated API calls use `server.adobedc.net` endpoints.
-* Non-authenticated API calls use `edge.adobedc.net` endpoints.
+The Edge Network API supports both authenticated and non-authenticated API calls, for server-to-server and client-to-server data collection. The Media Edge API currently supports client-to-server API calls only. See [Authentication](../getting-started/authentication.md) to learn when to use each type of call, which hostname each one uses, and how to authenticate your requests.
 
 ## Maintaining consistent edge routing
 
-The Edge Network uses globally distributed servers and DNS-based routing to handle each request from the location closest to the end user. If a session crosses regions (such as if a user connects to a VPN or switches between mobile networks), subsequent requests can land on a different server. Mid-session routing changes can fragment user profile processing, since Adobe Experience Platform and Adobe Experience Cloud solutions store profile state on the server that initially handled the session.
-
-Every Edge Network response includes a location hint value (such as `or2` or `va6`) that identifies the server that processed the request. To keep traffic on the same edge location for the remainder of the session, insert that value into the URL path of subsequent requests, between the base path and the API version:
-
-`POST https://edge.adobedc.net/ee/{LOCATION_HINT}/v2/interact?datastreamId={DATASTREAM_ID}`
-
-All endpoints described in this guide support this routing pattern. See [Location hints](../getting-started/location-hints.md) for the full list of valid values, the recommended cookie format for persisting the hint across requests, and the equivalent format for authenticated endpoints.
+The Edge Network returns a location hint that identifies the edge server that processed a request. To keep user profile processing consistent, include this location hint in the URL path of subsequent requests in the same session. All endpoints described in this guide support this routing pattern. See [Location hints](../getting-started/location-hints.md) for the URL format, the list of valid values, and how to persist the hint across requests.

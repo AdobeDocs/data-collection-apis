@@ -18,7 +18,7 @@ All performance guardrails described in this page apply at the IMS Organization 
 - **Upstream**: A service behind the Edge Network, enabled for a specific datastream, such as Adobe Server Side Forwarding, Adobe Edge Segmentation, or Adobe Target.
 - **Request unit**: Corresponds to an 8 KB fragment of a request and one upstream configured for a datastream.
 - **Request**: A single message sent by a customer-owned application to the API, which can contain one or more request units.
-- **Error**: Any request that fails due to an Edge Network [internal service error](troubleshooting.md).
+- **Error**: Any request that fails due to an Edge Network [internal service error](troubleshooting.md#error-categories).
 
 ## Service limits
 

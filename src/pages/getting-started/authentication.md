@@ -10,6 +10,11 @@ Some endpoints, such as [`collect`](../endpoints/collect/index.md) or [`interact
 * Non-authenticated events are best suited for client-to-server data collection. For example, a visitor arrives on your site, and the API call is sent from the visitor's browser.
 * Authenticated events are best suited for server-to-server data collection. For example, a visitor arrives on your site, and the API call is generated from your server when the visitor requests your website content.
 
+Authenticated API calls allow for secure collection of sensitive data according to your organization's privacy policies. Each type of call uses a different hostname:
+
+* Authenticated API calls use `server.adobedc.net` endpoints.
+* Non-authenticated API calls use `edge.adobedc.net` endpoints.
+
 You can configure a datastream to accept either authenticated or non-authenticated events, or you can configure it to only accept authenticated events. See the documentation on how to [create and configure datastreams](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#@advanced-options) for more information. A datastream accepts both authenticated and non-authenticated events by default.
 
 All authenticated events require the following three headers in every API call:
@@ -62,7 +67,7 @@ The `x-gw-ims-org-id` contains the IMS org of the API project you're working in.
 
 1. Log in to [Adobe Experience Platform](https://platform.adobe.com)
 1. On any page in the Platform UI, press `[Ctrl]` + `[I]`.
-1. Locate the **Currnt Org ID** in the **User Information** tab. You might need to scroll to locate this field.
+1. Locate the **Current Org ID** in the **User Information** tab. You might need to scroll to locate this field.
 
 This header uses the following format:
 
@@ -70,13 +75,4 @@ This header uses the following format:
 
 ## Troubleshooting
 
-See the following table for common authorization issue and how to resolve them.
-
-| Error code | Error message | Description                                                                                                                                                                                                                                                                                                                                  |
-| --- | --- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `EXEG-0500-401` | Invalid authorization token | This error message is displayed in any of the following situations:  The `Authorization` header value is missing. The `Authorization` header value does not include the required `Bearer` token. The provided authorization token has an invalid format. The datastream requires authentication but the request is missing required headers. |
-| `EXEG-0502-401` | Invalid authorization token | The authorization token is in a correct format, but the token itself is invalid.                                                                                                                                                                                                                                                             |
-| `EXEG-0503-401` | Invalid authorization token | The authorization token is expired. Generate a new token to resolve this issue.                                                                                                                                                                                                                                                              |
-| `EXEG-0504-401` | Required product context is missing | This error message is displayed in any of the following situations: The developer account does not have access to Adobe Experience Platform product context. The company account is not yet entitled to Adobe Experinece Platform.                                                                                                   |
-| `EXEG-0505-401` | Required authorization token scope is missing | This error applies only to service account authentication. The error message is displayed when the service authorization token included in the call belongs to a service account which does not have access to the `acp.foundation` IMS scope.                                                                                               |
-| `EXEG-0506-401` | Sandbox not accessible for write | This error message is displayed when the developer account does not have `WRITE` access to the Experience Platform sandbox that the datastream belongs in.                                                                                                                                                                                   |
+If an authenticated request fails with an `EXEG-05xx` error code, see [Authorization errors](error-codes.md#authorization-errors) for the cause of each error, whether it is retriable, and how to resolve it.
