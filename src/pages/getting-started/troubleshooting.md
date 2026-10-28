@@ -72,24 +72,27 @@ Non-fatal errors occur when the Edge Network accepts your request, but one or mo
 
 Each non-fatal error appears as an object in the `errors` array of the response body, using the same problem detail format as fatal errors. The `status` property of each error object reflects the specific upstream failure, such as `504` for a timeout or `502` for a bad gateway. This value is distinct from the `207` HTTP status of the response, so inspect the response body to understand what happened.
 
-The following example shows a `207 Multi-Status` response for a request where the Adobe Target upstream timed out:
+The following example shows a `207 Multi-Status` response for a request where the call to the Adobe Target upstream service failed:
 
 ```json
 {
   "requestId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "handle": [],
   "errors": [
     {
-      "type": "https://ns.adobe.com/aep/errors/EXEG-0200-504",
-      "status": 504,
-      "title": "The service call has timed out",
-      "detail": "The service call to com.adobe.target exceeded the allowed time and was canceled.",
+      "type": "https://ns.adobe.com/aep/errors/EXEG-0203-502",
+      "status": 502,
+      "title": "The service call has failed.",
+      "detail": "An error occurred while calling the 'com.adobe.target' service for this request. Try again.",
       "report": {
-        "requestId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        "eventIndex": 0
       }
     }
   ]
 }
 ```
+
+In non-fatal error objects, the `report` object can include an `eventIndex` property. This property identifies the affected event by its zero-based position in the `events` array of your request.
 
 Non-fatal errors only affect the real-time response capabilities of a request, such as personalization decisions or offers. The following upstream services can fail non-fatally. Error messages refer to these services by their service ID, in place of the `{serviceName}` placeholder.
 
@@ -116,6 +119,8 @@ Do not retry requests that return `207 Multi-Status`. Your event data is collect
 Warnings are mostly informative. They generally represent a potentially transient condition that did not fully impact the request. One example is a partial profile read in the segmentation engine. In this case, the accuracy is impacted to some degree, but the functionality is still delivered.
 
 Warnings appear in the `warnings` array of the response body, using the same problem detail format as errors. A response that contains only warnings returns HTTP status `200`, and each warning has a `status` of `200`. If the response also contains non-fatal errors, the HTTP status of the response is `207 Multi-Status`.
+
+The [`collect`](../endpoints/collect/index.md) endpoint doesn't return warnings. If a `collect` request only produces warnings, the response status doesn't change: the endpoint returns `202 Accepted`, or `204 No Content` when the `silent` parameter is set to `true`.
 
 The following error codes are returned as warnings: [`EXEG-0204-200`](error-codes.md#upstream-service-errors), [`EXEG-0301-200`](error-codes.md#identity-and-consent-errors), and [`EXEG-0303-200`](error-codes.md#identity-and-consent-errors).
 
@@ -147,7 +152,7 @@ Base your retry decisions on the HTTP status of the response, not on the `status
 | HTTP status | Meaning | Retriable | Strategy |
 | --- | --- | --- | --- |
 | `207 Multi-Status` | The request was accepted, but one or more upstream services returned an error. | No | Do not retry. Data collection and audience realization are reconciled regardless. If you specifically need to recover a personalization decision or offer, apply [event deduplication](https://experienceleague.adobe.com/en/docs/experience-platform/collection/use-cases/event-duplication) to avoid duplicate ingestion. |
-| `400`, `408`, `409`, `413`, `415` | The request is malformed, incomplete, or not allowed. | No | Fix the request. Do not retry without changes. |
+| `400`, `408`, `413` | The request is malformed, incomplete, or too large. | No | Fix the request. Do not retry without changes. |
 | `401 Unauthorized` | The access token is missing, invalid, or expired, or doesn't have the required permissions. | Conditional | Retry only after you refresh an expired access token (`EXEG-0503-401`). Other `401` errors require changes to your credentials or permissions. |
 | `403 Forbidden` | The request originates from a country that is not allowed. | No | Do not retry. |
 | `422 Unprocessable Entity` | The request failed validation, or the datastream or Experience Platform configuration is invalid. | No | Fix the request or your datastream or Experience Platform configuration. Do not retry without changes. |
