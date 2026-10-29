@@ -14,7 +14,7 @@ See [Media Edge API examples](../../getting-started/media-edge-examples.md) to l
 
 ## Optimizing media tracking data flows
 
-Both [Media Collection APIs](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/streaming-media-apis/mc-api-overview.html#media-tracking-data-flows) and Media Edge APIs provide media tracking data as RESTful services. The Media Edge service offers the following advantages:
+Both [Media Collection APIs](https://developer.adobe.com/analytics-collection-apis/methods/media-collection/#media-tracking-data-flows) and Media Edge APIs provide media tracking data as RESTful services. The Media Edge service offers the following advantages:
 
 * It is the easiest way to incorporate XDM schemas into your data flow.
 * Calls are directed from a media player directly to the Experience Platform Edge Network.
