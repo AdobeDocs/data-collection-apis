@@ -94,7 +94,7 @@ This call signals the intention of the user to play a video. The player state is
 | --- | --- | --- | --- | --- |
 | 2 | The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
 
-The application starts the [ping timer](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/analytics-only/streaming-media-apis/mc-api-impl/mc-api-sed-pings.html). A call is not sent for this event, but the first ping call should be fired 10 seconds later.
+The application starts the [ping timer](https://developer.adobe.com/analytics-collection-apis/methods/media-collection/implementation#sending-ping-events). A call is not sent for this event, but the first ping call should be fired 10 seconds later.
 
 <AccordionItem slots="heading, table, text, code"/>
 
@@ -269,7 +269,7 @@ The Client request column in the table below shows the final path parameter and 
 | Number | Action | Elapsed Real-Time (from beginning in seconds) | Playhead Position (in seconds)| Client request |
 | --- | --- | --- | --- | --- |
 | 1 | The auto-play function occurs, or the Play button is pressed, and the video starts loading. | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
-| 2 | The [ping event timer](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/analytics-only/streaming-media-apis/mc-api-impl/mc-api-sed-pings.html) starts | 0 | 0 | `/ping?configId=<datastreamID>` |
+| 2 | The [ping event timer](https://developer.adobe.com/analytics-collection-apis/methods/media-collection/implementation#sending-ping-events) starts | 0 | 0 | `/ping?configId=<datastreamID>` |
 | 3 | Tracks the `play` event | 0 | 0 | `/play?configId=<datastreamID>` |
 | 4 | Tracks the start of `Chapter 1` | 1 | 1 | `/chapterStart?configId=<datastreamID>` |
 | 5 | Sends a ping | 10 | 10 | `/ping?configId=<datastreamID>` |
@@ -297,7 +297,7 @@ Each timeline action shown in the previous table is described in detail below. E
 | --- | --- | --- | --- | --- |
 | 1 | The auto-play function occurs or Play button is pressed and the video starts loading | 0 | 0 | `/sessionStart?configId=<datastreamID>` |
 
-This call signals the intent of the user to play a video and returns a Session ID (SID) to the client. The SID is used to identify all subsequent tracking calls within the session. This call also generates a reporting event that is pushed to Adobe Experience Platform, Adobe Analytics, or both, depending on your datastream configuration. This action represents the start of the process but not yet in the *playing* state. Required parameters must be included, as shown in [endpoint reference](https://experienceleague.adobe.com/docs/experience-platform/edge-network-server-api/media-edge-apis/swagger.html).
+This call signals the intent of the user to play a video and returns a Session ID (SID) to the client. The SID is used to identify all subsequent tracking calls within the session. This call also generates a reporting event that is pushed to Adobe Experience Platform, Adobe Analytics, or both, depending on your datastream configuration. This action represents the start of the process but not yet in the *playing* state. Required parameters must be included, as shown in [endpoint reference](../api/media-edge.md).
 
 ```json
 {
@@ -326,7 +326,7 @@ This call signals the intent of the user to play a video and returns a Session I
 | --- | --- | --- | --- | --- |
 | 2 | The ping event timer starts | 0 | 0 | `/ping?configId=<datastreamID>` |
 
-The application starts the [ping timer](https://experienceleague.adobe.com/docs/media-analytics/using/implementation/analytics-only/streaming-media-apis/mc-api-impl/mc-api-sed-pings.html). A call is not sent for this event, but the first ping call should be fired 10 seconds later.
+The application starts the [ping timer](https://developer.adobe.com/analytics-collection-apis/methods/media-collection/implementation#sending-ping-events). A call is not sent for this event, but the first ping call should be fired 10 seconds later.
 
 <AccordionItem slots="heading, table, text, code"/>
 
